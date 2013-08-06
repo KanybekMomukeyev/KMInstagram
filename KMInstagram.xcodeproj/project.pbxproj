@@ -18,18 +18,38 @@
 		A88EE7C017B0CF5A00DC75A2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7BF17B0CF5A00DC75A2 /* Default@2x.png */; };
 		A88EE7C217B0CF5A00DC75A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7C117B0CF5A00DC75A2 /* Default-568h@2x.png */; };
 		A88EE7C517B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */; };
-		A88EE7C817B0CF5A00DC75A2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */; };
-		A88EE7CB17B0CF5A00DC75A2 /* KMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */; };
-		A88EE7CE17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */; };
-		A88EE7D117B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */; };
-		A88EE7D417B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */; };
-		A88EE7D717B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */; };
 		A88EE7DF17B0CF5A00DC75A2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7DE17B0CF5A00DC75A2 /* SenTestingKit.framework */; };
 		A88EE7E017B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7E117B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7E217B0CF5A00DC75A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AF17B0CF5A00DC75A2 /* CoreData.framework */; };
 		A88EE7EA17B0CF5A00DC75A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */; };
 		A88EE7ED17B0CF5A00DC75A2 /* KMInstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7EC17B0CF5A00DC75A2 /* KMInstagramTests.m */; };
+		A88EE81117B0D0C200DC75A2 /* KMBaseDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE81017B0D0C200DC75A2 /* KMBaseDataStoreManager.m */; };
+		A88EE81817B0D1EB00DC75A2 /* KMBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE81717B0D1EB00DC75A2 /* KMBaseVC.m */; };
+		A88EE81B17B0D20B00DC75A2 /* KMBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE81A17B0D20B00DC75A2 /* KMBaseTableVC.m */; };
+		A88EE81F17B0D38B00DC75A2 /* KMLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE81D17B0D38B00DC75A2 /* KMLoginVC.m */; };
+		A88EE82017B0D38B00DC75A2 /* KMLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE81E17B0D38B00DC75A2 /* KMLoginVC.xib */; };
+		A88EE82817B0D8AA00DC75A2 /* KMInstagramAuthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE82617B0D8AA00DC75A2 /* KMInstagramAuthVC.m */; };
+		A88EE82917B0D8AA00DC75A2 /* KMInstagramAuthVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE82717B0D8AA00DC75A2 /* KMInstagramAuthVC.xib */; };
+		A88EE82D17B0E22400DC75A2 /* NSString+KMQueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE82C17B0E22400DC75A2 /* NSString+KMQueryString.m */; };
+		A88EE83117B0E5B500DC75A2 /* KMUserFeedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE82F17B0E5B500DC75A2 /* KMUserFeedTVC.m */; };
+		A88EE83217B0E5B500DC75A2 /* KMUserFeedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE83017B0E5B500DC75A2 /* KMUserFeedTVC.xib */; };
+		A88EE83517B0E94300DC75A2 /* KMAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE83417B0E94300DC75A2 /* KMAPIController.m */; };
+		A88EE84A17B0E9CD00DC75A2 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE83817B0E9CD00DC75A2 /* AFHTTPClient.m */; };
+		A88EE84B17B0E9CD00DC75A2 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE83A17B0E9CD00DC75A2 /* AFHTTPRequestOperation.m */; };
+		A88EE84C17B0E9CD00DC75A2 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE83C17B0E9CD00DC75A2 /* AFImageRequestOperation.m */; };
+		A88EE84D17B0E9CD00DC75A2 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE83E17B0E9CD00DC75A2 /* AFJSONRequestOperation.m */; };
+		A88EE84E17B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE84017B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.m */; };
+		A88EE84F17B0E9CD00DC75A2 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE84317B0E9CD00DC75A2 /* AFPropertyListRequestOperation.m */; };
+		A88EE85017B0E9CD00DC75A2 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE84517B0E9CD00DC75A2 /* AFURLConnectionOperation.m */; };
+		A88EE85117B0E9CD00DC75A2 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE84717B0E9CD00DC75A2 /* AFXMLRequestOperation.m */; };
+		A88EE85217B0E9CD00DC75A2 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE84917B0E9CD00DC75A2 /* UIImageView+AFNetworking.m */; };
+		A88EE85417B0EA1200DC75A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE85317B0EA1100DC75A2 /* SystemConfiguration.framework */; };
+		A88EE85617B0EA4E00DC75A2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE85517B0EA4D00DC75A2 /* MobileCoreServices.framework */; };
+		A88EE85817B0EAFA00DC75A2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE85717B0EAFA00DC75A2 /* Security.framework */; };
+		A88EE85C17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE85B17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib */; };
+		A88EE85F17B0EDC800DC75A2 /* KMUserAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */; };
+		A88EE86417B0F1E000DC75A2 /* NSError+KMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE86317B0F1E000DC75A2 /* NSError+KMAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,20 +78,60 @@
 		A88EE7BF17B0CF5A00DC75A2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A88EE7C117B0CF5A00DC75A2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KMInstagram.xcdatamodel; sourceTree = "<group>"; };
-		A88EE7C617B0CF5A00DC75A2 /* KMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMMasterViewController.h; sourceTree = "<group>"; };
-		A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMMasterViewController.m; sourceTree = "<group>"; };
-		A88EE7C917B0CF5A00DC75A2 /* KMDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMDetailViewController.h; sourceTree = "<group>"; };
-		A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMDetailViewController.m; sourceTree = "<group>"; };
-		A88EE7CD17B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMMasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		A88EE7D017B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMMasterViewController_iPad.xib; sourceTree = "<group>"; };
-		A88EE7D317B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMDetailViewController_iPhone.xib; sourceTree = "<group>"; };
-		A88EE7D617B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMDetailViewController_iPad.xib; sourceTree = "<group>"; };
 		A88EE7DD17B0CF5A00DC75A2 /* KMInstagramTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMInstagramTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7DE17B0CF5A00DC75A2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A88EE7E717B0CF5A00DC75A2 /* KMInstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KMInstagramTests-Info.plist"; sourceTree = "<group>"; };
 		A88EE7E917B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A88EE7EB17B0CF5A00DC75A2 /* KMInstagramTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMInstagramTests.h; sourceTree = "<group>"; };
 		A88EE7EC17B0CF5A00DC75A2 /* KMInstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMInstagramTests.m; sourceTree = "<group>"; };
+		A88EE80F17B0D0C200DC75A2 /* KMBaseDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseDataStoreManager.h; sourceTree = "<group>"; };
+		A88EE81017B0D0C200DC75A2 /* KMBaseDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseDataStoreManager.m; sourceTree = "<group>"; };
+		A88EE81617B0D1EB00DC75A2 /* KMBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseVC.h; sourceTree = "<group>"; };
+		A88EE81717B0D1EB00DC75A2 /* KMBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseVC.m; sourceTree = "<group>"; };
+		A88EE81917B0D20B00DC75A2 /* KMBaseTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseTableVC.h; sourceTree = "<group>"; };
+		A88EE81A17B0D20B00DC75A2 /* KMBaseTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseTableVC.m; sourceTree = "<group>"; };
+		A88EE81C17B0D38B00DC75A2 /* KMLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLoginVC.h; sourceTree = "<group>"; };
+		A88EE81D17B0D38B00DC75A2 /* KMLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLoginVC.m; sourceTree = "<group>"; };
+		A88EE81E17B0D38B00DC75A2 /* KMLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMLoginVC.xib; sourceTree = "<group>"; };
+		A88EE82317B0D71900DC75A2 /* BlocksTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksTypedefs.h; sourceTree = "<group>"; };
+		A88EE82417B0D71900DC75A2 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		A88EE82517B0D8AA00DC75A2 /* KMInstagramAuthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInstagramAuthVC.h; sourceTree = "<group>"; };
+		A88EE82617B0D8AA00DC75A2 /* KMInstagramAuthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInstagramAuthVC.m; sourceTree = "<group>"; };
+		A88EE82717B0D8AA00DC75A2 /* KMInstagramAuthVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMInstagramAuthVC.xib; sourceTree = "<group>"; };
+		A88EE82B17B0E22400DC75A2 /* NSString+KMQueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KMQueryString.h"; sourceTree = "<group>"; };
+		A88EE82C17B0E22400DC75A2 /* NSString+KMQueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KMQueryString.m"; sourceTree = "<group>"; };
+		A88EE82E17B0E5B500DC75A2 /* KMUserFeedTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUserFeedTVC.h; sourceTree = "<group>"; };
+		A88EE82F17B0E5B500DC75A2 /* KMUserFeedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUserFeedTVC.m; sourceTree = "<group>"; };
+		A88EE83017B0E5B500DC75A2 /* KMUserFeedTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMUserFeedTVC.xib; sourceTree = "<group>"; };
+		A88EE83317B0E94300DC75A2 /* KMAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMAPIController.h; sourceTree = "<group>"; };
+		A88EE83417B0E94300DC75A2 /* KMAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMAPIController.m; sourceTree = "<group>"; };
+		A88EE83717B0E9CD00DC75A2 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		A88EE83817B0E9CD00DC75A2 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		A88EE83917B0E9CD00DC75A2 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		A88EE83A17B0E9CD00DC75A2 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		A88EE83B17B0E9CD00DC75A2 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		A88EE83C17B0E9CD00DC75A2 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		A88EE83D17B0E9CD00DC75A2 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		A88EE83E17B0E9CD00DC75A2 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		A88EE83F17B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		A88EE84017B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		A88EE84117B0E9CD00DC75A2 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		A88EE84217B0E9CD00DC75A2 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		A88EE84317B0E9CD00DC75A2 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		A88EE84417B0E9CD00DC75A2 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		A88EE84517B0E9CD00DC75A2 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		A88EE84617B0E9CD00DC75A2 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		A88EE84717B0E9CD00DC75A2 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		A88EE84817B0E9CD00DC75A2 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		A88EE84917B0E9CD00DC75A2 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		A88EE85317B0EA1100DC75A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A88EE85517B0EA4D00DC75A2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A88EE85717B0EAFA00DC75A2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A88EE85B17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMLoginVC_Ipad.xib; sourceTree = "<group>"; };
+		A88EE85D17B0EDC800DC75A2 /* KMUserAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUserAuthManager.h; sourceTree = "<group>"; };
+		A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUserAuthManager.m; sourceTree = "<group>"; };
+		A88EE86217B0F1E000DC75A2 /* NSError+KMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+KMAdditions.h"; sourceTree = "<group>"; };
+		A88EE86317B0F1E000DC75A2 /* NSError+KMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+KMAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +139,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88EE85817B0EAFA00DC75A2 /* Security.framework in Frameworks */,
+				A88EE85617B0EA4E00DC75A2 /* MobileCoreServices.framework in Frameworks */,
+				A88EE85417B0EA1200DC75A2 /* SystemConfiguration.framework in Frameworks */,
 				A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */,
 				A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */,
 				A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +166,7 @@
 		A88EE79D17B0CF5A00DC75A2 = {
 			isa = PBXGroup;
 			children = (
+				A88EE7F617B0D05700DC75A2 /* 3RD_Party */,
 				A88EE7B117B0CF5A00DC75A2 /* KMInstagram */,
 				A88EE7E517B0CF5A00DC75A2 /* KMInstagramTests */,
 				A88EE7A817B0CF5A00DC75A2 /* Frameworks */,
@@ -122,6 +186,9 @@
 		A88EE7A817B0CF5A00DC75A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE85717B0EAFA00DC75A2 /* Security.framework */,
+				A88EE85517B0EA4D00DC75A2 /* MobileCoreServices.framework */,
+				A88EE85317B0EA1100DC75A2 /* SystemConfiguration.framework */,
 				A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */,
 				A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */,
 				A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */,
@@ -134,17 +201,13 @@
 		A88EE7B117B0CF5A00DC75A2 /* KMInstagram */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE7F717B0D06A00DC75A2 /* KMImages */,
+				A88EE7F817B0D06A00DC75A2 /* KMModel */,
+				A88EE7F917B0D06A00DC75A2 /* KMNetworking */,
+				A88EE7FB17B0D06A00DC75A2 /* KMUI */,
+				A88EE80817B0D06A00DC75A2 /* KMUtils */,
 				A88EE7BA17B0CF5A00DC75A2 /* KMAppDelegate.h */,
 				A88EE7BB17B0CF5A00DC75A2 /* KMAppDelegate.m */,
-				A88EE7C617B0CF5A00DC75A2 /* KMMasterViewController.h */,
-				A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */,
-				A88EE7C917B0CF5A00DC75A2 /* KMDetailViewController.h */,
-				A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */,
-				A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */,
-				A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */,
-				A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */,
-				A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */,
-				A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */,
 				A88EE7B217B0CF5A00DC75A2 /* Supporting Files */,
 			);
 			path = KMInstagram;
@@ -181,6 +244,142 @@
 				A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A88EE7F617B0D05700DC75A2 /* 3RD_Party */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE83617B0E9CD00DC75A2 /* AFNetworking */,
+			);
+			path = 3RD_Party;
+			sourceTree = "<group>";
+		};
+		A88EE7F717B0D06A00DC75A2 /* KMImages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KMImages;
+			sourceTree = "<group>";
+		};
+		A88EE7F817B0D06A00DC75A2 /* KMModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KMModel;
+			sourceTree = "<group>";
+		};
+		A88EE7F917B0D06A00DC75A2 /* KMNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE83317B0E94300DC75A2 /* KMAPIController.h */,
+				A88EE83417B0E94300DC75A2 /* KMAPIController.m */,
+				A88EE85A17B0EB6F00DC75A2 /* KMAuthManager */,
+				A88EE7FA17B0D06A00DC75A2 /* KMDataStoreManager */,
+			);
+			path = KMNetworking;
+			sourceTree = "<group>";
+		};
+		A88EE7FA17B0D06A00DC75A2 /* KMDataStoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */,
+				A88EE80F17B0D0C200DC75A2 /* KMBaseDataStoreManager.h */,
+				A88EE81017B0D0C200DC75A2 /* KMBaseDataStoreManager.m */,
+			);
+			path = KMDataStoreManager;
+			sourceTree = "<group>";
+		};
+		A88EE7FB17B0D06A00DC75A2 /* KMUI */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE81517B0D1D400DC75A2 /* KMBaseVC */,
+				A88EE7FD17B0D06A00DC75A2 /* KMLogin */,
+				A88EE80717B0D06A00DC75A2 /* KMUserFeed */,
+			);
+			path = KMUI;
+			sourceTree = "<group>";
+		};
+		A88EE7FD17B0D06A00DC75A2 /* KMLogin */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE81C17B0D38B00DC75A2 /* KMLoginVC.h */,
+				A88EE81D17B0D38B00DC75A2 /* KMLoginVC.m */,
+				A88EE81E17B0D38B00DC75A2 /* KMLoginVC.xib */,
+				A88EE85B17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib */,
+				A88EE82517B0D8AA00DC75A2 /* KMInstagramAuthVC.h */,
+				A88EE82617B0D8AA00DC75A2 /* KMInstagramAuthVC.m */,
+				A88EE82717B0D8AA00DC75A2 /* KMInstagramAuthVC.xib */,
+			);
+			path = KMLogin;
+			sourceTree = "<group>";
+		};
+		A88EE80717B0D06A00DC75A2 /* KMUserFeed */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE82E17B0E5B500DC75A2 /* KMUserFeedTVC.h */,
+				A88EE82F17B0E5B500DC75A2 /* KMUserFeedTVC.m */,
+				A88EE83017B0E5B500DC75A2 /* KMUserFeedTVC.xib */,
+			);
+			path = KMUserFeed;
+			sourceTree = "<group>";
+		};
+		A88EE80817B0D06A00DC75A2 /* KMUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE82317B0D71900DC75A2 /* BlocksTypedefs.h */,
+				A88EE82417B0D71900DC75A2 /* Singleton.h */,
+				A88EE82B17B0E22400DC75A2 /* NSString+KMQueryString.h */,
+				A88EE82C17B0E22400DC75A2 /* NSString+KMQueryString.m */,
+				A88EE86217B0F1E000DC75A2 /* NSError+KMAdditions.h */,
+				A88EE86317B0F1E000DC75A2 /* NSError+KMAdditions.m */,
+			);
+			path = KMUtils;
+			sourceTree = "<group>";
+		};
+		A88EE81517B0D1D400DC75A2 /* KMBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE81617B0D1EB00DC75A2 /* KMBaseVC.h */,
+				A88EE81717B0D1EB00DC75A2 /* KMBaseVC.m */,
+				A88EE81917B0D20B00DC75A2 /* KMBaseTableVC.h */,
+				A88EE81A17B0D20B00DC75A2 /* KMBaseTableVC.m */,
+			);
+			path = KMBaseVC;
+			sourceTree = "<group>";
+		};
+		A88EE83617B0E9CD00DC75A2 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE83717B0E9CD00DC75A2 /* AFHTTPClient.h */,
+				A88EE83817B0E9CD00DC75A2 /* AFHTTPClient.m */,
+				A88EE83917B0E9CD00DC75A2 /* AFHTTPRequestOperation.h */,
+				A88EE83A17B0E9CD00DC75A2 /* AFHTTPRequestOperation.m */,
+				A88EE83B17B0E9CD00DC75A2 /* AFImageRequestOperation.h */,
+				A88EE83C17B0E9CD00DC75A2 /* AFImageRequestOperation.m */,
+				A88EE83D17B0E9CD00DC75A2 /* AFJSONRequestOperation.h */,
+				A88EE83E17B0E9CD00DC75A2 /* AFJSONRequestOperation.m */,
+				A88EE83F17B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.h */,
+				A88EE84017B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.m */,
+				A88EE84117B0E9CD00DC75A2 /* AFNetworking.h */,
+				A88EE84217B0E9CD00DC75A2 /* AFPropertyListRequestOperation.h */,
+				A88EE84317B0E9CD00DC75A2 /* AFPropertyListRequestOperation.m */,
+				A88EE84417B0E9CD00DC75A2 /* AFURLConnectionOperation.h */,
+				A88EE84517B0E9CD00DC75A2 /* AFURLConnectionOperation.m */,
+				A88EE84617B0E9CD00DC75A2 /* AFXMLRequestOperation.h */,
+				A88EE84717B0E9CD00DC75A2 /* AFXMLRequestOperation.m */,
+				A88EE84817B0E9CD00DC75A2 /* UIImageView+AFNetworking.h */,
+				A88EE84917B0E9CD00DC75A2 /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		A88EE85A17B0EB6F00DC75A2 /* KMAuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE85D17B0EDC800DC75A2 /* KMUserAuthManager.h */,
+				A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */,
+			);
+			path = KMAuthManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +458,10 @@
 				A88EE7BE17B0CF5A00DC75A2 /* Default.png in Resources */,
 				A88EE7C017B0CF5A00DC75A2 /* Default@2x.png in Resources */,
 				A88EE7C217B0CF5A00DC75A2 /* Default-568h@2x.png in Resources */,
-				A88EE7CE17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib in Resources */,
-				A88EE7D117B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib in Resources */,
-				A88EE7D417B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib in Resources */,
-				A88EE7D717B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib in Resources */,
+				A88EE82017B0D38B00DC75A2 /* KMLoginVC.xib in Resources */,
+				A88EE82917B0D8AA00DC75A2 /* KMInstagramAuthVC.xib in Resources */,
+				A88EE83217B0E5B500DC75A2 /* KMUserFeedTVC.xib in Resources */,
+				A88EE85C17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +499,25 @@
 				A88EE7B817B0CF5A00DC75A2 /* main.m in Sources */,
 				A88EE7BC17B0CF5A00DC75A2 /* KMAppDelegate.m in Sources */,
 				A88EE7C517B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld in Sources */,
-				A88EE7C817B0CF5A00DC75A2 /* KMMasterViewController.m in Sources */,
-				A88EE7CB17B0CF5A00DC75A2 /* KMDetailViewController.m in Sources */,
+				A88EE81117B0D0C200DC75A2 /* KMBaseDataStoreManager.m in Sources */,
+				A88EE81817B0D1EB00DC75A2 /* KMBaseVC.m in Sources */,
+				A88EE81B17B0D20B00DC75A2 /* KMBaseTableVC.m in Sources */,
+				A88EE81F17B0D38B00DC75A2 /* KMLoginVC.m in Sources */,
+				A88EE82817B0D8AA00DC75A2 /* KMInstagramAuthVC.m in Sources */,
+				A88EE82D17B0E22400DC75A2 /* NSString+KMQueryString.m in Sources */,
+				A88EE83117B0E5B500DC75A2 /* KMUserFeedTVC.m in Sources */,
+				A88EE83517B0E94300DC75A2 /* KMAPIController.m in Sources */,
+				A88EE84A17B0E9CD00DC75A2 /* AFHTTPClient.m in Sources */,
+				A88EE84B17B0E9CD00DC75A2 /* AFHTTPRequestOperation.m in Sources */,
+				A88EE84C17B0E9CD00DC75A2 /* AFImageRequestOperation.m in Sources */,
+				A88EE84D17B0E9CD00DC75A2 /* AFJSONRequestOperation.m in Sources */,
+				A88EE84E17B0E9CD00DC75A2 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				A88EE84F17B0E9CD00DC75A2 /* AFPropertyListRequestOperation.m in Sources */,
+				A88EE85017B0E9CD00DC75A2 /* AFURLConnectionOperation.m in Sources */,
+				A88EE85117B0E9CD00DC75A2 /* AFXMLRequestOperation.m in Sources */,
+				A88EE85217B0E9CD00DC75A2 /* UIImageView+AFNetworking.m in Sources */,
+				A88EE85F17B0EDC800DC75A2 /* KMUserAuthManager.m in Sources */,
+				A88EE86417B0F1E000DC75A2 /* NSError+KMAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,38 +546,6 @@
 				A88EE7B517B0CF5A00DC75A2 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A88EE7CD17B0CF5A00DC75A2 /* en */,
-			);
-			name = KMMasterViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A88EE7D017B0CF5A00DC75A2 /* en */,
-			);
-			name = KMMasterViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A88EE7D317B0CF5A00DC75A2 /* en */,
-			);
-			name = KMDetailViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A88EE7D617B0CF5A00DC75A2 /* en */,
-			);
-			name = KMDetailViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 		A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */ = {
@@ -439,6 +623,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
 				INFOPLIST_FILE = "KMInstagram/KMInstagram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +635,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
 				INFOPLIST_FILE = "KMInstagram/KMInstagram-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -526,7 +712,8 @@
 				A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */,
 			);
 			currentVersion = A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */;
-			path = KMInstagram.xcdatamodeld;
+			name = KMInstagram.xcdatamodeld;
+			path = ../../KMInstagram.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
