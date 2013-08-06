@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
+		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
+		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
+		A88EE7B017B0CF5A00DC75A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AF17B0CF5A00DC75A2 /* CoreData.framework */; };
+		A88EE7B617B0CF5A00DC75A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7B417B0CF5A00DC75A2 /* InfoPlist.strings */; };
+		A88EE7B817B0CF5A00DC75A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7B717B0CF5A00DC75A2 /* main.m */; };
+		A88EE7BC17B0CF5A00DC75A2 /* KMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7BB17B0CF5A00DC75A2 /* KMAppDelegate.m */; };
+		A88EE7BE17B0CF5A00DC75A2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7BD17B0CF5A00DC75A2 /* Default.png */; };
+		A88EE7C017B0CF5A00DC75A2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7BF17B0CF5A00DC75A2 /* Default@2x.png */; };
+		A88EE7C217B0CF5A00DC75A2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7C117B0CF5A00DC75A2 /* Default-568h@2x.png */; };
+		A88EE7C517B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */; };
+		A88EE7C817B0CF5A00DC75A2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */; };
+		A88EE7CB17B0CF5A00DC75A2 /* KMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */; };
+		A88EE7CE17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */; };
+		A88EE7D117B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */; };
+		A88EE7D417B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */; };
+		A88EE7D717B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */; };
+		A88EE7DF17B0CF5A00DC75A2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7DE17B0CF5A00DC75A2 /* SenTestingKit.framework */; };
+		A88EE7E017B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
+		A88EE7E117B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
+		A88EE7E217B0CF5A00DC75A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AF17B0CF5A00DC75A2 /* CoreData.framework */; };
+		A88EE7EA17B0CF5A00DC75A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */; };
+		A88EE7ED17B0CF5A00DC75A2 /* KMInstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE7EC17B0CF5A00DC75A2 /* KMInstagramTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A88EE7E317B0CF5A00DC75A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A88EE79E17B0CF5A00DC75A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A88EE7A517B0CF5A00DC75A2;
+			remoteInfo = KMInstagram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A88EE7AF17B0CF5A00DC75A2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A88EE7B317B0CF5A00DC75A2 /* KMInstagram-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KMInstagram-Info.plist"; sourceTree = "<group>"; };
+		A88EE7B517B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A88EE7B717B0CF5A00DC75A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A88EE7B917B0CF5A00DC75A2 /* KMInstagram-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KMInstagram-Prefix.pch"; sourceTree = "<group>"; };
+		A88EE7BA17B0CF5A00DC75A2 /* KMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMAppDelegate.h; sourceTree = "<group>"; };
+		A88EE7BB17B0CF5A00DC75A2 /* KMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMAppDelegate.m; sourceTree = "<group>"; };
+		A88EE7BD17B0CF5A00DC75A2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A88EE7BF17B0CF5A00DC75A2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A88EE7C117B0CF5A00DC75A2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KMInstagram.xcdatamodel; sourceTree = "<group>"; };
+		A88EE7C617B0CF5A00DC75A2 /* KMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMMasterViewController.h; sourceTree = "<group>"; };
+		A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMMasterViewController.m; sourceTree = "<group>"; };
+		A88EE7C917B0CF5A00DC75A2 /* KMDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMDetailViewController.h; sourceTree = "<group>"; };
+		A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMDetailViewController.m; sourceTree = "<group>"; };
+		A88EE7CD17B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		A88EE7D017B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		A88EE7D317B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		A88EE7D617B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KMDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		A88EE7DD17B0CF5A00DC75A2 /* KMInstagramTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KMInstagramTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A88EE7DE17B0CF5A00DC75A2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A88EE7E717B0CF5A00DC75A2 /* KMInstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KMInstagramTests-Info.plist"; sourceTree = "<group>"; };
+		A88EE7E917B0CF5A00DC75A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A88EE7EB17B0CF5A00DC75A2 /* KMInstagramTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMInstagramTests.h; sourceTree = "<group>"; };
+		A88EE7EC17B0CF5A00DC75A2 /* KMInstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMInstagramTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A88EE7A317B0CF5A00DC75A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */,
+				A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */,
+				A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */,
+				A88EE7B017B0CF5A00DC75A2 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88EE7D917B0CF5A00DC75A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7DF17B0CF5A00DC75A2 /* SenTestingKit.framework in Frameworks */,
+				A88EE7E017B0CF5A00DC75A2 /* UIKit.framework in Frameworks */,
+				A88EE7E117B0CF5A00DC75A2 /* Foundation.framework in Frameworks */,
+				A88EE7E217B0CF5A00DC75A2 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A88EE79D17B0CF5A00DC75A2 = {
+			isa = PBXGroup;
+			children = (
+				A88EE7B117B0CF5A00DC75A2 /* KMInstagram */,
+				A88EE7E517B0CF5A00DC75A2 /* KMInstagramTests */,
+				A88EE7A817B0CF5A00DC75A2 /* Frameworks */,
+				A88EE7A717B0CF5A00DC75A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A88EE7A717B0CF5A00DC75A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */,
+				A88EE7DD17B0CF5A00DC75A2 /* KMInstagramTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A88EE7A817B0CF5A00DC75A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */,
+				A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */,
+				A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */,
+				A88EE7AF17B0CF5A00DC75A2 /* CoreData.framework */,
+				A88EE7DE17B0CF5A00DC75A2 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A88EE7B117B0CF5A00DC75A2 /* KMInstagram */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7BA17B0CF5A00DC75A2 /* KMAppDelegate.h */,
+				A88EE7BB17B0CF5A00DC75A2 /* KMAppDelegate.m */,
+				A88EE7C617B0CF5A00DC75A2 /* KMMasterViewController.h */,
+				A88EE7C717B0CF5A00DC75A2 /* KMMasterViewController.m */,
+				A88EE7C917B0CF5A00DC75A2 /* KMDetailViewController.h */,
+				A88EE7CA17B0CF5A00DC75A2 /* KMDetailViewController.m */,
+				A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */,
+				A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */,
+				A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */,
+				A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */,
+				A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */,
+				A88EE7B217B0CF5A00DC75A2 /* Supporting Files */,
+			);
+			path = KMInstagram;
+			sourceTree = "<group>";
+		};
+		A88EE7B217B0CF5A00DC75A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7B317B0CF5A00DC75A2 /* KMInstagram-Info.plist */,
+				A88EE7B417B0CF5A00DC75A2 /* InfoPlist.strings */,
+				A88EE7B717B0CF5A00DC75A2 /* main.m */,
+				A88EE7B917B0CF5A00DC75A2 /* KMInstagram-Prefix.pch */,
+				A88EE7BD17B0CF5A00DC75A2 /* Default.png */,
+				A88EE7BF17B0CF5A00DC75A2 /* Default@2x.png */,
+				A88EE7C117B0CF5A00DC75A2 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A88EE7E517B0CF5A00DC75A2 /* KMInstagramTests */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7EB17B0CF5A00DC75A2 /* KMInstagramTests.h */,
+				A88EE7EC17B0CF5A00DC75A2 /* KMInstagramTests.m */,
+				A88EE7E617B0CF5A00DC75A2 /* Supporting Files */,
+			);
+			path = KMInstagramTests;
+			sourceTree = "<group>";
+		};
+		A88EE7E617B0CF5A00DC75A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE7E717B0CF5A00DC75A2 /* KMInstagramTests-Info.plist */,
+				A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A88EE7A517B0CF5A00DC75A2 /* KMInstagram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A88EE7F017B0CF5A00DC75A2 /* Build configuration list for PBXNativeTarget "KMInstagram" */;
+			buildPhases = (
+				A88EE7A217B0CF5A00DC75A2 /* Sources */,
+				A88EE7A317B0CF5A00DC75A2 /* Frameworks */,
+				A88EE7A417B0CF5A00DC75A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KMInstagram;
+			productName = KMInstagram;
+			productReference = A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A88EE7DC17B0CF5A00DC75A2 /* KMInstagramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A88EE7F317B0CF5A00DC75A2 /* Build configuration list for PBXNativeTarget "KMInstagramTests" */;
+			buildPhases = (
+				A88EE7D817B0CF5A00DC75A2 /* Sources */,
+				A88EE7D917B0CF5A00DC75A2 /* Frameworks */,
+				A88EE7DA17B0CF5A00DC75A2 /* Resources */,
+				A88EE7DB17B0CF5A00DC75A2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A88EE7E417B0CF5A00DC75A2 /* PBXTargetDependency */,
+			);
+			name = KMInstagramTests;
+			productName = KMInstagramTests;
+			productReference = A88EE7DD17B0CF5A00DC75A2 /* KMInstagramTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A88EE79E17B0CF5A00DC75A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KM;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Kanybek Momukeev";
+			};
+			buildConfigurationList = A88EE7A117B0CF5A00DC75A2 /* Build configuration list for PBXProject "KMInstagram" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A88EE79D17B0CF5A00DC75A2;
+			productRefGroup = A88EE7A717B0CF5A00DC75A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A88EE7A517B0CF5A00DC75A2 /* KMInstagram */,
+				A88EE7DC17B0CF5A00DC75A2 /* KMInstagramTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A88EE7A417B0CF5A00DC75A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7B617B0CF5A00DC75A2 /* InfoPlist.strings in Resources */,
+				A88EE7BE17B0CF5A00DC75A2 /* Default.png in Resources */,
+				A88EE7C017B0CF5A00DC75A2 /* Default@2x.png in Resources */,
+				A88EE7C217B0CF5A00DC75A2 /* Default-568h@2x.png in Resources */,
+				A88EE7CE17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib in Resources */,
+				A88EE7D117B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib in Resources */,
+				A88EE7D417B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib in Resources */,
+				A88EE7D717B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88EE7DA17B0CF5A00DC75A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7EA17B0CF5A00DC75A2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A88EE7DB17B0CF5A00DC75A2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A88EE7A217B0CF5A00DC75A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7B817B0CF5A00DC75A2 /* main.m in Sources */,
+				A88EE7BC17B0CF5A00DC75A2 /* KMAppDelegate.m in Sources */,
+				A88EE7C517B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld in Sources */,
+				A88EE7C817B0CF5A00DC75A2 /* KMMasterViewController.m in Sources */,
+				A88EE7CB17B0CF5A00DC75A2 /* KMDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A88EE7D817B0CF5A00DC75A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A88EE7ED17B0CF5A00DC75A2 /* KMInstagramTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A88EE7E417B0CF5A00DC75A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A88EE7A517B0CF5A00DC75A2 /* KMInstagram */;
+			targetProxy = A88EE7E317B0CF5A00DC75A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A88EE7B417B0CF5A00DC75A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7B517B0CF5A00DC75A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A88EE7CC17B0CF5A00DC75A2 /* KMMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7CD17B0CF5A00DC75A2 /* en */,
+			);
+			name = KMMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A88EE7CF17B0CF5A00DC75A2 /* KMMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7D017B0CF5A00DC75A2 /* en */,
+			);
+			name = KMMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		A88EE7D217B0CF5A00DC75A2 /* KMDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7D317B0CF5A00DC75A2 /* en */,
+			);
+			name = KMDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A88EE7D517B0CF5A00DC75A2 /* KMDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7D617B0CF5A00DC75A2 /* en */,
+			);
+			name = KMDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		A88EE7E817B0CF5A00DC75A2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A88EE7E917B0CF5A00DC75A2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A88EE7EE17B0CF5A00DC75A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A88EE7EF17B0CF5A00DC75A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A88EE7F117B0CF5A00DC75A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
+				INFOPLIST_FILE = "KMInstagram/KMInstagram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A88EE7F217B0CF5A00DC75A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
+				INFOPLIST_FILE = "KMInstagram/KMInstagram-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A88EE7F417B0CF5A00DC75A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KMInstagram.app/KMInstagram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
+				INFOPLIST_FILE = "KMInstagramTests/KMInstagramTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A88EE7F517B0CF5A00DC75A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KMInstagram.app/KMInstagram";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KMInstagram/KMInstagram-Prefix.pch";
+				INFOPLIST_FILE = "KMInstagramTests/KMInstagramTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A88EE7A117B0CF5A00DC75A2 /* Build configuration list for PBXProject "KMInstagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88EE7EE17B0CF5A00DC75A2 /* Debug */,
+				A88EE7EF17B0CF5A00DC75A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A88EE7F017B0CF5A00DC75A2 /* Build configuration list for PBXNativeTarget "KMInstagram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88EE7F117B0CF5A00DC75A2 /* Debug */,
+				A88EE7F217B0CF5A00DC75A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A88EE7F317B0CF5A00DC75A2 /* Build configuration list for PBXNativeTarget "KMInstagramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A88EE7F417B0CF5A00DC75A2 /* Debug */,
+				A88EE7F517B0CF5A00DC75A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */,
+			);
+			currentVersion = A88EE7C417B0CF5A00DC75A2 /* KMInstagram.xcdatamodel */;
+			path = KMInstagram.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A88EE79E17B0CF5A00DC75A2 /* Project object */;
+}
