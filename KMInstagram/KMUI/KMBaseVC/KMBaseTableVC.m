@@ -50,6 +50,12 @@
     return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone;
 }
 
+- (void)registerCellsWithReuses:(NSArray *)reuses {
+    for (NSString *reuse in reuses) {
+        UINib *nib = [UINib nibWithNibName:reuse bundle:[NSBundle mainBundle]];
+        [self.tableView registerNib:nib forCellReuseIdentifier:reuse];
+    }
+}
 
 - (void)showAlertWithError:(NSError *)error
 {

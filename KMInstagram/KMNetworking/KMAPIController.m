@@ -9,10 +9,11 @@
 #import "KMAPIController.h"
 #import "Singleton.h"
 #import "KMUserAuthManager.h"
-
+#import "KMFeedRequestManager.h"
 
 @interface KMAPIController()
 @property (nonatomic, strong) KMUserAuthManager *userAuthManager;
+@property (nonatomic, strong) KMFeedRequestManager *feedRequestManager;
 @end
 
 
@@ -25,6 +26,13 @@ SINGLETON_GCD(KMAPIController)
         _userAuthManager = [KMUserAuthManager new];
     }
     return _userAuthManager;
+}
+
+- (KMFeedRequestManager *)feedRequestManager {
+    if (!_feedRequestManager) {
+        _feedRequestManager = [KMFeedRequestManager new];
+    }
+    return _feedRequestManager;
 }
 
 @end

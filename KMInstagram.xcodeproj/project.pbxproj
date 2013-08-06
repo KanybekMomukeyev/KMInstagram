@@ -50,6 +50,20 @@
 		A88EE85C17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE85B17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib */; };
 		A88EE85F17B0EDC800DC75A2 /* KMUserAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */; };
 		A88EE86417B0F1E000DC75A2 /* NSError+KMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE86317B0F1E000DC75A2 /* NSError+KMAdditions.m */; };
+		A88EE86717B0FCFA00DC75A2 /* KMBaseTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE86617B0FCFA00DC75A2 /* KMBaseTVCell.m */; };
+		A88EE86E17B102ED00DC75A2 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE86B17B102ED00DC75A2 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A88EE86F17B102ED00DC75A2 /* PullToRefreshArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE86C17B102ED00DC75A2 /* PullToRefreshArrow.png */; };
+		A88EE87017B102ED00DC75A2 /* PullToRefreshArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE86D17B102ED00DC75A2 /* PullToRefreshArrow@2x.png */; };
+		A88EE87317B1034100DC75A2 /* NSDateFormatter+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE87217B1034100DC75A2 /* NSDateFormatter+Extensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A88EE87617B1038900DC75A2 /* NSDate+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE87517B1038800DC75A2 /* NSDate+Extensions.m */; };
+		A88EE87D17B1044400DC75A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE87C17B1044300DC75A2 /* QuartzCore.framework */; };
+		A88EE88017B1071400DC75A2 /* KMInstagramSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE87F17B1071300DC75A2 /* KMInstagramSettings.m */; };
+		A88EE88317B10BE500DC75A2 /* KMBaseRefreshTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88217B10BE400DC75A2 /* KMBaseRefreshTVC.m */; };
+		A88EE88617B10EC100DC75A2 /* KMUserFeedsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */; };
+		A88EE88817B10EDD00DC75A2 /* KMUserFeedsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */; };
+		A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */; };
+		A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */; };
+		A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89517B11BBB00DC75A2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +146,30 @@
 		A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUserAuthManager.m; sourceTree = "<group>"; };
 		A88EE86217B0F1E000DC75A2 /* NSError+KMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+KMAdditions.h"; sourceTree = "<group>"; };
 		A88EE86317B0F1E000DC75A2 /* NSError+KMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+KMAdditions.m"; sourceTree = "<group>"; };
+		A88EE86517B0FCFA00DC75A2 /* KMBaseTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseTVCell.h; sourceTree = "<group>"; };
+		A88EE86617B0FCFA00DC75A2 /* KMBaseTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseTVCell.m; sourceTree = "<group>"; };
+		A88EE86A17B102ED00DC75A2 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		A88EE86B17B102ED00DC75A2 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		A88EE86C17B102ED00DC75A2 /* PullToRefreshArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PullToRefreshArrow.png; sourceTree = "<group>"; };
+		A88EE86D17B102ED00DC75A2 /* PullToRefreshArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PullToRefreshArrow@2x.png"; sourceTree = "<group>"; };
+		A88EE87117B1034000DC75A2 /* NSDateFormatter+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Extensions.h"; sourceTree = "<group>"; };
+		A88EE87217B1034100DC75A2 /* NSDateFormatter+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Extensions.m"; sourceTree = "<group>"; };
+		A88EE87417B1038800DC75A2 /* NSDate+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extensions.h"; sourceTree = "<group>"; };
+		A88EE87517B1038800DC75A2 /* NSDate+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extensions.m"; sourceTree = "<group>"; };
+		A88EE87C17B1044300DC75A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A88EE87E17B1071100DC75A2 /* KMInstagramSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInstagramSettings.h; sourceTree = "<group>"; };
+		A88EE87F17B1071300DC75A2 /* KMInstagramSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInstagramSettings.m; sourceTree = "<group>"; };
+		A88EE88117B10BE400DC75A2 /* KMBaseRefreshTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseRefreshTVC.h; sourceTree = "<group>"; };
+		A88EE88217B10BE400DC75A2 /* KMBaseRefreshTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseRefreshTVC.m; sourceTree = "<group>"; };
+		A88EE88417B10EC100DC75A2 /* KMUserFeedsTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUserFeedsTVCell.h; sourceTree = "<group>"; };
+		A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUserFeedsTVCell.m; sourceTree = "<group>"; };
+		A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMUserFeedsTVCell.xib; sourceTree = "<group>"; };
+		A88EE88B17B113EA00DC75A2 /* KMInstagramRequestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInstagramRequestClient.h; sourceTree = "<group>"; };
+		A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInstagramRequestClient.m; sourceTree = "<group>"; };
+		A88EE88E17B1143500DC75A2 /* KMFeedRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeedRequestManager.h; sourceTree = "<group>"; };
+		A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeedRequestManager.m; sourceTree = "<group>"; };
+		A88EE89417B11BBB00DC75A2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		A88EE89517B11BBB00DC75A2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88EE87D17B1044400DC75A2 /* QuartzCore.framework in Frameworks */,
 				A88EE85817B0EAFA00DC75A2 /* Security.framework in Frameworks */,
 				A88EE85617B0EA4E00DC75A2 /* MobileCoreServices.framework in Frameworks */,
 				A88EE85417B0EA1200DC75A2 /* SystemConfiguration.framework in Frameworks */,
@@ -186,6 +225,7 @@
 		A88EE7A817B0CF5A00DC75A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE87C17B1044300DC75A2 /* QuartzCore.framework */,
 				A88EE85717B0EAFA00DC75A2 /* Security.framework */,
 				A88EE85517B0EA4D00DC75A2 /* MobileCoreServices.framework */,
 				A88EE85317B0EA1100DC75A2 /* SystemConfiguration.framework */,
@@ -208,6 +248,8 @@
 				A88EE80817B0D06A00DC75A2 /* KMUtils */,
 				A88EE7BA17B0CF5A00DC75A2 /* KMAppDelegate.h */,
 				A88EE7BB17B0CF5A00DC75A2 /* KMAppDelegate.m */,
+				A88EE87E17B1071100DC75A2 /* KMInstagramSettings.h */,
+				A88EE87F17B1071300DC75A2 /* KMInstagramSettings.m */,
 				A88EE7B217B0CF5A00DC75A2 /* Supporting Files */,
 			);
 			path = KMInstagram;
@@ -249,6 +291,8 @@
 		A88EE7F617B0D05700DC75A2 /* 3RD_Party */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE89317B11BBA00DC75A2 /* JSONKit */,
+				A88EE86917B102ED00DC75A2 /* EGORefresh */,
 				A88EE83617B0E9CD00DC75A2 /* AFNetworking */,
 			);
 			path = 3RD_Party;
@@ -273,6 +317,9 @@
 			children = (
 				A88EE83317B0E94300DC75A2 /* KMAPIController.h */,
 				A88EE83417B0E94300DC75A2 /* KMAPIController.m */,
+				A88EE88B17B113EA00DC75A2 /* KMInstagramRequestClient.h */,
+				A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */,
+				A88EE88917B1134A00DC75A2 /* KMFeedRequestManager */,
 				A88EE85A17B0EB6F00DC75A2 /* KMAuthManager */,
 				A88EE7FA17B0D06A00DC75A2 /* KMDataStoreManager */,
 			);
@@ -319,6 +366,9 @@
 				A88EE82E17B0E5B500DC75A2 /* KMUserFeedTVC.h */,
 				A88EE82F17B0E5B500DC75A2 /* KMUserFeedTVC.m */,
 				A88EE83017B0E5B500DC75A2 /* KMUserFeedTVC.xib */,
+				A88EE88417B10EC100DC75A2 /* KMUserFeedsTVCell.h */,
+				A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */,
+				A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */,
 			);
 			path = KMUserFeed;
 			sourceTree = "<group>";
@@ -326,6 +376,10 @@
 		A88EE80817B0D06A00DC75A2 /* KMUtils */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE87417B1038800DC75A2 /* NSDate+Extensions.h */,
+				A88EE87517B1038800DC75A2 /* NSDate+Extensions.m */,
+				A88EE87117B1034000DC75A2 /* NSDateFormatter+Extensions.h */,
+				A88EE87217B1034100DC75A2 /* NSDateFormatter+Extensions.m */,
 				A88EE82317B0D71900DC75A2 /* BlocksTypedefs.h */,
 				A88EE82417B0D71900DC75A2 /* Singleton.h */,
 				A88EE82B17B0E22400DC75A2 /* NSString+KMQueryString.h */,
@@ -343,6 +397,10 @@
 				A88EE81717B0D1EB00DC75A2 /* KMBaseVC.m */,
 				A88EE81917B0D20B00DC75A2 /* KMBaseTableVC.h */,
 				A88EE81A17B0D20B00DC75A2 /* KMBaseTableVC.m */,
+				A88EE86517B0FCFA00DC75A2 /* KMBaseTVCell.h */,
+				A88EE86617B0FCFA00DC75A2 /* KMBaseTVCell.m */,
+				A88EE88117B10BE400DC75A2 /* KMBaseRefreshTVC.h */,
+				A88EE88217B10BE400DC75A2 /* KMBaseRefreshTVC.m */,
 			);
 			path = KMBaseVC;
 			sourceTree = "<group>";
@@ -380,6 +438,35 @@
 				A88EE85E17B0EDC800DC75A2 /* KMUserAuthManager.m */,
 			);
 			path = KMAuthManager;
+			sourceTree = "<group>";
+		};
+		A88EE86917B102ED00DC75A2 /* EGORefresh */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE86A17B102ED00DC75A2 /* EGORefreshTableHeaderView.h */,
+				A88EE86B17B102ED00DC75A2 /* EGORefreshTableHeaderView.m */,
+				A88EE86C17B102ED00DC75A2 /* PullToRefreshArrow.png */,
+				A88EE86D17B102ED00DC75A2 /* PullToRefreshArrow@2x.png */,
+			);
+			path = EGORefresh;
+			sourceTree = "<group>";
+		};
+		A88EE88917B1134A00DC75A2 /* KMFeedRequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE88E17B1143500DC75A2 /* KMFeedRequestManager.h */,
+				A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */,
+			);
+			path = KMFeedRequestManager;
+			sourceTree = "<group>";
+		};
+		A88EE89317B11BBA00DC75A2 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				A88EE89417B11BBB00DC75A2 /* JSONKit.h */,
+				A88EE89517B11BBB00DC75A2 /* JSONKit.m */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +549,9 @@
 				A88EE82917B0D8AA00DC75A2 /* KMInstagramAuthVC.xib in Resources */,
 				A88EE83217B0E5B500DC75A2 /* KMUserFeedTVC.xib in Resources */,
 				A88EE85C17B0EC1400DC75A2 /* KMLoginVC_Ipad.xib in Resources */,
+				A88EE86F17B102ED00DC75A2 /* PullToRefreshArrow.png in Resources */,
+				A88EE87017B102ED00DC75A2 /* PullToRefreshArrow@2x.png in Resources */,
+				A88EE88817B10EDD00DC75A2 /* KMUserFeedsTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +608,16 @@
 				A88EE85217B0E9CD00DC75A2 /* UIImageView+AFNetworking.m in Sources */,
 				A88EE85F17B0EDC800DC75A2 /* KMUserAuthManager.m in Sources */,
 				A88EE86417B0F1E000DC75A2 /* NSError+KMAdditions.m in Sources */,
+				A88EE86717B0FCFA00DC75A2 /* KMBaseTVCell.m in Sources */,
+				A88EE86E17B102ED00DC75A2 /* EGORefreshTableHeaderView.m in Sources */,
+				A88EE87317B1034100DC75A2 /* NSDateFormatter+Extensions.m in Sources */,
+				A88EE87617B1038900DC75A2 /* NSDate+Extensions.m in Sources */,
+				A88EE88017B1071400DC75A2 /* KMInstagramSettings.m in Sources */,
+				A88EE88317B10BE500DC75A2 /* KMBaseRefreshTVC.m in Sources */,
+				A88EE88617B10EC100DC75A2 /* KMUserFeedsTVCell.m in Sources */,
+				A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */,
+				A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */,
+				A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

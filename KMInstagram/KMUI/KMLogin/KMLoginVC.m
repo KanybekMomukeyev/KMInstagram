@@ -22,6 +22,14 @@
     [super viewDidLoad];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([[[KMAPIController sharedInstance] userAuthManager] getAcessToken]) {
+        [self moveToMainUserFriendsTVC];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -38,15 +46,21 @@
     instagramAuthVC.accessTokenHandler = ^(NSString *acessToken, NSError *error) {
         [navController dismissViewControllerAnimated:YES completion:^(){
             if (acessToken) {
-                KMUserFeedTVC *userFeedTVC = [[KMUserFeedTVC alloc] initWithIphoneFromNib];
                 [[[KMAPIController sharedInstance] userAuthManager] setAccessToke:acessToken];
-                [self_.navigationController setViewControllers:@[userFeedTVC] animated:YES];
+                [self_ moveToMainUserFriendsTVC];
             }else {
                 [self_ showAlertWithError:error];
             }
         }];
     };
 }
+
+- (void)moveToMainUserFriendsTVC
+{
+    KMUserFeedTVC *userFeedTVC = [[KMUserFeedTVC alloc] initWithIphoneFromNib];
+    [self.navigationController setViewControllers:@[userFeedTVC] animated:YES];
+}
+
 
 
 @end

@@ -9,9 +9,9 @@
 #import "KMInstagramAuthVC.h"
 #import "NSString+KMQueryString.h"
 #import "NSError+KMAdditions.h"
+#import "KMInstagramSettings.h"
 
-static NSString* const kInstagramClientId = @"c22e560ed1a74621af40ca67e136639f";
-static NSString* const kInstagramCallbackUrl = @"http://mail.ru";
+
 static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&display=touch";
 
 @interface KMInstagramAuthVC ()<UIWebViewDelegate>
@@ -25,9 +25,8 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
 {
     [super viewDidLoad];
     
-    NSArray *scopes = [NSArray arrayWithObjects:@"likes", @"relationships", @"comments", nil];
-    NSString* authenticateURLString = [NSString stringWithFormat:kInstagramAuthorizeUrl, kInstagramClientId, kInstagramCallbackUrl,
-                     [scopes componentsJoinedByString:@"+"]];
+    NSString* authenticateURLString = [NSString stringWithFormat:kInstagramAuthorizeUrl, [KMInstagramSettings clientId],
+                                       [KMInstagramSettings callbackUrl], [[KMInstagramSettings scopes] componentsJoinedByString:@"+"]];
     self.webView.delegate = self;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:authenticateURLString]];
     [self.webView loadRequest:request];
@@ -38,6 +37,12 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
                                                                                    action:@selector(cancelButtonDidPressed:)];
     self.navigationItem.rightBarButtonItem = cancelButtonItem;
     
+    
+    UIActivityIndicatorView * activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [activityIndicator stopAnimating];
+    [activityIndicator hidesWhenStopped];
+    UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+    self.navigationItem.leftBarButtonItem = barButton;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,12 +55,31 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)startActivity
+{
+    [(UIActivityIndicatorView *)self.navigationItem.leftBarButtonItem.customView startAnimating];
+}
+
+- (void)stopActivity
+{
+    [(UIActivityIndicatorView *)self.navigationItem.leftBarButtonItem.customView stopAnimating];
+}
+
+
 
 #pragma mark - Web view delegate
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    [self startActivity];
+    return YES;
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [self stopActivity];
     NSString *URLString = [[self.webView.request URL] absoluteString];
-    if ([[URLString lowercaseString] hasPrefix:[kInstagramCallbackUrl lowercaseString]])
+    if ([[URLString lowercaseString] hasPrefix:[[KMInstagramSettings callbackUrl] lowercaseString]])
     {
         NSRange tokenRange = [[URLString lowercaseString] rangeOfString:@"#access_token="];
         if (tokenRange.location != NSNotFound)
@@ -78,6 +102,7 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    [self stopActivity];
     if (self.accessTokenHandler) {
         self.accessTokenHandler(nil, error);
     }

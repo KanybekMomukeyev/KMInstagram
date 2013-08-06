@@ -15,6 +15,8 @@
 - (id)initWithIphoneFromNib;
 - (id)initWithIpadFromNib;
 
+- (void)registerCellsWithReuses:(NSArray *)reuses;
+
 - (void)showAlertWithError:(NSError *)error;
 - (void)showAlertWithTitle:(NSString *)title;
 

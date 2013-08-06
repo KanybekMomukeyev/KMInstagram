@@ -20,6 +20,7 @@
 {
     _acessToken = acessToken;
     [[NSUserDefaults standardUserDefaults] setValue:acessToken forKey:kKMUserInstagramAcessToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -34,6 +35,7 @@
 {
     self.acessToken = nil;
     [[NSUserDefaults standardUserDefaults] setValue:nil forKey:kKMUserInstagramAcessToken];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [storage cookies])
