@@ -34,7 +34,7 @@
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
                                                  
-                                                 NSLog(@"response = %@",[response JSONString]);
+                                                 //NSLog(@"response = %@",[response JSONString]);
                                                  __block NSMutableArray *feedsArray = [NSMutableArray new];
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                                                      NSArray *responseObjects = [response objectForKey:@"data"];

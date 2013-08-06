@@ -12,6 +12,7 @@
 #import "KMUserAuthManager.h"
 #import "KMUserFeedsTVCell.h"
 #import "KMFeedRequestManager.h"
+#import "KMFeedDetailContainerVC.h"
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -135,7 +136,6 @@
         cell = [[KMUserFeedsTVCell alloc] initWithStyle:UITableViewCellStyleDefault
                                         reuseIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
     }
-    
     cell.object = [self.feedsArray objectAtIndex:indexPath.row];
     [cell reloadData];
     return cell;
@@ -145,6 +145,8 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    KMFeedDetailContainerVC *detailVC = [[KMFeedDetailContainerVC alloc] initWithIphoneFromNib];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

@@ -44,11 +44,11 @@
     } else if (interval < 60.0) {
         return [NSString stringWithFormat:@"%.0f %@ %@", interval, NSLocalizedString(@"seconds", @""), NSLocalizedString(@"ago", @"")];
     } else if (interval > 30.0*60 && interval < 40.0*60.0) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"полчаса ", @""), NSLocalizedString(@"назад", @"")];
+        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"half hour ", @""), NSLocalizedString(@"ago", @"")];
     } else if (interval < 55.0*60.0 ) {
         return [NSString stringWithFormat:@"%.0f %@ %@", interval/60.0, NSLocalizedString(@"minutes", @""), NSLocalizedString(@"ago", @"")];
     } else if (interval > 55.0*60.0 && interval < 65.0*60.0) {
-        timeString = NSLocalizedString(@"час ", @"");
+        timeString = NSLocalizedString(@"hour ", @"");
     } else {
         NSString *todayStartString = [NSDateFormatter stringFromDate:[NSDate date] 
                                                           withFormat:@"dd.MM.yyyy 00.00.00"];
@@ -57,20 +57,20 @@
         NSTimeInterval dayInterval = [date timeIntervalSinceDate:todayStartDate];
         if (dayInterval < 0) {
             if (dayInterval > -(60.0*60.0*24.0)) {
-                return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"вчера в", @""), [NSDateFormatter stringFromDate:date withFormat:@"HH.mm"]];
+                return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"yesterday at", @""), [NSDateFormatter stringFromDate:date withFormat:@"HH.mm"]];
             }
         } else {
-            return [NSDateFormatter stringFromDate:date withFormat:@"в HH.mm"];
+            return [NSDateFormatter stringFromDate:date withFormat:@"HH:mm"];
         }
-        return [NSDateFormatter stringFromDate:date withFormat:@"dd.MM.yy в HH.mm"];
+        return [NSDateFormatter stringFromDate:date withFormat:@"dd.MM.yy HH:mm"];
     }
-    return [NSDateFormatter stringFromDate:date withFormat:@"dd.MM.yyyy HH.mm"];
+    return [NSDateFormatter stringFromDate:date withFormat:@"dd.MM.yyyy HH:mm"];
 }
 
 + (NSString *)VK_formattedMessageStringFromTimeStamp:(NSNumber *)timeStamp {
     NSDate *origDate = [NSDate dateWithTimeIntervalSince1970:timeStamp.integerValue];
     if (origDate.isYesterday) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"вчера", @""), [NSDateFormatter stringFromDate:origDate withFormat:@"HH:mm"]];
+        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"yesterday", @""), [NSDateFormatter stringFromDate:origDate withFormat:@"HH:mm"]];
     } else if (origDate.isToday) {
         return [NSDateFormatter stringFromDate:origDate withFormat:@"HH:mm"];
     }

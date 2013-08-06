@@ -13,6 +13,7 @@
 #import "KMTag.h"
 #import "KMComment.h"
 #import "UIImageView+AFNetworking.h"
+#import "NSDateFormatter+Extensions.h"
 
 @interface KMUserFeedsTVCell()
 @property (nonatomic, strong) IBOutlet UIImageView *userImageView;
@@ -46,7 +47,7 @@
     [self.userImageView setImageWithURL:[NSURL URLWithString:feed.user.profile_picture] placeholderImage:nil];
     [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"mainPlaceholderImage"]];
     self.userNameLabel.text = feed.user.username;
-    self.postDateLabel.text = feed.created_time.description;
+    self.postDateLabel.text = [NSDateFormatter VK_formattedStringFromDate:feed.created_time];
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];
     self.commentsCountLabel.text = [NSString stringWithFormat:@"%@ comments",feed.commentsCount];
     self.captionCommentLabel.text = feed.caption.text;
