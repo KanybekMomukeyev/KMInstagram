@@ -83,6 +83,7 @@
     [super didReceiveMemoryWarning];
 }
 
+
 - (void)logOut:(id)sender
 {
     KMLoginVC *loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];
@@ -100,9 +101,10 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - Refresh
 - (void)reloadTableViewDataSource {
     [super reloadTableViewDataSource];
-    [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:10
+    [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:23
                                                                           minId:nil
                                                                           maxId:nil
                                                                      completion:self.completionHandler];
@@ -112,7 +114,7 @@
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return 408;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

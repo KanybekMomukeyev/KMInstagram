@@ -11,6 +11,7 @@
 #import "KMAPIController.h"
 #import "KMUserAuthManager.h"
 #import "JSONKit.h"
+#import "KMFeed.h"
 
 @interface KMFeedRequestManager()
 @property (nonatomic, strong) NSDate *lastUpdateDate;
@@ -32,12 +33,23 @@
     [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
+                                                 
                                                  NSLog(@"response = %@",[response JSONString]);
-                                                 self_.loading = NO;
-                                                 self_.lastUpdateDate = [NSDate date];
-                                                 if (completion) {
-                                                     completion(response, nil);
-                                                 }
+                                                 __block NSMutableArray *feedsArray = [NSMutableArray new];
+                                                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                     NSArray *responseObjects = [response objectForKey:@"data"];
+                                                     [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){
+                                                         KMFeed *feed = [[KMFeed alloc] initWithDictionary:object];
+                                                         [feedsArray addObject:feed];
+                                                     }];
+                                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                                         self_.loading = NO;
+                                                         self_.lastUpdateDate = [NSDate date];
+                                                         if (completion) {
+                                                             completion([NSArray arrayWithArray:feedsArray], nil);
+                                                         }
+                                                     });
+                                                 });
                                              }
                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
                                                  NSLog(@"error.description = %@",error.description);

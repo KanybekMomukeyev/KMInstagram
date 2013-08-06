@@ -7,6 +7,22 @@
 //
 
 #import "KMUserFeedsTVCell.h"
+#import "KMFeed.h"
+#import "KMUser.h"
+#import "KMCaption.h"
+#import "KMTag.h"
+#import "KMComment.h"
+#import "UIImageView+AFNetworking.h"
+
+@interface KMUserFeedsTVCell()
+@property (nonatomic, strong) IBOutlet UIImageView *userImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *mainImageView;
+@property (nonatomic, strong) IBOutlet UILabel *userNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *postDateLabel;
+@property (nonatomic, strong) IBOutlet UILabel *likesCountLabel;
+@property (nonatomic, strong) IBOutlet UILabel *commentsCountLabel;
+@property (nonatomic, strong) IBOutlet UILabel *captionCommentLabel;
+@end
 
 @implementation KMUserFeedsTVCell
 
@@ -14,16 +30,26 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
     }
     return self;
 }
 
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)reloadData
+{
+    KMFeed *feed = (KMFeed *)self.object;
+    [self.userImageView setImageWithURL:[NSURL URLWithString:feed.user.profile_picture] placeholderImage:nil];
+    [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"mainPlaceholderImage"]];
+    self.userNameLabel.text = feed.user.username;
+    self.postDateLabel.text = feed.created_time.description;
+    self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];
+    self.commentsCountLabel.text = [NSString stringWithFormat:@"%@ comments",feed.commentsCount];
+    self.captionCommentLabel.text = feed.caption.text;
 }
 
 @end

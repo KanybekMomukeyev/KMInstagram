@@ -64,6 +64,13 @@
 		A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */; };
 		A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */; };
 		A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89517B11BBB00DC75A2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A88EE89917B1285000DC75A2 /* KMFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89817B1285000DC75A2 /* KMFeed.m */; };
+		A88EE89C17B1288200DC75A2 /* KMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89B17B1288200DC75A2 /* KMUser.m */; };
+		A88EE89F17B1289400DC75A2 /* KMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89E17B1289400DC75A2 /* KMComment.m */; };
+		A88EE8A217B128AC00DC75A2 /* KMTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8A117B128AC00DC75A2 /* KMTag.m */; };
+		A88EE8A517B1293C00DC75A2 /* KMCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8A417B1293C00DC75A2 /* KMCaption.m */; };
+		A88EE8AC17B1691500DC75A2 /* mainPlaceholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */; };
+		A88EE8AD17B1691500DC75A2 /* mainPlaceholderImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +177,19 @@
 		A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeedRequestManager.m; sourceTree = "<group>"; };
 		A88EE89417B11BBB00DC75A2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		A88EE89517B11BBB00DC75A2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		A88EE89717B1285000DC75A2 /* KMFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeed.h; sourceTree = "<group>"; };
+		A88EE89817B1285000DC75A2 /* KMFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeed.m; sourceTree = "<group>"; };
+		A88EE89A17B1288200DC75A2 /* KMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUser.h; sourceTree = "<group>"; };
+		A88EE89B17B1288200DC75A2 /* KMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUser.m; sourceTree = "<group>"; };
+		A88EE89D17B1289400DC75A2 /* KMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMComment.h; sourceTree = "<group>"; };
+		A88EE89E17B1289400DC75A2 /* KMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMComment.m; sourceTree = "<group>"; };
+		A88EE8A017B128AC00DC75A2 /* KMTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMTag.h; sourceTree = "<group>"; };
+		A88EE8A117B128AC00DC75A2 /* KMTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMTag.m; sourceTree = "<group>"; };
+		A88EE8A317B1293B00DC75A2 /* KMCaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCaption.h; sourceTree = "<group>"; };
+		A88EE8A417B1293C00DC75A2 /* KMCaption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCaption.m; sourceTree = "<group>"; };
+		A88EE8A617B1372C00DC75A2 /* KMStoroableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStoroableProtocol.h; sourceTree = "<group>"; };
+		A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainPlaceholderImage.png; sourceTree = "<group>"; };
+		A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainPlaceholderImage@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +321,8 @@
 		A88EE7F717B0D06A00DC75A2 /* KMImages */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */,
+				A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */,
 			);
 			path = KMImages;
 			sourceTree = "<group>";
@@ -308,6 +330,17 @@
 		A88EE7F817B0D06A00DC75A2 /* KMModel */ = {
 			isa = PBXGroup;
 			children = (
+				A88EE8A617B1372C00DC75A2 /* KMStoroableProtocol.h */,
+				A88EE89717B1285000DC75A2 /* KMFeed.h */,
+				A88EE89817B1285000DC75A2 /* KMFeed.m */,
+				A88EE89A17B1288200DC75A2 /* KMUser.h */,
+				A88EE89B17B1288200DC75A2 /* KMUser.m */,
+				A88EE89D17B1289400DC75A2 /* KMComment.h */,
+				A88EE89E17B1289400DC75A2 /* KMComment.m */,
+				A88EE8A017B128AC00DC75A2 /* KMTag.h */,
+				A88EE8A117B128AC00DC75A2 /* KMTag.m */,
+				A88EE8A317B1293B00DC75A2 /* KMCaption.h */,
+				A88EE8A417B1293C00DC75A2 /* KMCaption.m */,
 			);
 			path = KMModel;
 			sourceTree = "<group>";
@@ -552,6 +585,8 @@
 				A88EE86F17B102ED00DC75A2 /* PullToRefreshArrow.png in Resources */,
 				A88EE87017B102ED00DC75A2 /* PullToRefreshArrow@2x.png in Resources */,
 				A88EE88817B10EDD00DC75A2 /* KMUserFeedsTVCell.xib in Resources */,
+				A88EE8AC17B1691500DC75A2 /* mainPlaceholderImage.png in Resources */,
+				A88EE8AD17B1691500DC75A2 /* mainPlaceholderImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +653,11 @@
 				A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */,
 				A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */,
 				A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */,
+				A88EE89917B1285000DC75A2 /* KMFeed.m in Sources */,
+				A88EE89C17B1288200DC75A2 /* KMUser.m in Sources */,
+				A88EE89F17B1289400DC75A2 /* KMComment.m in Sources */,
+				A88EE8A217B128AC00DC75A2 /* KMTag.m in Sources */,
+				A88EE8A517B1293C00DC75A2 /* KMCaption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
