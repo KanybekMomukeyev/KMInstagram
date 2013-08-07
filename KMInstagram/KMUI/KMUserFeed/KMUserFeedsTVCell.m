@@ -45,7 +45,7 @@
 {
     KMFeed *feed = (KMFeed *)self.object;
     [self.userImageView setImageWithURL:[NSURL URLWithString:feed.user.profile_picture] placeholderImage:nil];
-    [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"mainPlaceholderImage"]];
+    [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"background"]];
     self.userNameLabel.text = feed.user.username;
     self.postDateLabel.text = [NSDateFormatter VK_formattedStringFromDate:feed.created_time];
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];

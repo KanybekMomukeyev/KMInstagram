@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A839C55E17B2050F00E6AFE9 /* KMPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C55D17B2050F00E6AFE9 /* KMPagination.m */; };
+		A839C56217B209AA00E6AFE9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C56017B209AA00E6AFE9 /* background.png */; };
+		A839C56317B209AA00E6AFE9 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C56117B209AA00E6AFE9 /* background@2x.png */; };
 		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
@@ -69,8 +72,6 @@
 		A88EE89F17B1289400DC75A2 /* KMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89E17B1289400DC75A2 /* KMComment.m */; };
 		A88EE8A217B128AC00DC75A2 /* KMTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8A117B128AC00DC75A2 /* KMTag.m */; };
 		A88EE8A517B1293C00DC75A2 /* KMCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8A417B1293C00DC75A2 /* KMCaption.m */; };
-		A88EE8AC17B1691500DC75A2 /* mainPlaceholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */; };
-		A88EE8AD17B1691500DC75A2 /* mainPlaceholderImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */; };
 		A88EE8B217B16FDE00DC75A2 /* KMFeedDetailContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8B017B16FDE00DC75A2 /* KMFeedDetailContainerVC.m */; };
 		A88EE8B317B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8B117B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib */; };
 		A88EE8B717B1714B00DC75A2 /* KMFeedLikesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8B517B1714B00DC75A2 /* KMFeedLikesTVC.m */; };
@@ -80,6 +81,8 @@
 		A88EE8C117B1734300DC75A2 /* UIView+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8C017B1734200DC75A2 /* UIView+NIB.m */; };
 		A88EE8C617B173EC00DC75A2 /* BASegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8C417B173EA00DC75A2 /* BASegmentedControl.m */; };
 		A88EE8C717B173EC00DC75A2 /* BASegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8C517B173EB00DC75A2 /* BASegmentedControl.xib */; };
+		A88EE8CB17B1FA6E00DC75A2 /* KMLoadingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */; };
+		A88EE8CD17B1FA7E00DC75A2 /* KMLoadingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A839C55C17B2050F00E6AFE9 /* KMPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPagination.h; sourceTree = "<group>"; };
+		A839C55D17B2050F00E6AFE9 /* KMPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPagination.m; sourceTree = "<group>"; };
+		A839C56017B209AA00E6AFE9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A839C56117B209AA00E6AFE9 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,8 +204,6 @@
 		A88EE8A317B1293B00DC75A2 /* KMCaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCaption.h; sourceTree = "<group>"; };
 		A88EE8A417B1293C00DC75A2 /* KMCaption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCaption.m; sourceTree = "<group>"; };
 		A88EE8A617B1372C00DC75A2 /* KMStoroableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStoroableProtocol.h; sourceTree = "<group>"; };
-		A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainPlaceholderImage.png; sourceTree = "<group>"; };
-		A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainPlaceholderImage@2x.png"; sourceTree = "<group>"; };
 		A88EE8AF17B16FDE00DC75A2 /* KMFeedDetailContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeedDetailContainerVC.h; sourceTree = "<group>"; };
 		A88EE8B017B16FDE00DC75A2 /* KMFeedDetailContainerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeedDetailContainerVC.m; sourceTree = "<group>"; };
 		A88EE8B117B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMFeedDetailContainerVC.xib; sourceTree = "<group>"; };
@@ -213,6 +218,9 @@
 		A88EE8C317B173EA00DC75A2 /* BASegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASegmentedControl.h; sourceTree = "<group>"; };
 		A88EE8C417B173EA00DC75A2 /* BASegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASegmentedControl.m; sourceTree = "<group>"; };
 		A88EE8C517B173EB00DC75A2 /* BASegmentedControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BASegmentedControl.xib; sourceTree = "<group>"; };
+		A88EE8C917B1FA6E00DC75A2 /* KMLoadingTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLoadingTVCell.h; sourceTree = "<group>"; };
+		A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLoadingTVCell.m; sourceTree = "<group>"; };
+		A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMLoadingTVCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,8 +352,8 @@
 		A88EE7F717B0D06A00DC75A2 /* KMImages */ = {
 			isa = PBXGroup;
 			children = (
-				A88EE8AA17B1691500DC75A2 /* mainPlaceholderImage.png */,
-				A88EE8AB17B1691500DC75A2 /* mainPlaceholderImage@2x.png */,
+				A839C56017B209AA00E6AFE9 /* background.png */,
+				A839C56117B209AA00E6AFE9 /* background@2x.png */,
 			);
 			path = KMImages;
 			sourceTree = "<group>";
@@ -354,6 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				A88EE8A617B1372C00DC75A2 /* KMStoroableProtocol.h */,
+				A839C55C17B2050F00E6AFE9 /* KMPagination.h */,
+				A839C55D17B2050F00E6AFE9 /* KMPagination.m */,
 				A88EE89717B1285000DC75A2 /* KMFeed.h */,
 				A88EE89817B1285000DC75A2 /* KMFeed.m */,
 				A88EE89A17B1288200DC75A2 /* KMUser.h */,
@@ -426,6 +436,9 @@
 				A88EE88417B10EC100DC75A2 /* KMUserFeedsTVCell.h */,
 				A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */,
 				A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */,
+				A88EE8C917B1FA6E00DC75A2 /* KMLoadingTVCell.h */,
+				A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */,
+				A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */,
 			);
 			path = KMUserFeed;
 			sourceTree = "<group>";
@@ -630,12 +643,13 @@
 				A88EE86F17B102ED00DC75A2 /* PullToRefreshArrow.png in Resources */,
 				A88EE87017B102ED00DC75A2 /* PullToRefreshArrow@2x.png in Resources */,
 				A88EE88817B10EDD00DC75A2 /* KMUserFeedsTVCell.xib in Resources */,
-				A88EE8AC17B1691500DC75A2 /* mainPlaceholderImage.png in Resources */,
-				A88EE8AD17B1691500DC75A2 /* mainPlaceholderImage@2x.png in Resources */,
 				A88EE8B317B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib in Resources */,
 				A88EE8B817B1714B00DC75A2 /* KMFeedLikesTVC.xib in Resources */,
 				A88EE8BD17B171D500DC75A2 /* KMFeedCommentsTVC.xib in Resources */,
 				A88EE8C717B173EC00DC75A2 /* BASegmentedControl.xib in Resources */,
+				A88EE8CD17B1FA7E00DC75A2 /* KMLoadingTVCell.xib in Resources */,
+				A839C56217B209AA00E6AFE9 /* background.png in Resources */,
+				A839C56317B209AA00E6AFE9 /* background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +726,8 @@
 				A88EE8BC17B171D500DC75A2 /* KMFeedCommentsTVC.m in Sources */,
 				A88EE8C117B1734300DC75A2 /* UIView+NIB.m in Sources */,
 				A88EE8C617B173EC00DC75A2 /* BASegmentedControl.m in Sources */,
+				A88EE8CB17B1FA6E00DC75A2 /* KMLoadingTVCell.m in Sources */,
+				A839C55E17B2050F00E6AFE9 /* KMPagination.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +781,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Momukeev Kanybek (EPX394W6G8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Momukeev Kanybek (EPX394W6G8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -780,6 +797,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "B903A2FF-6E08-47B2-8833-AC3708C1C02E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B903A2FF-6E08-47B2-8833-AC3708C1C02E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -797,7 +816,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Momukeev Kanybek (EPX394W6G8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Momukeev Kanybek (EPX394W6G8)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -805,6 +825,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B903A2FF-6E08-47B2-8833-AC3708C1C02E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B903A2FF-6E08-47B2-8833-AC3708C1C02E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -888,6 +910,7 @@
 				A88EE7F217B0CF5A00DC75A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A88EE7F317B0CF5A00DC75A2 /* Build configuration list for PBXNativeTarget "KMInstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -896,6 +919,7 @@
 				A88EE7F517B0CF5A00DC75A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -13,6 +13,10 @@
 #import "KMUserFeedsTVCell.h"
 #import "KMFeedRequestManager.h"
 #import "KMFeedDetailContainerVC.h"
+#import "KMLoadingTVCell.h"
+#import "KMPagination.h"
+
+#define kKMInstagramFeedPageCount 10
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -26,7 +30,8 @@
 
 @interface KMUserFeedTVC ()
 @property (nonatomic, strong) NSMutableArray *feedsArray;
-@property (nonatomic, copy) CompletionBlock completionHandler;
+@property (nonatomic, copy) CompletionBlock refreshHandler;
+@property (nonatomic, copy) CompletionBlock pagingHandler;
 @end
 
 
@@ -45,10 +50,10 @@
 {
     [super viewDidLoad];
     [self attachPullToRefreshHeader];
-    [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier]]];
+    [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier], [KMLoadingTVCell reuseIdentifier]]];
     
     __weak KMUserFeedTVC *self_ = self;
-    self.completionHandler = ^(NSArray *array, NSError *error) {
+    self.refreshHandler = ^(NSArray *array, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
             [super doneLoadingTableViewData];
@@ -56,6 +61,24 @@
             [self_.feedsArray removeAllObjects];
             [self_.feedsArray addObjectsFromArray:array];
             [self_ doneLoadingTableViewData];
+        }
+    };
+    
+    
+    self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
+        if (error) {
+            [self_ showAlertWithError:error];
+            [self_ stopAnimatingLoadingCell];
+        }else
+        {
+            NSMutableArray *indexPathsArray = [NSMutableArray new];
+            for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
+                [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+            }   
+            [self_.feedsArray addObjectsFromArray:oldFeeds];
+            [self_.tableView beginUpdates];
+            [self_.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationTop];
+            [self_.tableView endUpdates];
         }
     };
     
@@ -87,9 +110,9 @@
 
 - (void)logOut:(id)sender
 {
+    [[[KMAPIController sharedInstance] userAuthManager] logOut];
     KMLoginVC *loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];
     [self.navigationController setViewControllers:@[loginVC] animated:YES];
-    [[[KMAPIController sharedInstance] userAuthManager] logOut];
 }
 
 
@@ -105,17 +128,45 @@
 #pragma mark - Refresh
 - (void)reloadTableViewDataSource {
     [super reloadTableViewDataSource];
-    [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:23
+    [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
                                                                           minId:nil
                                                                           maxId:nil
-                                                                     completion:self.completionHandler];
+                                                                     completion:self.refreshHandler];
 }
 
+- (void)fetchOldFeeds
+{
+    NSString *nextMaxId = [[KMAPIController sharedInstance] feedRequestManager].pagination.next_max_id;
+    if (nextMaxId) {
+        [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
+                                                                              minId:nil
+                                                                              maxId:nextMaxId
+                                                                         completion:self.pagingHandler];
+    }else {
+        [self stopAnimatingLoadingCell];
+    }
+}
+
+
+
+#pragma mark -
+- (void)stopAnimatingLoadingCell
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.feedsArray.count inSection:0];
+    KMLoadingTVCell *loadingCell = (KMLoadingTVCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [loadingCell.indicatorView stopAnimating];
+    loadingCell.indicatorView.hidden = YES;
+}
 
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 408;
+    if (indexPath.row < self.feedsArray.count)
+    {
+        return 408;
+    }else {
+        return 44;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,28 +176,50 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.feedsArray.count;
+    if(self.feedsArray.count == 0) {
+        return 0;
+    }else {
+        return self.feedsArray.count + 1;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KMUserFeedsTVCell *cell = [tableView dequeueReusableCellWithIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
-    if (!cell) {
-        cell = [[KMUserFeedsTVCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                        reuseIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
+    if (indexPath.row < self.feedsArray.count)
+    {
+        KMUserFeedsTVCell *cell = [tableView dequeueReusableCellWithIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
+        if (!cell) {
+            cell = [[KMUserFeedsTVCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                            reuseIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
+        }
+        cell.object = [self.feedsArray objectAtIndex:indexPath.row];
+        [cell reloadData];
+        return cell;
+    }else
+    {
+        KMLoadingTVCell *cell = [tableView dequeueReusableCellWithIdentifier:[KMLoadingTVCell reuseIdentifier]];
+        if (!cell) {
+            cell = [[KMLoadingTVCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:[KMLoadingTVCell reuseIdentifier]];
+        }
+        cell.indicatorView.hidden = NO;
+        [cell.indicatorView startAnimating];
+        [self fetchOldFeeds];
+        return cell;
     }
-    cell.object = [self.feedsArray objectAtIndex:indexPath.row];
-    [cell reloadData];
-    return cell;
 }
 
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KMFeedDetailContainerVC *detailVC = [[KMFeedDetailContainerVC alloc] initWithIphoneFromNib];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if (indexPath.row < self.feedsArray.count)
+    {
+        KMFeedDetailContainerVC *detailVC = [[KMFeedDetailContainerVC alloc] initWithIphoneFromNib];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
 }
+
 
 @end

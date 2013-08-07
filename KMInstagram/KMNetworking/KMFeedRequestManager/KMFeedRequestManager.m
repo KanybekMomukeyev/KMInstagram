@@ -12,9 +12,11 @@
 #import "KMUserAuthManager.h"
 #import "JSONKit.h"
 #import "KMFeed.h"
+#import "KMPagination.h"
 
 @interface KMFeedRequestManager()
 @property (nonatomic, strong) NSDate *lastUpdateDate;
+@property (nonatomic, strong) KMPagination *pagination;
 @end
 
 @implementation KMFeedRequestManager
@@ -25,7 +27,7 @@
                   completion:(CompletionBlock)completion
 {
     self.loading = YES;
-    NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInteger:count], @"count",  nil];
+    NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(count), @"count",  nil];
     [parameters setObject:[[[KMAPIController sharedInstance] userAuthManager] getAcessToken] forKey:@"access_token"];
     if (minId) [parameters setObject:minId forKey:@"min_id"];
     if (maxId) [parameters setObject:maxId forKey:@"max_id"];
@@ -36,13 +38,17 @@
                                                  
                                                  //NSLog(@"response = %@",[response JSONString]);
                                                  __block NSMutableArray *feedsArray = [NSMutableArray new];
+                                                 __block KMPagination *paging = nil;
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                     
+                                                     paging = [[KMPagination alloc] initWithDictionary:[response objectForKey:@"pagination"]];
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
                                                      [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){
                                                          KMFeed *feed = [[KMFeed alloc] initWithDictionary:object];
                                                          [feedsArray addObject:feed];
                                                      }];
                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                         self_.pagination = paging;
                                                          self_.loading = NO;
                                                          self_.lastUpdateDate = [NSDate date];
                                                          if (completion) {
