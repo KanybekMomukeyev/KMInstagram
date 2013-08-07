@@ -23,6 +23,7 @@
 		A839C58217B25CEF00E6AFE9 /* date_back_06june.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C57E17B25CEF00E6AFE9 /* date_back_06june.png */; };
 		A839C58317B25CEF00E6AFE9 /* date_back_06june@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C57F17B25CEF00E6AFE9 /* date_back_06june@2x.png */; };
 		A839C58617B261C700E6AFE9 /* KMBaseUserFeedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C58517B261C700E6AFE9 /* KMBaseUserFeedTVC.m */; };
+		A839C58917B26E0100E6AFE9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A839C58817B26E0000E6AFE9 /* README.md */; };
 		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
@@ -132,6 +133,7 @@
 		A839C57F17B25CEF00E6AFE9 /* date_back_06june@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "date_back_06june@2x.png"; sourceTree = "<group>"; };
 		A839C58417B261C700E6AFE9 /* KMBaseUserFeedTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseUserFeedTVC.h; sourceTree = "<group>"; };
 		A839C58517B261C700E6AFE9 /* KMBaseUserFeedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseUserFeedTVC.m; sourceTree = "<group>"; };
+		A839C58817B26E0000E6AFE9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -357,6 +359,7 @@
 		A88EE7B217B0CF5A00DC75A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A839C58817B26E0000E6AFE9 /* README.md */,
 				A88EE7B317B0CF5A00DC75A2 /* KMInstagram-Info.plist */,
 				A88EE7B417B0CF5A00DC75A2 /* InfoPlist.strings */,
 				A88EE7B717B0CF5A00DC75A2 /* main.m */,
@@ -716,6 +719,7 @@
 				A839C58117B25CEF00E6AFE9 /* date_back_06june_sstate@2x.png in Resources */,
 				A839C58217B25CEF00E6AFE9 /* date_back_06june.png in Resources */,
 				A839C58317B25CEF00E6AFE9 /* date_back_06june@2x.png in Resources */,
+				A839C58917B26E0100E6AFE9 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
