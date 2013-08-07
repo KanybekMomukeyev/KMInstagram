@@ -10,6 +10,14 @@
 		A839C55E17B2050F00E6AFE9 /* KMPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C55D17B2050F00E6AFE9 /* KMPagination.m */; };
 		A839C56217B209AA00E6AFE9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C56017B209AA00E6AFE9 /* background.png */; };
 		A839C56317B209AA00E6AFE9 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A839C56117B209AA00E6AFE9 /* background@2x.png */; };
+		A839C56617B2134D00E6AFE9 /* KMBaseRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C56517B2134D00E6AFE9 /* KMBaseRequestManager.m */; };
+		A839C56917B214AA00E6AFE9 /* KMLikesCommentsReqManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C56817B214AA00E6AFE9 /* KMLikesCommentsReqManager.m */; };
+		A839C56E17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C56D17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m */; };
+		A839C57017B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A839C56F17B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib */; };
+		A839C57317B2438800E6AFE9 /* KMCellFeedLikeTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C57217B2438800E6AFE9 /* KMCellFeedLikeTVCell.m */; };
+		A839C57517B2439700E6AFE9 /* KMCellFeedLikeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A839C57417B2439700E6AFE9 /* KMCellFeedLikeTVCell.xib */; };
+		A839C57817B243DA00E6AFE9 /* KMCommentTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C57717B243D900E6AFE9 /* KMCommentTVCell.m */; };
+		A839C57A17B243E800E6AFE9 /* KMCommentTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A839C57917B243E800E6AFE9 /* KMCommentTVCell.xib */; };
 		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
@@ -100,6 +108,19 @@
 		A839C55D17B2050F00E6AFE9 /* KMPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPagination.m; sourceTree = "<group>"; };
 		A839C56017B209AA00E6AFE9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A839C56117B209AA00E6AFE9 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		A839C56417B2134C00E6AFE9 /* KMBaseRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMBaseRequestManager.h; sourceTree = "<group>"; };
+		A839C56517B2134D00E6AFE9 /* KMBaseRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMBaseRequestManager.m; sourceTree = "<group>"; };
+		A839C56717B214AA00E6AFE9 /* KMLikesCommentsReqManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLikesCommentsReqManager.h; sourceTree = "<group>"; };
+		A839C56817B214AA00E6AFE9 /* KMLikesCommentsReqManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLikesCommentsReqManager.m; sourceTree = "<group>"; };
+		A839C56C17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMTableAnimatingHeaderView.h; sourceTree = "<group>"; };
+		A839C56D17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMTableAnimatingHeaderView.m; sourceTree = "<group>"; };
+		A839C56F17B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMTableAnimatingHeaderView.xib; sourceTree = "<group>"; };
+		A839C57117B2438800E6AFE9 /* KMCellFeedLikeTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCellFeedLikeTVCell.h; sourceTree = "<group>"; };
+		A839C57217B2438800E6AFE9 /* KMCellFeedLikeTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCellFeedLikeTVCell.m; sourceTree = "<group>"; };
+		A839C57417B2439700E6AFE9 /* KMCellFeedLikeTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMCellFeedLikeTVCell.xib; sourceTree = "<group>"; };
+		A839C57617B243D900E6AFE9 /* KMCommentTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCommentTVCell.h; sourceTree = "<group>"; };
+		A839C57717B243D900E6AFE9 /* KMCommentTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCommentTVCell.m; sourceTree = "<group>"; };
+		A839C57917B243E800E6AFE9 /* KMCommentTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMCommentTVCell.xib; sourceTree = "<group>"; };
 		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -253,6 +274,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A839C56B17B23F6C00E6AFE9 /* KMFeedDetailTVCells */ = {
+			isa = PBXGroup;
+			children = (
+				A839C56C17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.h */,
+				A839C56D17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m */,
+				A839C56F17B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib */,
+				A839C57117B2438800E6AFE9 /* KMCellFeedLikeTVCell.h */,
+				A839C57217B2438800E6AFE9 /* KMCellFeedLikeTVCell.m */,
+				A839C57417B2439700E6AFE9 /* KMCellFeedLikeTVCell.xib */,
+				A839C57617B243D900E6AFE9 /* KMCommentTVCell.h */,
+				A839C57717B243D900E6AFE9 /* KMCommentTVCell.m */,
+				A839C57917B243E800E6AFE9 /* KMCommentTVCell.xib */,
+			);
+			path = KMFeedDetailTVCells;
+			sourceTree = "<group>";
+		};
 		A88EE79D17B0CF5A00DC75A2 = {
 			isa = PBXGroup;
 			children = (
@@ -526,8 +563,12 @@
 		A88EE88917B1134A00DC75A2 /* KMFeedRequestManager */ = {
 			isa = PBXGroup;
 			children = (
+				A839C56417B2134C00E6AFE9 /* KMBaseRequestManager.h */,
+				A839C56517B2134D00E6AFE9 /* KMBaseRequestManager.m */,
 				A88EE88E17B1143500DC75A2 /* KMFeedRequestManager.h */,
 				A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */,
+				A839C56717B214AA00E6AFE9 /* KMLikesCommentsReqManager.h */,
+				A839C56817B214AA00E6AFE9 /* KMLikesCommentsReqManager.m */,
 			);
 			path = KMFeedRequestManager;
 			sourceTree = "<group>";
@@ -544,6 +585,7 @@
 		A88EE8AE17B16EC900DC75A2 /* KMDetailFeed */ = {
 			isa = PBXGroup;
 			children = (
+				A839C56B17B23F6C00E6AFE9 /* KMFeedDetailTVCells */,
 				A88EE8AF17B16FDE00DC75A2 /* KMFeedDetailContainerVC.h */,
 				A88EE8B017B16FDE00DC75A2 /* KMFeedDetailContainerVC.m */,
 				A88EE8B117B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib */,
@@ -650,6 +692,9 @@
 				A88EE8CD17B1FA7E00DC75A2 /* KMLoadingTVCell.xib in Resources */,
 				A839C56217B209AA00E6AFE9 /* background.png in Resources */,
 				A839C56317B209AA00E6AFE9 /* background@2x.png in Resources */,
+				A839C57017B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib in Resources */,
+				A839C57517B2439700E6AFE9 /* KMCellFeedLikeTVCell.xib in Resources */,
+				A839C57A17B243E800E6AFE9 /* KMCommentTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +773,11 @@
 				A88EE8C617B173EC00DC75A2 /* BASegmentedControl.m in Sources */,
 				A88EE8CB17B1FA6E00DC75A2 /* KMLoadingTVCell.m in Sources */,
 				A839C55E17B2050F00E6AFE9 /* KMPagination.m in Sources */,
+				A839C56617B2134D00E6AFE9 /* KMBaseRequestManager.m in Sources */,
+				A839C56917B214AA00E6AFE9 /* KMLikesCommentsReqManager.m in Sources */,
+				A839C56E17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m in Sources */,
+				A839C57317B2438800E6AFE9 /* KMCellFeedLikeTVCell.m in Sources */,
+				A839C57817B243DA00E6AFE9 /* KMCommentTVCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

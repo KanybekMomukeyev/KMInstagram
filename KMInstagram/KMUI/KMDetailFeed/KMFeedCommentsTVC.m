@@ -7,9 +7,13 @@
 //
 
 #import "KMFeedCommentsTVC.h"
+#import "KMAPIController.h"
+#import "KMLikesCommentsReqManager.h"
+#import "KMCommentTVCell.h"
+#import "KMComment.h"
 
 @interface KMFeedCommentsTVC ()
-
+@property (nonatomic, strong) NSArray *comments;
 @end
 
 @implementation KMFeedCommentsTVC
@@ -17,6 +21,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self registerCellsWithReuses:@[[KMCommentTVCell reuseIdentifier]]];
+    __weak KMFeedCommentsTVC *self_ = self;
+    [[[KMAPIController sharedInstance] likesCommentsReqManager] getCommentsForFeedId:self.feedId
+                                                                      withCompletion:^(NSArray *response, NSError *error){
+                                                                          if (!error) {
+                                                                              self_.comments = response;
+                                                                              NSMutableArray *indexPathsArray = [NSMutableArray new];
+                                                                              for (NSUInteger index = 0; index < self_.comments.count; index ++) {
+                                                                                  [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+                                                                              }
+                                                                              [self_.tableView beginUpdates];
+                                                                              [self_.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationTop];
+                                                                              [self_.tableView endUpdates];
+                                                                          }else {
+                                                                              [self_ showAlertWithError:error];
+                                                                          }
+                                                                      }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -24,25 +45,38 @@
     [super didReceiveMemoryWarning];
 }
 
-
+#define PADDING 10
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KMComment *comment = [self.comments objectAtIndex:indexPath.row];
+    NSString *text = [NSString stringWithFormat:@"%@",comment.text];
+    CGSize textSize = [text sizeWithFont:[UIFont fontWithName:@"Helvetica Neue" size:12]
+                       constrainedToSize:CGSizeMake(270 - PADDING * 3, 1000.0f)];
+    CGFloat height = 41 + textSize.height;
+    NSLog(@"height = %f",height);
+    return height;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.comments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    KMCommentTVCell *cell = [tableView dequeueReusableCellWithIdentifier:[KMCommentTVCell reuseIdentifier]];
+    if (!cell) {
+        cell = [[KMCommentTVCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                           reuseIdentifier:[KMCommentTVCell reuseIdentifier]];
     }
+    cell.object = [self.comments objectAtIndex:indexPath.row];
+    [cell reloadData];
     return cell;
 }
 

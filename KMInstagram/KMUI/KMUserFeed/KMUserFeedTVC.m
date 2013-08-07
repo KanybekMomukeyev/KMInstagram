@@ -15,8 +15,7 @@
 #import "KMFeedDetailContainerVC.h"
 #import "KMLoadingTVCell.h"
 #import "KMPagination.h"
-
-#define kKMInstagramFeedPageCount 10
+#define kKMInstagramFeedPageCount 20
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -59,11 +58,11 @@
             [super doneLoadingTableViewData];
         } else {
             [self_.feedsArray removeAllObjects];
+            [self_.tableView reloadData];
             [self_.feedsArray addObjectsFromArray:array];
             [self_ doneLoadingTableViewData];
         }
     };
-    
     
     self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
         if (error) {
@@ -122,7 +121,15 @@
     self.lastUpdateDate = [[[KMAPIController sharedInstance] feedRequestManager] lastUpdateDate];
     [self.refreshHeaderView refreshLastUpdatedDate];
     [super doneLoadingTableViewData];
-    [self.tableView reloadData];
+
+    NSMutableArray *indexPathsArray = [NSMutableArray new];
+    for (NSUInteger index = 0; index < self.feedsArray.count + 1; index ++) {
+        [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+    }
+    
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView endUpdates];
 }
 
 #pragma mark - Refresh
@@ -217,6 +224,7 @@
     if (indexPath.row < self.feedsArray.count)
     {
         KMFeedDetailContainerVC *detailVC = [[KMFeedDetailContainerVC alloc] initWithIphoneFromNib];
+        detailVC.feed = [self.feedsArray objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }

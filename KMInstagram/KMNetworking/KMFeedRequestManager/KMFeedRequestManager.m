@@ -9,14 +9,17 @@
 #import "KMFeedRequestManager.h"
 #import "KMInstagramRequestClient.h"
 #import "KMAPIController.h"
-#import "KMUserAuthManager.h"
 #import "JSONKit.h"
 #import "KMFeed.h"
 #import "KMPagination.h"
 
+
+@interface KMBaseRequestManager()
+@property (readwrite, nonatomic, strong) NSDate *lastUpdateDate;
+@property (readwrite, nonatomic, strong) KMPagination *pagination;
+@end
+
 @interface KMFeedRequestManager()
-@property (nonatomic, strong) NSDate *lastUpdateDate;
-@property (nonatomic, strong) KMPagination *pagination;
 @end
 
 @implementation KMFeedRequestManager
@@ -27,10 +30,12 @@
                   completion:(CompletionBlock)completion
 {
     self.loading = YES;
-    NSMutableDictionary* parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys: @(count), @"count",  nil];
-    [parameters setObject:[[[KMAPIController sharedInstance] userAuthManager] getAcessToken] forKey:@"access_token"];
+    
+    NSMutableDictionary* parameters = [self baseParams];
+    [parameters setObject:@(count) forKey:@"count"];
     if (minId) [parameters setObject:minId forKey:@"min_id"];
     if (maxId) [parameters setObject:maxId forKey:@"max_id"];
+    
     __weak KMFeedRequestManager *self_ = self;
     [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
                                           parameters:parameters

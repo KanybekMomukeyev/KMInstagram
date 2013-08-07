@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KMPagination;
+#import "KMBaseRequestManager.h"
 
-@interface KMFeedRequestManager : NSObject
-@property (nonatomic, getter = isLoading) BOOL loading;
-@property (nonatomic, strong, readonly) NSDate *lastUpdateDate;
-@property (nonatomic, strong, readonly) KMPagination *pagination;
+@interface KMFeedRequestManager : KMBaseRequestManager
 
 - (void)getUserFeedWithCount:(NSInteger)count
                        minId:(NSString *)minId

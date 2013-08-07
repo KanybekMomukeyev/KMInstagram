@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "KMBaseTableVC.h"
 @interface KMFeedCommentsTVC : KMBaseTableVC
-
+@property (nonatomic, strong) NSString *feedId;
 @end

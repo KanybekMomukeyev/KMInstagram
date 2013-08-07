@@ -1,5 +1,5 @@
 //
-//  KMFeedLikesTVC.h
+//  KMTableAnimatingHeaderView.h
 //  KMInstagram
 //
 //  Created by Kanybek Momukeev on 8/7/13.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KMBaseTableVC.h"
-@interface KMFeedLikesTVC : KMBaseTableVC
-@property (nonatomic, strong) NSString *feedId;
+
+@interface KMTableAnimatingHeaderView : UIView
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *indicatorView;
 @end

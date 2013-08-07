@@ -9,5 +9,5 @@
 
 #import "KMBaseVC.h"
 @interface KMFeedDetailContainerVC : KMBaseVC
-
+@property (nonatomic, strong) id feed;
 @end
