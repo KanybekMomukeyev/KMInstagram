@@ -40,8 +40,9 @@
     [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
-                                                 
-                                                 //NSLog(@"response = %@",[response JSONString]);
+//                                                 NSLog(@"------ *************** *******************-----------------");
+//                                                 NSLog(@"%@",[response JSONString]);
+//                                                 NSLog(@"------ *************** *******************-----------------");
                                                  __block NSMutableArray *feedsArray = [NSMutableArray new];
                                                  __block KMPagination *paging = nil;
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

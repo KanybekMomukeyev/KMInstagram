@@ -8,5 +8,5 @@
 
 #import "KMBaseTVCell.h"
 @interface KMUserFeedsTVCell : KMBaseTVCell
-
+@property (nonatomic, copy) InfoBlock likeButtonPressHandler;
 @end

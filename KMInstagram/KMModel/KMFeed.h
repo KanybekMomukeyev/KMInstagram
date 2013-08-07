@@ -18,6 +18,7 @@
 @property (readonly, nonatomic, strong) NSMutableArray *likesArray;
 
 @property (readonly, nonatomic, strong) NSString *feedId;
+@property (readwrite, nonatomic) BOOL user_has_liked;
 @property (readonly, nonatomic, strong) NSString *link;
 @property (readonly, nonatomic, strong) NSDate *created_time;
 @property (readonly, nonatomic, strong) NSString *imageLink;

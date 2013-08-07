@@ -7,6 +7,6 @@
 //
 
 
-#import "KMBaseRefreshTVC.h"
-@interface KMUserFeedTVC : KMBaseRefreshTVC
+#import "KMBaseUserFeedTVC.h"
+@interface KMUserFeedTVC : KMBaseUserFeedTVC
 @end

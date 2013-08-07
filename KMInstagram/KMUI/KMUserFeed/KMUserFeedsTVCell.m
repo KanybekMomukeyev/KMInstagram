@@ -23,6 +23,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *likesCountLabel;
 @property (nonatomic, strong) IBOutlet UILabel *commentsCountLabel;
 @property (nonatomic, strong) IBOutlet UILabel *captionCommentLabel;
+@property (nonatomic, strong) IBOutlet UIButton *likeButton;
 @end
 
 @implementation KMUserFeedsTVCell
@@ -34,7 +35,6 @@
     }
     return self;
 }
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
@@ -51,6 +51,25 @@
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];
     self.commentsCountLabel.text = [NSString stringWithFormat:@"%@ comments",feed.commentsCount];
     self.captionCommentLabel.text = feed.caption.text;
+    if (feed.user_has_liked) {
+        [self.likeButton setSelected:YES];
+    }else {
+        [self.likeButton setSelected:NO];
+    }
+}
+
+- (IBAction)likeButtonDidPressed:(UIButton *)sender
+{
+    if (sender.isSelected)
+        [sender setSelected:NO];
+    else
+        [sender setSelected:YES];
+    
+    if (self.likeButtonPressHandler)
+    {
+        KMFeed *feed = (KMFeed *)self.object;
+        self.likeButtonPressHandler(feed);
+    }
 }
 
 @end

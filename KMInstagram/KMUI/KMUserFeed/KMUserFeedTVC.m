@@ -7,15 +7,16 @@
 //
 
 #import "KMUserFeedTVC.h"
-#import "KMLoginVC.h"
 #import "KMAPIController.h"
-#import "KMUserAuthManager.h"
 #import "KMUserFeedsTVCell.h"
 #import "KMFeedRequestManager.h"
 #import "KMFeedDetailContainerVC.h"
 #import "KMLoadingTVCell.h"
 #import "KMPagination.h"
-#define kKMInstagramFeedPageCount 20
+#import "KMFeed.h"
+#import "KMLikesCommentsReqManager.h"
+
+#define kKMInstagramFeedPageCount 5
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -26,11 +27,16 @@
 - (void)doneLoadingTableViewData;
 @end
 
+@interface KMBaseUserFeedTVC ()
+- (void)insertIndexPaths:(NSArray *)indexPathsArray;
+- (void)stopAnimatingLoadingCellForRow:(NSUInteger )row;
+@end
 
 @interface KMUserFeedTVC ()
 @property (nonatomic, strong) NSMutableArray *feedsArray;
 @property (nonatomic, copy) CompletionBlock refreshHandler;
 @property (nonatomic, copy) CompletionBlock pagingHandler;
+@property (nonatomic, copy) InfoBlock likePressHandler;
 @end
 
 
@@ -44,13 +50,32 @@
     return _feedsArray;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setUpBlocks];
     [self attachPullToRefreshHeader];
     [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier], [KMLoadingTVCell reuseIdentifier]]];
-    
+    [self reloadTableViewDataSource];
+    [self.refreshHeaderView setState:[[[KMAPIController sharedInstance] feedRequestManager] isLoading] ? EGOOPullRefreshLoading : EGOOPullRefreshNormal];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([[[KMAPIController sharedInstance] feedRequestManager] isLoading]) {
+        [self.tableView setContentOffset:CGPointMake(0.0, -54.0) animated:animated];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+- (void)setUpBlocks
+{
     __weak KMUserFeedTVC *self_ = self;
     self.refreshHandler = ^(NSArray *array, NSError *error) {
         if (error) {
@@ -67,51 +92,41 @@
     self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
-            [self_ stopAnimatingLoadingCell];
+            [self_ stopAnimatingLoadingCellForRow:self_.feedsArray.count];
         }else
         {
             NSMutableArray *indexPathsArray = [NSMutableArray new];
             for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
                 [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
-            }   
+            }
             [self_.feedsArray addObjectsFromArray:oldFeeds];
-            [self_.tableView beginUpdates];
-            [self_.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationTop];
-            [self_.tableView endUpdates];
+            [self_ insertIndexPaths:indexPathsArray];
         }
     };
     
-    
-    [self reloadTableViewDataSource];
-    [self.refreshHeaderView setState:[[[KMAPIController sharedInstance] feedRequestManager] isLoading] ? EGOOPullRefreshLoading : EGOOPullRefreshNormal];
-    
-    UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"")
-                                                                    style:UIBarButtonItemStylePlain
-                                                                   target:self
-                                                                   action:@selector(logOut:)];
-    self.navigationItem.rightBarButtonItem = doneBarItem;
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if ([[[KMAPIController sharedInstance] feedRequestManager] isLoading]) {
-        [self.tableView setContentOffset:CGPointMake(0.0, -54.0) animated:animated];
-    }
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-
-- (void)logOut:(id)sender
-{
-    [[[KMAPIController sharedInstance] userAuthManager] logOut];
-    KMLoginVC *loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];
-    [self.navigationController setViewControllers:@[loginVC] animated:YES];
+    self.likePressHandler = ^(KMFeed *feed) { 
+        if (feed.user_has_liked) {
+            [[[KMAPIController sharedInstance] likesCommentsReqManager] removeLikeForFeedId:feed.feedId
+                                                                             withCompletion:^(id response, NSError *error){
+                                                                                 if (!error) {
+                                                                                     NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
+                                                                                     KMFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
+                                                                                     NSLog(@"%@",toChangeFeed.user.username);
+                                                                                     toChangeFeed.user_has_liked = NO;
+                                                                                 }
+                                                                             }];
+        }else {
+            [[[KMAPIController sharedInstance] likesCommentsReqManager] postLikeForFeedId:feed.feedId
+                                                                           withCompletion:^(id response, NSError *error) {
+                                                                               if (!error) {
+                                                                                   NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
+                                                                                   KMFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
+                                                                                   NSLog(@"%@",toChangeFeed.user.username);
+                                                                                   toChangeFeed.user_has_liked = YES;
+                                                                               }
+                                                                           }];
+        }
+    };
 }
 
 
@@ -121,15 +136,11 @@
     self.lastUpdateDate = [[[KMAPIController sharedInstance] feedRequestManager] lastUpdateDate];
     [self.refreshHeaderView refreshLastUpdatedDate];
     [super doneLoadingTableViewData];
-
     NSMutableArray *indexPathsArray = [NSMutableArray new];
     for (NSUInteger index = 0; index < self.feedsArray.count + 1; index ++) {
         [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
     }
-    
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:indexPathsArray withRowAnimation:UITableViewRowAnimationTop];
-    [self.tableView endUpdates];
+    [self insertIndexPaths:indexPathsArray];
 }
 
 #pragma mark - Refresh
@@ -150,30 +161,17 @@
                                                                               maxId:nextMaxId
                                                                          completion:self.pagingHandler];
     }else {
-        [self stopAnimatingLoadingCell];
+        [self stopAnimatingLoadingCellForRow:self.feedsArray.count];
     }
-}
-
-
-
-#pragma mark -
-- (void)stopAnimatingLoadingCell
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.feedsArray.count inSection:0];
-    KMLoadingTVCell *loadingCell = (KMLoadingTVCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    [loadingCell.indicatorView stopAnimating];
-    loadingCell.indicatorView.hidden = YES;
 }
 
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row < self.feedsArray.count)
-    {
         return 408;
-    }else {
+    else
         return 44;
-    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -190,7 +188,6 @@
     }
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row < self.feedsArray.count)
@@ -200,6 +197,7 @@
             cell = [[KMUserFeedsTVCell alloc] initWithStyle:UITableViewCellStyleDefault
                                             reuseIdentifier:[KMUserFeedsTVCell reuseIdentifier]];
         }
+        cell.likeButtonPressHandler = self.likePressHandler;
         cell.object = [self.feedsArray objectAtIndex:indexPath.row];
         [cell reloadData];
         return cell;
@@ -217,7 +215,6 @@
     }
 }
 
-
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -228,6 +225,4 @@
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
-
-
 @end

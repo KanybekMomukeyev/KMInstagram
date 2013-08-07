@@ -20,9 +20,8 @@
 {
     [[KMInstagramRequestClient sharedClient] getPath:[NSString stringWithFormat:@"media/%@/likes", feedId]
                                           parameters:[self baseParams]
-                                             success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
+                                             success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                  
-                                                 //NSLog(@"response = %@",[response JSONString]);
                                                  __block NSMutableArray *usersArray = [NSMutableArray new];
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
@@ -52,9 +51,7 @@
 {
     [[KMInstagramRequestClient sharedClient] postPath:[NSString stringWithFormat:@"media/%@/likes", feedId]
                                            parameters:[self baseParams]
-                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
-                                                 
-                                                  NSLog(@"response = %@",[response JSONString]);
+                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                   if (completion) {
                                                      completion(response, nil);
                                                   }
@@ -72,9 +69,7 @@
 {
     [[KMInstagramRequestClient sharedClient] deletePath:[NSString stringWithFormat:@"media/%@/likes", feedId]
                                              parameters:[self baseParams]
-                                                success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
-                                                  
-                                                    NSLog(@"response = %@",[response JSONString]);
+                                                success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                     if (completion) {
                                                         completion(response, nil);
                                                     }
@@ -94,9 +89,8 @@
 {
     [[KMInstagramRequestClient sharedClient] getPath:[NSString stringWithFormat:@"media/%@/comments", feedId]
                                           parameters:[self baseParams]
-                                             success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response){
+                                             success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                  
-                                                 //NSLog(@"response = %@",[response JSONString]);
                                                  __block NSMutableArray *commentsArray = [NSMutableArray new];
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
@@ -110,9 +104,6 @@
                                                          }
                                                      });
                                                  });
-
-                                                 
-                                                 
                                              }
                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
                                                  NSLog(@"error.description = %@",error.description);

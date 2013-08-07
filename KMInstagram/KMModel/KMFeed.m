@@ -19,6 +19,7 @@
         if (![dict isKindOfClass:[NSNull class]])
         {
             _feedId = [dict objectForKey:@"id"];
+            _user_has_liked = [[dict objectForKey:@"user_has_liked"] boolValue];
             _link = [dict objectForKey:@"link"];
             _created_time = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"created_time"] doubleValue]];
             NSDictionary *imagesDict = [dict objectForKey:@"images"];
