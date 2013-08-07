@@ -30,6 +30,7 @@
             NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
             CDUser *user = [CDUser MR_createInContext:localContext];
             [user setWithDictionary:[dict objectForKey:@"from"]];
+            self.user = user;
         }
     }
 }

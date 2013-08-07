@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @class KMUserAuthManager;
-@class KMFeedRequestManager;
 @class KMLikesCommentsReqManager;
 @class KMDataCacheRequestManager;
+@class KMDataStoreManager;
 
 @interface KMAPIController : NSObject
 @property (readonly, nonatomic, strong) KMUserAuthManager *userAuthManager;
-@property (readonly, nonatomic, strong) KMFeedRequestManager *feedRequestManager;
 @property (readonly, nonatomic, strong) KMLikesCommentsReqManager *likesCommentsReqManager;
 @property (readonly, nonatomic, strong) KMDataCacheRequestManager *cachedRequestManager;
+@property (readonly, nonatomic, strong) KMDataStoreManager *dataStoreManager;
 + (KMAPIController *)sharedInstance;
 @end

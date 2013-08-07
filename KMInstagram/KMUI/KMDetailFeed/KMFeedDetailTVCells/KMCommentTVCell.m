@@ -7,8 +7,8 @@
 //
 
 #import "KMCommentTVCell.h"
-#import "KMUser.h"
-#import "KMComment.h"
+#import "CDUser.h"
+#import "CDComment.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface KMCommentTVCell()
@@ -35,7 +35,7 @@
 #define PADDING 10
 - (void)reloadData
 {
-    KMComment *comment = (KMComment *)self.object;
+    CDComment *comment = (CDComment *)self.object;
     if (comment.user.profile_picture) {
         [self.userImageView setImageWithURL:[NSURL URLWithString:comment.user.profile_picture] placeholderImage:nil];
     }

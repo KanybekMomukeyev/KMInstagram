@@ -13,10 +13,12 @@
 #import "CDFeed.h"
 #import "CDPagination.h"
 #import "CDUser.h"
+#import "KMDataStoreManager.h"
+
+#define kKMLastSavedDate @"kKMLastSavedDate"
 
 @interface KMBaseRequestManager()
 @property (readwrite, nonatomic, strong) NSDate *lastUpdateDate;
-@property (readwrite, nonatomic, strong) KMPagination *pagination;
 @end
 
 @implementation KMDataCacheRequestManager
@@ -27,7 +29,6 @@
                   completion:(CompletionBlock)completion
 {
     self.loading = YES;
-    
     NSMutableDictionary* parameters = [self baseParams];
     [parameters setObject:@(count) forKey:@"count"];
     if (minId) [parameters setObject:minId forKey:@"min_id"];
@@ -37,6 +38,11 @@
     [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
+                                                 
+                                                 if (maxId == nil) {
+                                                     // if we are refreshing, delete all feeds
+                                                     [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeeds];
+                                                 }
                                                  
                                                  __block NSManagedObjectContext *localContext = nil;
                                                  __block CDPagination *paging = nil;
@@ -54,9 +60,10 @@
                                                      }];
                                                      
                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                         
                                                          self_.loading = NO;
                                                          self_.lastUpdateDate = [NSDate date];
-                                                         
+                                                         [[NSUserDefaults standardUserDefaults] setValue:self_.lastUpdateDate forKey:kKMLastSavedDate];
                                                          [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL sucess, NSError *error){
                                                              if (sucess) {
                                                                  NSLog(@"GOOD");
@@ -74,6 +81,7 @@
                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
                                                  NSLog(@"error.description = %@",error.description);
                                                  self_.loading = NO;
+                                                 self_.lastUpdateDate  = [[NSUserDefaults standardUserDefaults] objectForKey:kKMLastSavedDate];
                                                  if (completion) {
                                                      completion(nil, error);
                                                  }

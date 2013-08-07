@@ -10,7 +10,7 @@
 #import "KMAPIController.h"
 #import "KMLikesCommentsReqManager.h"
 #import "KMCommentTVCell.h"
-#import "KMComment.h"
+#import "CDComment.h"
 
 @interface KMFeedCommentsTVC ()
 @property (nonatomic, strong) NSArray *comments;
@@ -49,12 +49,11 @@
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KMComment *comment = [self.comments objectAtIndex:indexPath.row];
+    CDComment *comment = [self.comments objectAtIndex:indexPath.row];
     NSString *text = [NSString stringWithFormat:@"%@",comment.text];
     CGSize textSize = [text sizeWithFont:[UIFont fontWithName:@"Helvetica Neue" size:12]
                        constrainedToSize:CGSizeMake(270 - PADDING * 3, 1000.0f)];
     CGFloat height = 41 + textSize.height;
-    NSLog(@"height = %f",height);
     return height;
 }
 

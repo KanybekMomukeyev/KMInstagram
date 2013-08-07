@@ -42,6 +42,7 @@
         NSManagedObjectContext *localContext    = [NSManagedObjectContext MR_contextForCurrentThread];
         CDCaption *caption = [CDCaption MR_createInContext:localContext];
         [caption setWithDictionary:[dict objectForKey:@"caption"]];
+        self.caption = caption;
         
         __weak CDFeed *self_ = self;
         NSArray *tags = [dict objectForKey:@"tags"];
@@ -50,9 +51,9 @@
             tag.tagName = tagName;
             [self_ addTagsObject:tag];
         }];
-        
+                
         NSDictionary *commentsDict = [dict objectForKey:@"comments"];
-        self.commentsCount = [commentsDict objectForKey:@"count"];
+        self.commentsCount = [[commentsDict objectForKey:@"count"] stringValue];
         NSArray *commentsArr = [commentsDict objectForKey:@"data"];
         [commentsArr enumerateObjectsUsingBlock:^(NSDictionary *commObj, NSUInteger idx, BOOL *stop){
             CDComment *comment = [CDComment MR_createInContext:localContext];
@@ -62,9 +63,10 @@
         
         CDUser *user = [CDUser MR_createInContext:localContext];
         [user setWithDictionary:[dict objectForKey:@"user"]];
+        self.user = user;
         
         NSDictionary *likesDict = [dict objectForKey:@"likes"];
-        self.likesCount = [likesDict objectForKey:@"count"];
+        self.likesCount = [[likesDict objectForKey:@"count"] stringValue];
         
         NSArray *likes = [likesDict objectForKey:@"data"];
         [likes enumerateObjectsUsingBlock:^(NSDictionary *likeObj, NSUInteger idx, BOOL *stop){

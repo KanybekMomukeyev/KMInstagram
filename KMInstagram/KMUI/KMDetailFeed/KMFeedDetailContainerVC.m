@@ -11,7 +11,7 @@
 #import "UIView+NIB.h"
 #import "KMFeedLikesTVC.h"
 #import "KMFeedCommentsTVC.h"
-#import "KMFeed.h"
+#import "CDFeed.h"
 
 @interface KMFeedDetailContainerVC ()
 @property (nonatomic, strong) BASegmentedControl *segMentedControl;
@@ -40,7 +40,7 @@
     [self addChildViewController:self.navController];
     [self.view addSubview:self.navController.view];
     
-    KMFeed *feedObj = (KMFeed *)self.feed;
+    CDFeed *feedObj = (CDFeed *)self.feed;
     
     self.likesTVC = [[KMFeedLikesTVC alloc] initWithIphoneFromNib];
     self.likesTVC.feedId = feedObj.feedId;

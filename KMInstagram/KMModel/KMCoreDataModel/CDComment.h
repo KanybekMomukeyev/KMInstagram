@@ -14,7 +14,7 @@
 
 @interface CDComment : NSManagedObject<CDEditingProtocol>
 
-@property (nonatomic, retain) NSNumber * created_time;
+@property (nonatomic, retain) NSDate * created_time;
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * commentId;
 @property (nonatomic, retain) CDUser *user;

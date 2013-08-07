@@ -7,12 +7,10 @@
 //
 
 #import "KMBaseRequestManager.h"
-#import "KMPagination.h"
 #import "KMAPIController.h"
 #import "KMUserAuthManager.h"
 @interface KMBaseRequestManager()
 @property (nonatomic, strong) NSDate *lastUpdateDate;
-@property (nonatomic, strong) KMPagination *pagination;
 @end
 
 @implementation KMBaseRequestManager

@@ -11,8 +11,9 @@
 #import "KMUserAuthManager.h"
 #import "KMInstagramRequestClient.h"
 #import "JSONKit.h"
-#import "KMUser.h"
-#import "KMComment.h"
+#import "CDComment.h"
+#import "CDUser.h"
+
 
 @implementation KMLikesCommentsReqManager
 
@@ -24,9 +25,12 @@
                                                  
                                                  __block NSMutableArray *usersArray = [NSMutableArray new];
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                     
+                                                     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
                                                      [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){
-                                                         KMUser *user = [[KMUser alloc] initWithDictionary:object];
+                                                         CDUser *user = [CDUser MR_createInContext:localContext];
+                                                         [user setWithDictionary:object];
                                                          [usersArray addObject:user];
                                                      }];
                                                      dispatch_async(dispatch_get_main_queue(), ^{
@@ -93,9 +97,12 @@
                                                  
                                                  __block NSMutableArray *commentsArray = [NSMutableArray new];
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                     
+                                                     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
                                                      [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){
-                                                         KMComment *comment = [[KMComment alloc] initWithDictionary:object];
+                                                         CDComment *comment = [CDComment MR_createInContext:localContext];
+                                                         [comment setWithDictionary:object];
                                                          [commentsArray addObject:comment];
                                                      }];
                                                      dispatch_async(dispatch_get_main_queue(), ^{

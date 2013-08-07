@@ -9,15 +9,17 @@
 #import "KMUserFeedTVC.h"
 #import "KMAPIController.h"
 #import "KMUserFeedsTVCell.h"
-#import "KMFeedRequestManager.h"
+#import "KMDataCacheRequestManager.h"
 #import "KMFeedDetailContainerVC.h"
 #import "KMLoadingTVCell.h"
-#import "KMPagination.h"
-#import "KMFeed.h"
 #import "KMLikesCommentsReqManager.h"
-#import "KMDataCacheRequestManager.h"
+#import "CDFeed.h"
+#import "CDUser.h"
+#import "CDCaption.h"
+#import "CDPagination.h"
+#import "KMDataStoreManager.h"
 
-#define kKMInstagramFeedPageCount 5
+#define kKMInstagramFeedPageCount 10
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -61,12 +63,12 @@
     [self setUpBlocks];
     [self attachPullToRefreshHeader];
     [self reloadTableViewDataSource];
-    [self.refreshHeaderView setState:[[[KMAPIController sharedInstance] feedRequestManager] isLoading] ? EGOOPullRefreshLoading : EGOOPullRefreshNormal];
+    [self.refreshHeaderView setState:[[[KMAPIController sharedInstance] cachedRequestManager] isLoading] ? EGOOPullRefreshLoading : EGOOPullRefreshNormal];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if ([[[KMAPIController sharedInstance] feedRequestManager] isLoading]) {
+    if ([[[KMAPIController sharedInstance] cachedRequestManager] isLoading]) {
         [self.tableView setContentOffset:CGPointMake(0.0, -54.0) animated:animated];
     }
 }
@@ -79,17 +81,16 @@
 #pragma mark -
 - (void)setUpBlocks
 {
+    
     __weak KMUserFeedTVC *self_ = self;
-    self.refreshHandler = ^(NSArray *array, NSError *error) {
+    self.refreshHandler = ^(NSNumber *sucess, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
-            [super doneLoadingTableViewData];
-        } else {
-            [self_.feedsArray removeAllObjects];
-            [self_.tableView reloadData];
-            [self_.feedsArray addObjectsFromArray:array];
-            [self_ doneLoadingTableViewData];
         }
+        [self_.feedsArray removeAllObjects];
+        [self_.tableView reloadData];
+        [self_.feedsArray addObjectsFromArray:[CDFeed MR_findAll]];
+        [self_ doneLoadingTableViewData];
     };
     
     self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
@@ -98,36 +99,42 @@
             [self_ stopAnimatingLoadingCell];
         }else
         {
-            NSMutableArray *indexPathsArray = [NSMutableArray new];
-            for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
-                [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
-            }
-            [self_.feedsArray addObjectsFromArray:oldFeeds];
-            [self_ insertIndexPaths:indexPathsArray];
+//            NSMutableArray *indexPathsArray = [NSMutableArray new];
+//            for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
+//                [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+//            }
+//            [self_.feedsArray addObjectsFromArray:oldFeeds];
+//            [self_ insertIndexPaths:indexPathsArray];
         }
     };
     
-    self.likePressHandler = ^(KMFeed *feed) { 
-        if (feed.user_has_liked) {
+    self.likePressHandler = ^(CDFeed *feed) {
+        if ([feed.user_has_liked boolValue]) {
             [[[KMAPIController sharedInstance] likesCommentsReqManager] removeLikeForFeedId:feed.feedId
                                                                              withCompletion:^(id response, NSError *error){
-                                                                                 if (!error) {
+                                                                                 if (!error)
+                                                                                 {
+                                                                                     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
                                                                                      NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
-                                                                                     KMFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
+                                                                                     CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
                                                                                      NSLog(@"%@",toChangeFeed.user.username);
-                                                                                     toChangeFeed.user_has_liked = NO;
+                                                                                     toChangeFeed.user_has_liked = @(NO);
+                                                                                     [localContext MR_saveToPersistentStoreAndWait];
                                                                                  }
                                                                              }];
         }else {
             [[[KMAPIController sharedInstance] likesCommentsReqManager] postLikeForFeedId:feed.feedId
                                                                            withCompletion:^(id response, NSError *error) {
-                                                                               if (!error) {
+                                                                               if (!error)
+                                                                               {
+                                                                                   NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];    
                                                                                    NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
-                                                                                   KMFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
+                                                                                   CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
                                                                                    NSLog(@"%@",toChangeFeed.user.username);
-                                                                                   toChangeFeed.user_has_liked = YES;
+                                                                                   toChangeFeed.user_has_liked = @(YES);
+                                                                                   [localContext MR_saveToPersistentStoreAndWait];
                                                                                }
-                                                                           }];
+                                                                  }];
         }
     };
 }
@@ -136,8 +143,10 @@
 #pragma mark -
 - (void)doneLoadingTableViewData
 {
-    self.lastUpdateDate = [[[KMAPIController sharedInstance] feedRequestManager] lastUpdateDate];
-    [self.refreshHeaderView refreshLastUpdatedDate];
+    if ([[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate]) {
+        self.lastUpdateDate = [[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate];
+        [self.refreshHeaderView refreshLastUpdatedDate];
+    }
     [super doneLoadingTableViewData];
     NSMutableArray *indexPathsArray = [NSMutableArray new];
     for (NSUInteger index = 0; index < self.feedsArray.count + 1; index ++) {
@@ -149,20 +158,22 @@
 #pragma mark - Refresh
 - (void)reloadTableViewDataSource {
     [super reloadTableViewDataSource];
-    [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
-                                                                          minId:nil
-                                                                          maxId:nil
-                                                                     completion:self.refreshHandler];
+    [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
+                                                                            minId:nil
+                                                                            maxId:nil
+                                                                       completion:self.refreshHandler];
 }
 
 - (void)fetchOldFeeds
 {
-    NSString *nextMaxId = [[KMAPIController sharedInstance] feedRequestManager].pagination.next_max_id;
-    if (nextMaxId) {
-        [[[KMAPIController sharedInstance] feedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
-                                                                              minId:nil
-                                                                              maxId:nextMaxId
-                                                                         completion:self.pagingHandler];
+    return;
+    
+    CDPagination *pagination = [[CDPagination MR_findAll] lastObject];
+    if (pagination.next_max_id) {
+        [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
+                                                                                minId:nil
+                                                                                maxId:pagination.next_max_id
+                                                                           completion:self.pagingHandler];
     }else {
         [self stopAnimatingLoadingCell];
     }

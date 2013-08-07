@@ -9,7 +9,7 @@
     </entity>
     <entity name="CDComment" representedClassName="CDComment" syncable="YES">
         <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="created_time" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="comments" inverseEntity="CDFeed" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="comment" inverseEntity="CDUser" syncable="YES"/>
@@ -50,8 +50,8 @@
         <element name="CDCaption" positionX="153" positionY="270" width="128" height="120"/>
         <element name="CDComment" positionX="-153" positionY="369" width="128" height="120"/>
         <element name="CDFeed" positionX="135" positionY="-126" width="128" height="225"/>
+        <element name="CDPagination" positionX="-36" positionY="198" width="128" height="75"/>
         <element name="CDTag" positionX="513" positionY="360" width="128" height="75"/>
         <element name="CDUser" positionX="736" positionY="-96" width="128" height="165"/>
-        <element name="CDPagination" positionX="-36" positionY="198" width="128" height="75"/>
     </elements>
 </model>

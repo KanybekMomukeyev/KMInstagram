@@ -7,11 +7,11 @@
 //
 
 #import "KMUserFeedsTVCell.h"
-#import "KMFeed.h"
-#import "KMUser.h"
-#import "KMCaption.h"
-#import "KMTag.h"
-#import "KMComment.h"
+#import "CDFeed.h"
+#import "CDUser.h"
+#import "CDTag.h"
+#import "CDComment.h"
+#import "CDCaption.h"
 #import "UIImageView+AFNetworking.h"
 #import "NSDateFormatter+Extensions.h"
 
@@ -43,7 +43,7 @@
 
 - (void)reloadData
 {
-    KMFeed *feed = (KMFeed *)self.object;
+    CDFeed *feed = (CDFeed *)self.object;
     [self.userImageView setImageWithURL:[NSURL URLWithString:feed.user.profile_picture] placeholderImage:nil];
     [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"background"]];
     self.userNameLabel.text = feed.user.username;
@@ -51,7 +51,7 @@
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];
     self.commentsCountLabel.text = [NSString stringWithFormat:@"%@ comments",feed.commentsCount];
     self.captionCommentLabel.text = feed.caption.text;
-    if (feed.user_has_liked) {
+    if ([feed.user_has_liked boolValue]) {
         [self.likeButton setSelected:YES];
     }else {
         [self.likeButton setSelected:NO];
@@ -67,7 +67,7 @@
     
     if (self.likeButtonPressHandler)
     {
-        KMFeed *feed = (KMFeed *)self.object;
+        CDFeed *feed = (CDFeed *)self.object;
         self.likeButtonPressHandler(feed);
     }
 }

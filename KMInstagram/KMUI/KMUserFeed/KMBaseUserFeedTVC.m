@@ -12,6 +12,7 @@
 #import "KMUserAuthManager.h"
 #import "KMLoadingTVCell.h"
 #import "KMUserFeedsTVCell.h"
+
 @interface KMBaseUserFeedTVC ()
 
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;

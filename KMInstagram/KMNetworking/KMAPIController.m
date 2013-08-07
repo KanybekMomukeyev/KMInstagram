@@ -9,15 +9,15 @@
 #import "KMAPIController.h"
 #import "Singleton.h"
 #import "KMUserAuthManager.h"
-#import "KMFeedRequestManager.h"
 #import "KMLikesCommentsReqManager.h"
 #import "KMDataCacheRequestManager.h"
+#import "KMDataStoreManager.h"
 
 @interface KMAPIController()
 @property (nonatomic, strong) KMUserAuthManager *userAuthManager;
-@property (nonatomic, strong) KMFeedRequestManager *feedRequestManager;
 @property (nonatomic, strong) KMLikesCommentsReqManager *likesCommentsReqManager;
 @property (nonatomic, strong) KMDataCacheRequestManager *cachedRequestManager;
+@property (nonatomic, strong) KMDataStoreManager *dataStoreManager;
 @end
 
 
@@ -32,13 +32,6 @@ SINGLETON_GCD(KMAPIController)
     return _userAuthManager;
 }
 
-- (KMFeedRequestManager *)feedRequestManager {
-    if (!_feedRequestManager) {
-        _feedRequestManager = [KMFeedRequestManager new];
-    }
-    return _feedRequestManager;
-}
-
 -(KMLikesCommentsReqManager *)likesCommentsReqManager {
     if (!_likesCommentsReqManager) {
         _likesCommentsReqManager = [KMLikesCommentsReqManager new];
@@ -51,6 +44,13 @@ SINGLETON_GCD(KMAPIController)
         _cachedRequestManager = [KMDataCacheRequestManager new];
     }
     return _cachedRequestManager;
+}
+
+- (KMDataStoreManager *)dataStoreManager {
+    if (!_dataStoreManager) {
+        _dataStoreManager = [KMDataStoreManager new];
+    }
+    return _dataStoreManager;
 }
 
 @end

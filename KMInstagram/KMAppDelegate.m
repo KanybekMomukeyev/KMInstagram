@@ -14,6 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"KMInstagram.sqlite"];
+    
     KMLoginVC *loginVC = nil;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];

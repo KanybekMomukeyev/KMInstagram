@@ -56,12 +56,7 @@
 		A839C5F217B2785B00E6AFE9 /* CDFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5F117B2785B00E6AFE9 /* CDFeed.m */; };
 		A839C5F517B2785B00E6AFE9 /* CDTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5F417B2785B00E6AFE9 /* CDTag.m */; };
 		A839C5FC17B29D9000E6AFE9 /* KMDataCacheRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5FB17B29D9000E6AFE9 /* KMDataCacheRequestManager.m */; };
-		A839C60B17B2A78800E6AFE9 /* KMCaption.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5FF17B2A78800E6AFE9 /* KMCaption.m */; };
-		A839C60C17B2A78800E6AFE9 /* KMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C60117B2A78800E6AFE9 /* KMComment.m */; };
-		A839C60D17B2A78800E6AFE9 /* KMFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C60317B2A78800E6AFE9 /* KMFeed.m */; };
-		A839C60E17B2A78800E6AFE9 /* KMPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C60517B2A78800E6AFE9 /* KMPagination.m */; };
-		A839C60F17B2A78800E6AFE9 /* KMTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C60817B2A78800E6AFE9 /* KMTag.m */; };
-		A839C61017B2A78800E6AFE9 /* KMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C60A17B2A78800E6AFE9 /* KMUser.m */; };
+		A839C61317B2B6E600E6AFE9 /* KMDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C61217B2B6E500E6AFE9 /* KMDataStoreManager.m */; };
 		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
@@ -117,7 +112,6 @@
 		A88EE88617B10EC100DC75A2 /* KMUserFeedsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */; };
 		A88EE88817B10EDD00DC75A2 /* KMUserFeedsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */; };
 		A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */; };
-		A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */; };
 		A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE89517B11BBB00DC75A2 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A88EE8B217B16FDE00DC75A2 /* KMFeedDetailContainerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8B017B16FDE00DC75A2 /* KMFeedDetailContainerVC.m */; };
 		A88EE8B317B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8B117B16FDE00DC75A2 /* KMFeedDetailContainerVC.xib */; };
@@ -234,19 +228,8 @@
 		A839C5F617B2797200E6AFE9 /* CDEditingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDEditingProtocol.h; sourceTree = "<group>"; };
 		A839C5FA17B29D9000E6AFE9 /* KMDataCacheRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataCacheRequestManager.h; sourceTree = "<group>"; };
 		A839C5FB17B29D9000E6AFE9 /* KMDataCacheRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataCacheRequestManager.m; sourceTree = "<group>"; };
-		A839C5FE17B2A78800E6AFE9 /* KMCaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCaption.h; sourceTree = "<group>"; };
-		A839C5FF17B2A78800E6AFE9 /* KMCaption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCaption.m; sourceTree = "<group>"; };
-		A839C60017B2A78800E6AFE9 /* KMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMComment.h; sourceTree = "<group>"; };
-		A839C60117B2A78800E6AFE9 /* KMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMComment.m; sourceTree = "<group>"; };
-		A839C60217B2A78800E6AFE9 /* KMFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeed.h; sourceTree = "<group>"; };
-		A839C60317B2A78800E6AFE9 /* KMFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeed.m; sourceTree = "<group>"; };
-		A839C60417B2A78800E6AFE9 /* KMPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPagination.h; sourceTree = "<group>"; };
-		A839C60517B2A78800E6AFE9 /* KMPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPagination.m; sourceTree = "<group>"; };
-		A839C60617B2A78800E6AFE9 /* KMStoroableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStoroableProtocol.h; sourceTree = "<group>"; };
-		A839C60717B2A78800E6AFE9 /* KMTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMTag.h; sourceTree = "<group>"; };
-		A839C60817B2A78800E6AFE9 /* KMTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMTag.m; sourceTree = "<group>"; };
-		A839C60917B2A78800E6AFE9 /* KMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUser.h; sourceTree = "<group>"; };
-		A839C60A17B2A78800E6AFE9 /* KMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUser.m; sourceTree = "<group>"; };
+		A839C61117B2B6E500E6AFE9 /* KMDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataStoreManager.h; sourceTree = "<group>"; };
+		A839C61217B2B6E500E6AFE9 /* KMDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataStoreManager.m; sourceTree = "<group>"; };
 		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -336,8 +319,6 @@
 		A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMUserFeedsTVCell.xib; sourceTree = "<group>"; };
 		A88EE88B17B113EA00DC75A2 /* KMInstagramRequestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInstagramRequestClient.h; sourceTree = "<group>"; };
 		A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInstagramRequestClient.m; sourceTree = "<group>"; };
-		A88EE88E17B1143500DC75A2 /* KMFeedRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeedRequestManager.h; sourceTree = "<group>"; };
-		A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMFeedRequestManager.m; sourceTree = "<group>"; };
 		A88EE89417B11BBB00DC75A2 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		A88EE89517B11BBB00DC75A2 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		A88EE8AF17B16FDE00DC75A2 /* KMFeedDetailContainerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMFeedDetailContainerVC.h; sourceTree = "<group>"; };
@@ -535,26 +516,6 @@
 			path = KMDataCacheRequestManager;
 			sourceTree = "<group>";
 		};
-		A839C5FD17B2A78700E6AFE9 /* KMSimpleModel */ = {
-			isa = PBXGroup;
-			children = (
-				A839C5FE17B2A78800E6AFE9 /* KMCaption.h */,
-				A839C5FF17B2A78800E6AFE9 /* KMCaption.m */,
-				A839C60017B2A78800E6AFE9 /* KMComment.h */,
-				A839C60117B2A78800E6AFE9 /* KMComment.m */,
-				A839C60217B2A78800E6AFE9 /* KMFeed.h */,
-				A839C60317B2A78800E6AFE9 /* KMFeed.m */,
-				A839C60417B2A78800E6AFE9 /* KMPagination.h */,
-				A839C60517B2A78800E6AFE9 /* KMPagination.m */,
-				A839C60617B2A78800E6AFE9 /* KMStoroableProtocol.h */,
-				A839C60717B2A78800E6AFE9 /* KMTag.h */,
-				A839C60817B2A78800E6AFE9 /* KMTag.m */,
-				A839C60917B2A78800E6AFE9 /* KMUser.h */,
-				A839C60A17B2A78800E6AFE9 /* KMUser.m */,
-			);
-			path = KMSimpleModel;
-			sourceTree = "<group>";
-		};
 		A88EE79D17B0CF5A00DC75A2 = {
 			isa = PBXGroup;
 			children = (
@@ -669,7 +630,6 @@
 		A88EE7F817B0D06A00DC75A2 /* KMModel */ = {
 			isa = PBXGroup;
 			children = (
-				A839C5FD17B2A78700E6AFE9 /* KMSimpleModel */,
 				A839C5E017B2733300E6AFE9 /* KMCoreDataModel */,
 			);
 			path = KMModel;
@@ -696,6 +656,8 @@
 				A88EE7C317B0CF5A00DC75A2 /* KMInstagram.xcdatamodeld */,
 				A88EE80F17B0D0C200DC75A2 /* KMBaseDataStoreManager.h */,
 				A88EE81017B0D0C200DC75A2 /* KMBaseDataStoreManager.m */,
+				A839C61117B2B6E500E6AFE9 /* KMDataStoreManager.h */,
+				A839C61217B2B6E500E6AFE9 /* KMDataStoreManager.m */,
 			);
 			path = KMDataStoreManager;
 			sourceTree = "<group>";
@@ -828,8 +790,6 @@
 			children = (
 				A839C56417B2134C00E6AFE9 /* KMBaseRequestManager.h */,
 				A839C56517B2134D00E6AFE9 /* KMBaseRequestManager.m */,
-				A88EE88E17B1143500DC75A2 /* KMFeedRequestManager.h */,
-				A88EE88F17B1143500DC75A2 /* KMFeedRequestManager.m */,
 				A839C56717B214AA00E6AFE9 /* KMLikesCommentsReqManager.h */,
 				A839C56817B214AA00E6AFE9 /* KMLikesCommentsReqManager.m */,
 			);
@@ -1027,7 +987,6 @@
 				A88EE88317B10BE500DC75A2 /* KMBaseRefreshTVC.m in Sources */,
 				A88EE88617B10EC100DC75A2 /* KMUserFeedsTVCell.m in Sources */,
 				A88EE88D17B113EB00DC75A2 /* KMInstagramRequestClient.m in Sources */,
-				A88EE89017B1143500DC75A2 /* KMFeedRequestManager.m in Sources */,
 				A88EE89617B11BBB00DC75A2 /* JSONKit.m in Sources */,
 				A88EE8B217B16FDE00DC75A2 /* KMFeedDetailContainerVC.m in Sources */,
 				A88EE8B717B1714B00DC75A2 /* KMFeedLikesTVC.m in Sources */,
@@ -1074,12 +1033,7 @@
 				A839C5F217B2785B00E6AFE9 /* CDFeed.m in Sources */,
 				A839C5F517B2785B00E6AFE9 /* CDTag.m in Sources */,
 				A839C5FC17B29D9000E6AFE9 /* KMDataCacheRequestManager.m in Sources */,
-				A839C60B17B2A78800E6AFE9 /* KMCaption.m in Sources */,
-				A839C60C17B2A78800E6AFE9 /* KMComment.m in Sources */,
-				A839C60D17B2A78800E6AFE9 /* KMFeed.m in Sources */,
-				A839C60E17B2A78800E6AFE9 /* KMPagination.m in Sources */,
-				A839C60F17B2A78800E6AFE9 /* KMTag.m in Sources */,
-				A839C61017B2A78800E6AFE9 /* KMUser.m in Sources */,
+				A839C61317B2B6E600E6AFE9 /* KMDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
