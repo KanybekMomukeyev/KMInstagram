@@ -14,15 +14,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    KMLoginVC *loginVC = nil;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];
+    else
+        loginVC = [[KMLoginVC alloc] initWithIpadFromNib];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        KMLoginVC *loginIphoneVC = [[KMLoginVC alloc] initWithIphoneFromNib];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginIphoneVC];
-    } else {
-        KMLoginVC *loginIpadVC = [[KMLoginVC alloc] initWithIpadFromNib];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginIpadVC];
-    }
-    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginVC];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

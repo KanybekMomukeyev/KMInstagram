@@ -15,6 +15,7 @@
 #import "KMPagination.h"
 #import "KMFeed.h"
 #import "KMLikesCommentsReqManager.h"
+#import "KMDataCacheRequestManager.h"
 
 #define kKMInstagramFeedPageCount 5
 

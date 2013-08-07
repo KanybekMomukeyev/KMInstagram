@@ -58,7 +58,6 @@
     UITableViewCell *loadingCell  = [self loadingCell];
     UIActivityIndicatorView *activityIndicator = (UIActivityIndicatorView *)[loadingCell viewWithTag:1000];
     [activityIndicator stopAnimating];
-    [activityIndicator removeFromSuperview];
 }
 
 - (UITableViewCell *)loadingCell

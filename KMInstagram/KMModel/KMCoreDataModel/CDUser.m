@@ -21,17 +21,15 @@
 @dynamic feedComments;
 @dynamic feed;
 
-- (void)setWithDictionary:(NSDictionary *)dict {
-    
+- (void)setWithDictionary:(NSDictionary *)dict
+{
+    if (![dict isKindOfClass:[NSNull class]])
+    {
+        self.profile_picture = [dict objectForKey:@"profile_picture"];
+        self.username = [dict objectForKey:@"username"];
+        self.userId = [dict objectForKey:@"id"];
+        self.full_name = [dict objectForKey:@"full_name"];
+    }
 }
-
-/*
- "user": {
- "profile_picture": "http://images.ak.instagram.com/profiles/profile_472783859_75sq_1374282112.jpg",
- "username": "mister_werewolf",
- "id": "472783859",
- "full_name": "Віталій Ткачук",
- }
- */
 
 @end

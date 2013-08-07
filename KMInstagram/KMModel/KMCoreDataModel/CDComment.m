@@ -20,26 +20,17 @@
 @dynamic feed;
 
 - (void)setWithDictionary:(NSDictionary *)dict {
-    
+    if (![dict isKindOfClass:[NSNull class]])
+    {
+        if ([dict objectForKey:@"created_time"]) {
+            self.created_time = [NSDate dateWithTimeIntervalSince1970:[[dict objectForKey:@"created_time"] doubleValue]];
+        }
+        self.text = [dict objectForKey:@"text"];
+        self.commentId = [dict objectForKey:@"id"];
+        NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+        CDUser *user = [CDUser MR_createInContext:localContext];
+        [user setWithDictionary:[dict objectForKey:@"from"]];
+    }
 }
-
-/*
- "comments": {
- "count": 1,
- "data": [
-     {
-     "created_time": "1375785454",
-     "text": "#swissmade #swisswatches #watches",
-     "id": "516448281123639873",
-     "from": {
-     "profile_picture": "http://images.ak.instagram.com/profiles/profile_472783859_75sq_1374282112.jpg",
-     "username": "mister_werewolf",
-     "id": "472783859",
-     "full_name": "Віталій Ткачук"
-     }
- }
- ]
- }
- */
 
 @end
