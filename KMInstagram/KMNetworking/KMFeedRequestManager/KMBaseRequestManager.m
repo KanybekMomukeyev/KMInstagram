@@ -9,6 +9,8 @@
 #import "KMBaseRequestManager.h"
 #import "KMAPIController.h"
 #import "KMUserAuthManager.h"
+#import "CDPagination.h"
+
 @interface KMBaseRequestManager()
 @property (nonatomic, strong) NSDate *lastUpdateDate;
 @end

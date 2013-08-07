@@ -89,7 +89,7 @@
         }
         [self_.feedsArray removeAllObjects];
         [self_.tableView reloadData];
-        [self_.feedsArray addObjectsFromArray:[CDFeed MR_findAll]];
+        [self_.feedsArray addObjectsFromArray:[CDFeed MR_findAllSortedBy:@"created_time" ascending:YES]];        
         [self_ doneLoadingTableViewData];
     };
     
@@ -99,12 +99,12 @@
             [self_ stopAnimatingLoadingCell];
         }else
         {
-//            NSMutableArray *indexPathsArray = [NSMutableArray new];
-//            for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
-//                [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
-//            }
-//            [self_.feedsArray addObjectsFromArray:oldFeeds];
-//            [self_ insertIndexPaths:indexPathsArray];
+            NSMutableArray *indexPathsArray = [NSMutableArray new];
+            for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
+                [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+            }
+            [self_.feedsArray addObjectsFromArray:oldFeeds];
+            [self_ insertIndexPaths:indexPathsArray];
         }
     };
     
@@ -159,21 +159,17 @@
 - (void)reloadTableViewDataSource {
     [super reloadTableViewDataSource];
     [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
-                                                                            minId:nil
-                                                                            maxId:nil
                                                                        completion:self.refreshHandler];
 }
 
 - (void)fetchOldFeeds
-{
-    return;
-    
+{    
     CDPagination *pagination = [[CDPagination MR_findAll] lastObject];
     if (pagination.next_max_id) {
-        [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
-                                                                                minId:nil
-                                                                                maxId:pagination.next_max_id
-                                                                           completion:self.pagingHandler];
+        [[[KMAPIController sharedInstance] cachedRequestManager] pagingUserFeedWithCount:kKMInstagramFeedPageCount
+                                                                                   minId:nil
+                                                                                   maxId:pagination.next_max_id
+                                                                              completion:self.pagingHandler];
     }else {
         [self stopAnimatingLoadingCell];
     }

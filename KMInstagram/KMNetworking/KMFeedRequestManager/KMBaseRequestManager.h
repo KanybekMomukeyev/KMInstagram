@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CDPagination;
 
 @interface KMBaseRequestManager : NSObject
 @property (nonatomic, getter = isLoading) BOOL loading;

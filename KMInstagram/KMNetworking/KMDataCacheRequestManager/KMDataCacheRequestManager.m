@@ -24,33 +24,25 @@
 @implementation KMDataCacheRequestManager
 
 - (void)getUserFeedWithCount:(NSInteger)count
-                       minId:(NSString *)minId
-                       maxId:(NSString *)maxId
                   completion:(CompletionBlock)completion
 {
     self.loading = YES;
     NSMutableDictionary* parameters = [self baseParams];
     [parameters setObject:@(count) forKey:@"count"];
-    if (minId) [parameters setObject:minId forKey:@"min_id"];
-    if (maxId) [parameters setObject:maxId forKey:@"max_id"];
     
     __weak KMDataCacheRequestManager *self_ = self;
     [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                  
-                                                 if (maxId == nil) {
-                                                     // if we are refreshing, delete all feeds
-                                                     [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeeds];
-                                                 }
+                                                 [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeeds];
                                                  
                                                  __block NSManagedObjectContext *localContext = nil;
-                                                 __block CDPagination *paging = nil;
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                                                      
                                                      localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
                                                      
-                                                     paging = [CDPagination MR_createInContext:localContext];
+                                                     CDPagination *paging = paging = [CDPagination MR_createInContext:localContext];
                                                      [paging setWithDictionary:[response objectForKey:@"pagination"]];
                                                      
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
@@ -87,5 +79,61 @@
                                                  }
                                              }];
 }
+
+
+- (void)pagingUserFeedWithCount:(NSInteger)count
+                          minId:(NSString *)minId
+                          maxId:(NSString *)maxId
+                     completion:(CompletionBlock)completion
+{
+
+    NSMutableDictionary* parameters = [self baseParams];
+    [parameters setObject:@(count) forKey:@"count"];
+    if (minId) [parameters setObject:minId forKey:@"min_id"];
+    if (maxId) [parameters setObject:maxId forKey:@"max_id"];
+    
+    [[KMInstagramRequestClient sharedClient] getPath:@"users/self/feed"
+                                          parameters:parameters
+                                             success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
+                                                 
+                                                 __block NSManagedObjectContext *localContext = nil;
+                                                 __block NSMutableArray *oldFeedsArray = [NSMutableArray new];
+                                                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                                                     
+                                                     localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
+                                                     CDPagination *paging = [CDPagination MR_createInContext:localContext];
+                                                     [paging setWithDictionary:[response objectForKey:@"pagination"]];
+                                                     
+                                                     NSArray *responseObjects = [response objectForKey:@"data"];
+                                                     [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){
+                                                         CDFeed *feed = [CDFeed MR_createInContext:localContext];
+                                                         [feed setWithDictionary:object];
+                                                         [oldFeedsArray addObject:feed];
+                                                     }];
+                                                     
+                                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                                         if (completion)
+                                                         {
+                                                             [localContext MR_saveToPersistentStoreWithCompletion:^(BOOL sucess, NSError *error){
+                                                                 if (sucess) {
+                                                                    NSLog(@"GOOD");
+                                                                    completion([NSArray arrayWithArray:oldFeedsArray], nil);
+                                                                 }else {
+                                                                    NSLog(@"ERROR");
+                                                                    completion(nil, error);
+                                                                 }
+                                                             }];
+                                                         }
+                                                     });
+                                                 });
+                                             }
+                                             failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
+                                                 NSLog(@"error.description = %@",error.description);
+                                                 if (completion) {
+                                                     completion(nil, error);
+                                                 }
+                                             }];
+}
+
 
 @end

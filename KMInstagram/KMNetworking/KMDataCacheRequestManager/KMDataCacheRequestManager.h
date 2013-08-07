@@ -9,8 +9,12 @@
 
 #import "KMBaseRequestManager.h"
 @interface KMDataCacheRequestManager : KMBaseRequestManager
+
 - (void)getUserFeedWithCount:(NSInteger)count
-                       minId:(NSString *)minId
-                       maxId:(NSString *)maxId
                   completion:(CompletionBlock)completion;
+
+- (void)pagingUserFeedWithCount:(NSInteger)count
+                          minId:(NSString *)minId
+                          maxId:(NSString *)maxId
+                     completion:(CompletionBlock)completion;
 @end
