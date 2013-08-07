@@ -28,8 +28,11 @@
 @end
 
 @interface KMBaseUserFeedTVC ()
+
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
-- (void)stopAnimatingLoadingCellForRow:(NSUInteger )row;
+- (UITableViewCell *)loadingCell;
+- (void)stopAnimatingLoadingCell;
+
 @end
 
 @interface KMUserFeedTVC ()
@@ -56,7 +59,6 @@
     
     [self setUpBlocks];
     [self attachPullToRefreshHeader];
-    [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier], [KMLoadingTVCell reuseIdentifier]]];
     [self reloadTableViewDataSource];
     [self.refreshHeaderView setState:[[[KMAPIController sharedInstance] feedRequestManager] isLoading] ? EGOOPullRefreshLoading : EGOOPullRefreshNormal];
 }
@@ -92,7 +94,7 @@
     self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
-            [self_ stopAnimatingLoadingCellForRow:self_.feedsArray.count];
+            [self_ stopAnimatingLoadingCell];
         }else
         {
             NSMutableArray *indexPathsArray = [NSMutableArray new];
@@ -161,7 +163,7 @@
                                                                               maxId:nextMaxId
                                                                          completion:self.pagingHandler];
     }else {
-        [self stopAnimatingLoadingCellForRow:self.feedsArray.count];
+        [self stopAnimatingLoadingCell];
     }
 }
 
@@ -203,15 +205,8 @@
         return cell;
     }else
     {
-        KMLoadingTVCell *cell = [tableView dequeueReusableCellWithIdentifier:[KMLoadingTVCell reuseIdentifier]];
-        if (!cell) {
-            cell = [[KMLoadingTVCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier:[KMLoadingTVCell reuseIdentifier]];
-        }
-        cell.indicatorView.hidden = NO;
-        [cell.indicatorView startAnimating];
         [self fetchOldFeeds];
-        return cell;
+        return [self loadingCell];
     }
 }
 
@@ -225,4 +220,5 @@
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
+
 @end

@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDCaption" representedClassName="CDCaption" syncable="YES">
+        <attribute name="captionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="caption" inverseEntity="CDFeed" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="caption" inverseEntity="CDUser" syncable="YES"/>
+    </entity>
+    <entity name="CDComment" representedClassName="CDComment" syncable="YES">
+        <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="comments" inverseEntity="CDFeed" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="comment" inverseEntity="CDUser" syncable="YES"/>
+    </entity>
+    <entity name="CDFeed" representedClassName="CDFeed" syncable="YES">
+        <attribute name="commentsCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="feedId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="likesCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_has_liked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="caption" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDCaption" inverseName="feed" inverseEntity="CDCaption" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDComment" inverseName="feed" inverseEntity="CDComment" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUser" inverseName="feedComments" inverseEntity="CDUser" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTag" inverseName="feed" inverseEntity="CDTag" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="feed" inverseEntity="CDUser" syncable="YES"/>
+    </entity>
+    <entity name="CDPagination" representedClassName="CDPagination" syncable="YES">
+        <attribute name="next_max_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CDTag" representedClassName="CDTag" syncable="YES">
+        <attribute name="tagName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="tags" inverseEntity="CDFeed" syncable="YES"/>
+    </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES">
+        <attribute name="full_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile_picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="caption" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDCaption" inverseName="user" inverseEntity="CDCaption" syncable="YES"/>
+        <relationship name="comment" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDComment" inverseName="user" inverseEntity="CDComment" syncable="YES"/>
+        <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="user" inverseEntity="CDFeed" syncable="YES"/>
+        <relationship name="feedComments" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="likes" inverseEntity="CDFeed" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="CDCaption" positionX="153" positionY="270" width="128" height="120"/>
+        <element name="CDComment" positionX="-153" positionY="369" width="128" height="120"/>
+        <element name="CDFeed" positionX="135" positionY="-126" width="128" height="225"/>
+        <element name="CDTag" positionX="513" positionY="360" width="128" height="75"/>
+        <element name="CDUser" positionX="736" positionY="-96" width="128" height="165"/>
+        <element name="CDPagination" positionX="-36" positionY="198" width="128" height="75"/>
     </elements>
 </model>

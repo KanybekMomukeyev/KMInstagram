@@ -13,7 +13,6 @@
 #define kKMInstagramClientId @"c22e560ed1a74621af40ca67e136639f"
 #define kKMInstagramCallbackUrl @"http://mail.ru"
 
-
 + (NSString *)clientId
 {
     return [NSString stringWithFormat:@"%@", kKMInstagramClientId];

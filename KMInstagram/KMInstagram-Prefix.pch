@@ -17,5 +17,5 @@
 #endif
 
 #import "BlocksTypedefs.h"
-
+#import "CoreData+MagicalRecord.h"
 

@@ -11,10 +11,13 @@
 #import "KMAPIController.h"
 #import "KMUserAuthManager.h"
 #import "KMLoadingTVCell.h"
-
+#import "KMUserFeedsTVCell.h"
 @interface KMBaseUserFeedTVC ()
+
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
-- (void)stopAnimatingLoadingCellForRow:(NSUInteger )row;
+- (UITableViewCell *)loadingCell;
+- (void)stopAnimatingLoadingCell;
+
 @end
 
 @implementation KMBaseUserFeedTVC
@@ -22,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self registerCellsWithReuses:@[[KMLoadingTVCell reuseIdentifier], [KMUserFeedsTVCell reuseIdentifier]]];
     UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"")
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self
@@ -49,12 +53,25 @@
     [self.tableView endUpdates];
 }
 
-- (void)stopAnimatingLoadingCellForRow:(NSUInteger )row
+- (void)stopAnimatingLoadingCell
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-    KMLoadingTVCell *loadingCell = (KMLoadingTVCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    [loadingCell.indicatorView stopAnimating];
-    loadingCell.indicatorView.hidden = YES;
+    UITableViewCell *loadingCell  = [self loadingCell];
+    UIActivityIndicatorView *activityIndicator = (UIActivityIndicatorView *)[loadingCell viewWithTag:1000];
+    [activityIndicator stopAnimating];
+    [activityIndicator removeFromSuperview];
+}
+
+- (UITableViewCell *)loadingCell
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                    reuseIdentifier:nil];
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
+                                                  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.tag = 1000;
+    activityIndicator.center = cell.center;
+    [cell addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    return cell;
 }
 
 #pragma mark - Table view data source

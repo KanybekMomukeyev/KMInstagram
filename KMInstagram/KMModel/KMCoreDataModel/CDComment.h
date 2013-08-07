@@ -1,0 +1,23 @@
+//
+//  CDComment.h
+//  KMInstagram
+//
+//  Created by Kanybek Momukeev on 8/7/13.
+//  Copyright (c) 2013 Kanybek Momukeev. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "CDEditingProtocol.h"
+
+@class CDFeed, CDUser;
+
+@interface CDComment : NSManagedObject<CDEditingProtocol>
+
+@property (nonatomic, retain) NSNumber * created_time;
+@property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSString * commentId;
+@property (nonatomic, retain) CDUser *user;
+@property (nonatomic, retain) CDFeed *feed;
+
+@end
