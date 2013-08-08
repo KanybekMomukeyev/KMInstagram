@@ -16,7 +16,7 @@
 <br>(7) Image Caching with AFNetworking, asynchronous.
 <br>(8) Can Update Instagram feeds with pull to refresh.
 <br>(9) Cache Instagram Feeds to Core Data, in background thread with help
-<br>    with Magical Record.
+<br>    of Magical Record.
 
 # TO DO :
 

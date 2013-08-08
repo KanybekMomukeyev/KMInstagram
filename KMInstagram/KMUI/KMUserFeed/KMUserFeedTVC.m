@@ -132,26 +132,14 @@
             [[[KMAPIController sharedInstance] likesCommentsReqManager] removeLikeForFeedId:feed.feedId
                                                                              withCompletion:^(id response, NSError *error){
                                                                                  if (!error)
-                                                                                 {
-                                                                                     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-                                                                                     NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
-                                                                                     CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
-                                                                                     toChangeFeed.user_has_liked = @(NO);
-                                                                                     [localContext MR_saveToPersistentStoreAndWait];
-                                                                                 }
+                                                                                     [self_ updateFeedCellLikeCountWithIncreaseLike:NO toFeed:feed];
                                                                              }];
         }else {
             [[[KMAPIController sharedInstance] likesCommentsReqManager] postLikeForFeedId:feed.feedId
                                                                            withCompletion:^(id response, NSError *error) {
                                                                                if (!error)
-                                                                               {
-                                                                                   NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];    
-                                                                                   NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
-                                                                                   CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
-                                                                                   toChangeFeed.user_has_liked = @(YES);
-                                                                                   [localContext MR_saveToPersistentStoreAndWait];
-                                                                               }
-                                                                  }];
+                                                                                   [self_ updateFeedCellLikeCountWithIncreaseLike:YES toFeed:feed];
+                                                                             }];
         }
     };
 }
@@ -167,11 +155,24 @@
 #pragma mark - Update header date label
 - (void)doneLoadingTableViewData
 {
-    if ([[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate]) {
-        self.lastUpdateDate = [[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate];
-        [self.refreshHeaderView refreshLastUpdatedDate];
-    }
+    self.lastUpdateDate = [[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate];
+    [self.refreshHeaderView refreshLastUpdatedDate];
     [super doneLoadingTableViewData];
+}
+
+#pragma mark - Update KMUserFeedsTVCell likes count
+- (void)updateFeedCellLikeCountWithIncreaseLike:(BOOL)shoulIncrease toFeed:(CDFeed *)feed
+{
+    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
+    NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
+    CDFeed *chageFeed = [[self.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
+    chageFeed.user_has_liked = @(shoulIncrease);
+    NSInteger minusOrPlus  = shoulIncrease ? 1: -1;
+    chageFeed.likesCount = [NSString stringWithFormat:@"%d",([chageFeed.likesCount integerValue] + minusOrPlus)];
+    [localContext MR_saveToPersistentStoreAndWait];
+    
+    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]
+                           withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - Get older feeds
