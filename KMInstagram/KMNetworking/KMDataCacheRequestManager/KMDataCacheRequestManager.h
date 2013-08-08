@@ -9,6 +9,8 @@
 
 #import "KMBaseRequestManager.h"
 @interface KMDataCacheRequestManager : KMBaseRequestManager
+@property (nonatomic, readonly) NSUInteger pagingIndex;
+@property (readwrite ,nonatomic, strong) NSString *nextMaxId;
 
 - (void)getUserFeedWithCount:(NSInteger)count
                   completion:(CompletionBlock)completion;

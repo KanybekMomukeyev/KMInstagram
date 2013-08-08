@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) NSString * feedId;
 @property (nonatomic, retain) NSNumber * user_has_liked;
+@property (nonatomic, retain) NSNumber * pagingIndex;
 @property (nonatomic, retain) NSString * link;
 @property (nonatomic, retain) NSDate * created_time;
 @property (nonatomic, retain) NSString * imageLink;

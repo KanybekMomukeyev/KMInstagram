@@ -8,6 +8,8 @@
 
 #import "KMDataStoreManager.h"
 #import "CDFeed.h"
+#import "CDPagination.h"
+
 @interface KMBaseDataStoreManager()
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -27,6 +29,29 @@
     NSArray *feeds = [CDFeed MR_findAll];
     [feeds enumerateObjectsUsingBlock:^(CDFeed *feed, NSUInteger idx, BOOL *stop){
         [localContext deleteObject:feed];
+    }];
+    
+    [localContext MR_saveToPersistentStoreAndWait];
+}
+
+- (void)deleteAllFeedsWherePageIndexIsNotZero
+{
+    NSManagedObjectContext *localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
+    NSArray *feeds = [CDFeed MR_findAll];
+    [feeds enumerateObjectsUsingBlock:^(CDFeed *feed, NSUInteger idx, BOOL *stop){
+        if ([feed.pagingIndex integerValue] != 0) {
+            [localContext deleteObject:feed];
+        }
+    }];
+    [localContext MR_saveToPersistentStoreAndWait];
+}
+
+- (void)deleteAllPagination
+{
+    NSManagedObjectContext *localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
+    NSArray *paginations = [CDPagination MR_findAll];
+    [paginations enumerateObjectsUsingBlock:^(CDPagination *pagination, NSUInteger idx, BOOL *stop){
+        [localContext deleteObject:pagination];
     }];
     
     [localContext MR_saveToPersistentStoreAndWait];

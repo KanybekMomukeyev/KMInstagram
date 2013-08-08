@@ -10,5 +10,9 @@
 #import "KMBaseDataStoreManager.h"
 
 @interface KMDataStoreManager : KMBaseDataStoreManager
+
 - (void)deleteAllFeeds;
+- (void)deleteAllFeedsWherePageIndexIsNotZero;
+- (void)deleteAllPagination;
+
 @end

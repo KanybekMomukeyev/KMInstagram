@@ -19,7 +19,7 @@
 #import "CDPagination.h"
 #import "KMDataStoreManager.h"
 
-#define kKMInstagramFeedPageCount 10
+#define kKMInstagramFeedPageCount 5
 
 @interface KMBaseRefreshTVC ()
 @property (nonatomic, retain) EGORefreshTableHeaderView *refreshHeaderView;
@@ -79,26 +79,38 @@
 }
 
 #pragma mark -
+
+- (NSArray *)getFeedsForCurrentPaging
+{
+    NSUInteger pagingIndex = [[[KMAPIController sharedInstance] cachedRequestManager] pagingIndex];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pagingIndex == %@", @(pagingIndex)];
+    return [CDFeed MR_findAllSortedBy:@"created_time" ascending:NO withPredicate:predicate];
+}
+
 - (void)setUpBlocks
 {
-    
     __weak KMUserFeedTVC *self_ = self;
     self.refreshHandler = ^(NSNumber *sucess, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
         }
+        
+        CDPagination *pagination = [[CDPagination MR_findAll] lastObject];
+        [[[KMAPIController sharedInstance] cachedRequestManager] setNextMaxId:pagination.next_max_id];
+        
         [self_.feedsArray removeAllObjects];
         [self_.tableView reloadData];
-        [self_.feedsArray addObjectsFromArray:[CDFeed MR_findAllSortedBy:@"created_time" ascending:YES]];        
+        [self_.feedsArray addObjectsFromArray:[self_ getFeedsForCurrentPaging]];
         [self_ doneLoadingTableViewData];
     };
     
-    self.pagingHandler = ^(NSArray *oldFeeds, NSError *error) {
+    self.pagingHandler = ^(NSNumber *sucess, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
             [self_ stopAnimatingLoadingCell];
         }else
         {
+            NSArray *oldFeeds = [self_ getFeedsForCurrentPaging];
             NSMutableArray *indexPathsArray = [NSMutableArray new];
             for (NSUInteger index = self_.feedsArray.count; index < self_.feedsArray.count + oldFeeds.count; index ++) {
                 [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
@@ -140,7 +152,14 @@
 }
 
 
-#pragma mark -
+#pragma mark - Refresh
+- (void)reloadTableViewDataSource {
+    [super reloadTableViewDataSource];
+    [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
+                                                                       completion:self.refreshHandler];
+}
+
+#pragma mark - Did refreshed
 - (void)doneLoadingTableViewData
 {
     if ([[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate]) {
@@ -155,20 +174,13 @@
     [self insertIndexPaths:indexPathsArray];
 }
 
-#pragma mark - Refresh
-- (void)reloadTableViewDataSource {
-    [super reloadTableViewDataSource];
-    [[[KMAPIController sharedInstance] cachedRequestManager] getUserFeedWithCount:kKMInstagramFeedPageCount
-                                                                       completion:self.refreshHandler];
-}
-
 - (void)fetchOldFeeds
-{    
-    CDPagination *pagination = [[CDPagination MR_findAll] lastObject];
-    if (pagination.next_max_id) {
+{
+    NSString *nextMaxId = [[KMAPIController sharedInstance] cachedRequestManager].nextMaxId;
+    if (nextMaxId) {
         [[[KMAPIController sharedInstance] cachedRequestManager] pagingUserFeedWithCount:kKMInstagramFeedPageCount
                                                                                    minId:nil
-                                                                                   maxId:pagination.next_max_id
+                                                                                   maxId:nextMaxId
                                                                               completion:self.pagingHandler];
     }else {
         [self stopAnimatingLoadingCell];

@@ -37,16 +37,15 @@
 
 - (IBAction)loginButtonDidPressed:(id)sender
 {
+    
     KMInstagramAuthVC *instagramAuthVC = nil;
     if (self.currentDeviceIsIphone)
         instagramAuthVC = [[KMInstagramAuthVC alloc] initWithIphoneFromNib];
     else
         instagramAuthVC = [[KMInstagramAuthVC alloc] initWithIpadFromNib];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:instagramAuthVC];
-    [self presentViewController:navController animated:YES completion:nil];
-    
     __weak KMLoginVC *self_ = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:instagramAuthVC];
     instagramAuthVC.accessTokenHandler = ^(NSString *acessToken, NSError *error) {
         [navController dismissViewControllerAnimated:YES completion:^(){
             if (acessToken) {
@@ -57,7 +56,10 @@
             }
         }];
     };
+    
+    [self presentViewController:navController animated:YES completion:nil];
 }
+
 
 - (void)moveToMainUserFriendsTVC
 {

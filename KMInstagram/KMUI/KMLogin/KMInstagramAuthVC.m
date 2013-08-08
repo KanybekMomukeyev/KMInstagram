@@ -24,7 +24,11 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     NSString* authenticateURLString = [NSString stringWithFormat:kInstagramAuthorizeUrl, [KMInstagramSettings clientId],
                                        [KMInstagramSettings callbackUrl], [[KMInstagramSettings scopes] componentsJoinedByString:@"+"]];
     self.webView.delegate = self;
@@ -33,8 +37,8 @@ static NSString* const kInstagramAuthorizeUrl = @"https://api.instagram.com/oaut
     
     
     UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                   target:self
-                                                                                   action:@selector(cancelButtonDidPressed:)];
+                                                                                      target:self
+                                                                                      action:@selector(cancelButtonDidPressed:)];
     self.navigationItem.rightBarButtonItem = cancelButtonItem;
     
     

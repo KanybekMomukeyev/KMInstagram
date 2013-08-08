@@ -15,6 +15,7 @@
 @implementation CDFeed
 
 @dynamic feedId;
+@dynamic pagingIndex;
 @dynamic user_has_liked;
 @dynamic link;
 @dynamic created_time;
