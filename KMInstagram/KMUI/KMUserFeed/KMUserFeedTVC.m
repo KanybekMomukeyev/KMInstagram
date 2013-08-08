@@ -32,6 +32,8 @@
 
 @interface KMBaseUserFeedTVC ()
 
+- (NSArray *)getFeedsForCurrentPaging;
+- (NSMutableArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex;
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
 - (UITableViewCell *)loadingCell;
 - (void)stopAnimatingLoadingCell;
@@ -78,15 +80,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark -
-
-- (NSArray *)getFeedsForCurrentPaging
-{
-    NSUInteger pagingIndex = [[[KMAPIController sharedInstance] cachedRequestManager] pagingIndex];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pagingIndex == %@", @(pagingIndex)];
-    return [CDFeed MR_findAllSortedBy:@"created_time" ascending:NO withPredicate:predicate];
-}
-
+#pragma mark - setup blocks
 - (void)setUpBlocks
 {
     __weak KMUserFeedTVC *self_ = self;
@@ -159,7 +153,7 @@
                                                                        completion:self.refreshHandler];
 }
 
-#pragma mark - Did refreshed
+#pragma mark - Did get objects
 - (void)doneLoadingTableViewData
 {
     if ([[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate]) {
@@ -167,13 +161,10 @@
         [self.refreshHeaderView refreshLastUpdatedDate];
     }
     [super doneLoadingTableViewData];
-    NSMutableArray *indexPathsArray = [NSMutableArray new];
-    for (NSUInteger index = 0; index < self.feedsArray.count + 1; index ++) {
-        [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
-    }
-    [self insertIndexPaths:indexPathsArray];
+    [self insertIndexPaths:[self indexPathsArrayFromStartIndex:0 withEndIndex:(self.feedsArray.count + 1)]];
 }
 
+#pragma mark - Get older feeds
 - (void)fetchOldFeeds
 {
     NSString *nextMaxId = [[KMAPIController sharedInstance] cachedRequestManager].nextMaxId;
@@ -190,10 +181,7 @@
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row < self.feedsArray.count)
-        return 408;
-    else
-        return 44;
+    return (indexPath.row < self.feedsArray.count) ? 408 : 44;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -203,11 +191,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(self.feedsArray.count == 0) {
-        return 0;
-    }else {
-        return self.feedsArray.count + 1;
-    }
+    return (self.feedsArray.count == 0) ? 0 : (self.feedsArray.count + 1);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

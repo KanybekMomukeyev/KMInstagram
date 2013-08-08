@@ -12,14 +12,20 @@
 #import "KMUserAuthManager.h"
 #import "KMLoadingTVCell.h"
 #import "KMUserFeedsTVCell.h"
+#import "KMDataCacheRequestManager.h"
+#import "CDFeed.h"
+
 
 @interface KMBaseUserFeedTVC ()
 
+- (NSArray *)getFeedsForCurrentPaging;
+- (NSMutableArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex;
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
 - (UITableViewCell *)loadingCell;
 - (void)stopAnimatingLoadingCell;
 
 @end
+
 
 @implementation KMBaseUserFeedTVC
 
@@ -37,6 +43,23 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+
+- (NSArray *)getFeedsForCurrentPaging
+{
+    NSUInteger pagingIndex = [[[KMAPIController sharedInstance] cachedRequestManager] pagingIndex];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pagingIndex == %@", @(pagingIndex)];
+    return [CDFeed MR_findAllSortedBy:@"created_time" ascending:NO withPredicate:predicate];
+}
+
+- (NSArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex
+{
+    NSMutableArray *indexPathsArray = [NSMutableArray new];
+    for (NSUInteger index = startIndex; index < startIndex + endIndex; index ++) {
+        [indexPathsArray  addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+    }
+    return [NSArray arrayWithArray:indexPathsArray];
 }
 
 #pragma mark -
