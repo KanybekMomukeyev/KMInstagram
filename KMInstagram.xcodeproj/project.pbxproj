@@ -124,6 +124,8 @@
 		A88EE8C717B173EC00DC75A2 /* BASegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8C517B173EB00DC75A2 /* BASegmentedControl.xib */; };
 		A8B6B67917B392480079C88C /* FGPagingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B67717B392480079C88C /* FGPagingTableViewCell.m */; };
 		A8B6B67A17B392480079C88C /* FGPagingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */; };
+		A8B6B68117B3AB3A0079C88C /* KMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B67D17B3AB3A0079C88C /* KMComment.m */; };
+		A8B6B68217B3AB3A0079C88C /* KMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68017B3AB3A0079C88C /* KMUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +340,11 @@
 		A8B6B67617B392480079C88C /* FGPagingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGPagingTableViewCell.h; sourceTree = "<group>"; };
 		A8B6B67717B392480079C88C /* FGPagingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGPagingTableViewCell.m; sourceTree = "<group>"; };
 		A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGPagingTableViewCell.xib; sourceTree = "<group>"; };
+		A8B6B67C17B3AB3A0079C88C /* KMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMComment.h; sourceTree = "<group>"; };
+		A8B6B67D17B3AB3A0079C88C /* KMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMComment.m; sourceTree = "<group>"; };
+		A8B6B67E17B3AB3A0079C88C /* KMStoroableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStoroableProtocol.h; sourceTree = "<group>"; };
+		A8B6B67F17B3AB3A0079C88C /* KMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUser.h; sourceTree = "<group>"; };
+		A8B6B68017B3AB3A0079C88C /* KMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -630,6 +637,7 @@
 		A88EE7F817B0D06A00DC75A2 /* KMModel */ = {
 			isa = PBXGroup;
 			children = (
+				A8B6B67B17B3AB0D0079C88C /* KMSimpleModel */,
 				A839C5E017B2733300E6AFE9 /* KMCoreDataModel */,
 			);
 			path = KMModel;
@@ -831,6 +839,18 @@
 				A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */,
 			);
 			path = FGPagingTableViewCell;
+			sourceTree = "<group>";
+		};
+		A8B6B67B17B3AB0D0079C88C /* KMSimpleModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6B67C17B3AB3A0079C88C /* KMComment.h */,
+				A8B6B67D17B3AB3A0079C88C /* KMComment.m */,
+				A8B6B67E17B3AB3A0079C88C /* KMStoroableProtocol.h */,
+				A8B6B67F17B3AB3A0079C88C /* KMUser.h */,
+				A8B6B68017B3AB3A0079C88C /* KMUser.m */,
+			);
+			path = KMSimpleModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1042,6 +1062,8 @@
 				A839C5FC17B29D9000E6AFE9 /* KMDataCacheRequestManager.m in Sources */,
 				A839C61317B2B6E600E6AFE9 /* KMDataStoreManager.m in Sources */,
 				A8B6B67917B392480079C88C /* FGPagingTableViewCell.m in Sources */,
+				A8B6B68117B3AB3A0079C88C /* KMComment.m in Sources */,
+				A8B6B68217B3AB3A0079C88C /* KMUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

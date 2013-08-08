@@ -7,7 +7,7 @@
 //
 
 #import "KMCellFeedLikeTVCell.h"
-#import "CDUser.h"
+#import "KMUser.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface KMCellFeedLikeTVCell()
@@ -34,7 +34,7 @@
 
 - (void)reloadData
 {
-    CDUser *user = (CDUser *)self.object;
+    KMUser *user = (KMUser *)self.object;
     self.userNameLabel.text = user.username;
     self.userFullNameLabel.text = user.full_name;
     if (user.profile_picture) {

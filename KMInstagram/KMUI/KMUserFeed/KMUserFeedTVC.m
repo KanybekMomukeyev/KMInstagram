@@ -175,8 +175,11 @@
                                                                                    maxId:nextMaxId
                                                                               completion:self.pagingHandler];
     }else {
-        [self showAlertWithTitle:@"ALL USER FEEDS DOWNLOADED, NO MORE FOUND"];
-        [self removePagingCellForRow:self.feedsArray.count];
+        __weak KMUserFeedTVC *self_ = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+            [self_ showAlertWithTitle:@"ALL USER FEEDS DOWNLOADED, NO MORE FOUND"];
+            [self_ removePagingCellForRow:self.feedsArray.count];
+        });
     }
 }
 
@@ -211,7 +214,6 @@
         return cell;
     }else
     {
-        NSLog(@"NEEDED = SECTION = %d  ROW = %d", indexPath.section, indexPath.row);
         FGPagingTableViewCell *cell = [self pagingCellWithType:FGPagingCellTypeRetrieving];
         [self fetchOldFeeds];
         return cell;

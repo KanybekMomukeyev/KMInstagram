@@ -15,11 +15,6 @@
 #import "CDFeed.h"
 #import "FGPagingTableViewCell.h"
 
-typedef enum : NSInteger {
-	FGPagedTableViewSectionStatus = 1,
-	FGPagedTableViewSectionResults = 1,
-	FGPagedTableViewSectionPaging = 1
-} FGPagedTableViewSection;
 
 @interface KMBaseUserFeedTVC ()
 
@@ -101,7 +96,6 @@ typedef enum : NSInteger {
 
 - (void)removePagingCellForRow:(NSUInteger )row
 {
-    NSLog(@"ROW FOUND = %d",row);
     FGPagingTableViewCell *cell = (FGPagingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
     [cell setCellType:FGPagingCellTypeContinue];
 }
