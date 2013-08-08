@@ -122,8 +122,8 @@
 		A88EE8C117B1734300DC75A2 /* UIView+NIB.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8C017B1734200DC75A2 /* UIView+NIB.m */; };
 		A88EE8C617B173EC00DC75A2 /* BASegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8C417B173EA00DC75A2 /* BASegmentedControl.m */; };
 		A88EE8C717B173EC00DC75A2 /* BASegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8C517B173EB00DC75A2 /* BASegmentedControl.xib */; };
-		A88EE8CB17B1FA6E00DC75A2 /* KMLoadingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */; };
-		A88EE8CD17B1FA7E00DC75A2 /* KMLoadingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */; };
+		A8B6B67917B392480079C88C /* FGPagingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B67717B392480079C88C /* FGPagingTableViewCell.m */; };
+		A8B6B67A17B392480079C88C /* FGPagingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,9 +335,9 @@
 		A88EE8C317B173EA00DC75A2 /* BASegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASegmentedControl.h; sourceTree = "<group>"; };
 		A88EE8C417B173EA00DC75A2 /* BASegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASegmentedControl.m; sourceTree = "<group>"; };
 		A88EE8C517B173EB00DC75A2 /* BASegmentedControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BASegmentedControl.xib; sourceTree = "<group>"; };
-		A88EE8C917B1FA6E00DC75A2 /* KMLoadingTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLoadingTVCell.h; sourceTree = "<group>"; };
-		A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLoadingTVCell.m; sourceTree = "<group>"; };
-		A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMLoadingTVCell.xib; sourceTree = "<group>"; };
+		A8B6B67617B392480079C88C /* FGPagingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGPagingTableViewCell.h; sourceTree = "<group>"; };
+		A8B6B67717B392480079C88C /* FGPagingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGPagingTableViewCell.m; sourceTree = "<group>"; };
+		A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FGPagingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -698,9 +698,7 @@
 				A88EE88417B10EC100DC75A2 /* KMUserFeedsTVCell.h */,
 				A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */,
 				A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */,
-				A88EE8C917B1FA6E00DC75A2 /* KMLoadingTVCell.h */,
-				A88EE8CA17B1FA6E00DC75A2 /* KMLoadingTVCell.m */,
-				A88EE8CC17B1FA7E00DC75A2 /* KMLoadingTVCell.xib */,
+				A8B6B67517B392480079C88C /* FGPagingTableViewCell */,
 			);
 			path = KMUserFeed;
 			sourceTree = "<group>";
@@ -825,6 +823,16 @@
 			path = KMDetailFeed;
 			sourceTree = "<group>";
 		};
+		A8B6B67517B392480079C88C /* FGPagingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6B67617B392480079C88C /* FGPagingTableViewCell.h */,
+				A8B6B67717B392480079C88C /* FGPagingTableViewCell.m */,
+				A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */,
+			);
+			path = FGPagingTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -912,7 +920,6 @@
 				A88EE8B817B1714B00DC75A2 /* KMFeedLikesTVC.xib in Resources */,
 				A88EE8BD17B171D500DC75A2 /* KMFeedCommentsTVC.xib in Resources */,
 				A88EE8C717B173EC00DC75A2 /* BASegmentedControl.xib in Resources */,
-				A88EE8CD17B1FA7E00DC75A2 /* KMLoadingTVCell.xib in Resources */,
 				A839C56217B209AA00E6AFE9 /* background.png in Resources */,
 				A839C56317B209AA00E6AFE9 /* background@2x.png in Resources */,
 				A839C57017B23FAB00E6AFE9 /* KMTableAnimatingHeaderView.xib in Resources */,
@@ -923,6 +930,7 @@
 				A839C58217B25CEF00E6AFE9 /* date_back_06june.png in Resources */,
 				A839C58317B25CEF00E6AFE9 /* date_back_06june@2x.png in Resources */,
 				A839C58917B26E0100E6AFE9 /* README.md in Resources */,
+				A8B6B67A17B392480079C88C /* FGPagingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,7 +1001,6 @@
 				A88EE8BC17B171D500DC75A2 /* KMFeedCommentsTVC.m in Sources */,
 				A88EE8C117B1734300DC75A2 /* UIView+NIB.m in Sources */,
 				A88EE8C617B173EC00DC75A2 /* BASegmentedControl.m in Sources */,
-				A88EE8CB17B1FA6E00DC75A2 /* KMLoadingTVCell.m in Sources */,
 				A839C56617B2134D00E6AFE9 /* KMBaseRequestManager.m in Sources */,
 				A839C56917B214AA00E6AFE9 /* KMLikesCommentsReqManager.m in Sources */,
 				A839C56E17B23FA000E6AFE9 /* KMTableAnimatingHeaderView.m in Sources */,
@@ -1034,6 +1041,7 @@
 				A839C5F517B2785B00E6AFE9 /* CDTag.m in Sources */,
 				A839C5FC17B29D9000E6AFE9 /* KMDataCacheRequestManager.m in Sources */,
 				A839C61317B2B6E600E6AFE9 /* KMDataStoreManager.m in Sources */,
+				A8B6B67917B392480079C88C /* FGPagingTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

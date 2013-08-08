@@ -11,13 +11,13 @@
 #import "KMUserFeedsTVCell.h"
 #import "KMDataCacheRequestManager.h"
 #import "KMFeedDetailContainerVC.h"
-#import "KMLoadingTVCell.h"
 #import "KMLikesCommentsReqManager.h"
 #import "CDFeed.h"
 #import "CDUser.h"
 #import "CDCaption.h"
 #import "CDPagination.h"
 #import "KMDataStoreManager.h"
+#import "FGPagingTableViewCell.h"
 
 #define kKMInstagramFeedPageCount 5
 
@@ -35,8 +35,9 @@
 - (NSArray *)getFeedsForCurrentPaging;
 - (NSMutableArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex;
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
-- (UITableViewCell *)loadingCell;
-- (void)stopAnimatingLoadingCell;
+
+- (FGPagingTableViewCell *)pagingCellWithType:(FGPagingCellType)pagedCellType;
+- (void)removePagingCellForRow:(NSUInteger )row;
 
 @end
 
@@ -101,7 +102,7 @@
     self.pagingHandler = ^(NSNumber *sucess, NSError *error) {
         if (error) {
             [self_ showAlertWithError:error];
-            [self_ stopAnimatingLoadingCell];
+            [self_ removePagingCellForRow:self_.feedsArray.count];
         }else
         {
             NSArray *oldFeeds = [self_ getFeedsForCurrentPaging];
@@ -174,14 +175,15 @@
                                                                                    maxId:nextMaxId
                                                                               completion:self.pagingHandler];
     }else {
-        [self stopAnimatingLoadingCell];
+        [self showAlertWithTitle:@"ALL USER FEEDS DOWNLOADED, NO MORE FOUND"];
+        [self removePagingCellForRow:self.feedsArray.count];
     }
 }
 
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (indexPath.row < self.feedsArray.count) ? 408 : 44;
+    return (indexPath.row < self.feedsArray.count) ? 408 : 78;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -209,8 +211,10 @@
         return cell;
     }else
     {
+        NSLog(@"NEEDED = SECTION = %d  ROW = %d", indexPath.section, indexPath.row);
+        FGPagingTableViewCell *cell = [self pagingCellWithType:FGPagingCellTypeRetrieving];
         [self fetchOldFeeds];
-        return [self loadingCell];
+        return cell;
     }
 }
 

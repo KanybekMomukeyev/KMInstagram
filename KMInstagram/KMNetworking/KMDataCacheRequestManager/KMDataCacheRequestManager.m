@@ -106,10 +106,10 @@
                                                  
                                                  self_.pagingIndex ++;
                                                  self_.nextMaxId = [[response objectForKey:@"pagination"] objectForKey:@"next_max_id"];
-                                                 
+                                                
                                                  __block NSManagedObjectContext *localContext = nil;
                                                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                                                     
+
                                                      localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
                                                      NSArray *responseObjects = [response objectForKey:@"data"];
                                                      [responseObjects enumerateObjectsUsingBlock:^(NSDictionary *object, NSUInteger idx, BOOL *stop){

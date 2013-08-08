@@ -10,20 +10,27 @@
 #import "KMLoginVC.h"
 #import "KMAPIController.h"
 #import "KMUserAuthManager.h"
-#import "KMLoadingTVCell.h"
 #import "KMUserFeedsTVCell.h"
 #import "KMDataCacheRequestManager.h"
 #import "CDFeed.h"
+#import "FGPagingTableViewCell.h"
 
+typedef enum : NSInteger {
+	FGPagedTableViewSectionStatus = 1,
+	FGPagedTableViewSectionResults = 1,
+	FGPagedTableViewSectionPaging = 1
+} FGPagedTableViewSection;
 
 @interface KMBaseUserFeedTVC ()
 
 - (NSArray *)getFeedsForCurrentPaging;
 - (NSMutableArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex;
 - (void)insertIndexPaths:(NSArray *)indexPathsArray;
-- (UITableViewCell *)loadingCell;
-- (void)stopAnimatingLoadingCell;
 
+- (FGPagingTableViewCell *)pagingCellWithType:(FGPagingCellType)pagedCellType;
+- (void)removePagingCellForRow:(NSUInteger )row;
+
+@property (nonatomic, strong, readwrite) FGPagingTableViewCell *pagingCell;
 @end
 
 
@@ -32,7 +39,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self registerCellsWithReuses:@[[KMLoadingTVCell reuseIdentifier], [KMUserFeedsTVCell reuseIdentifier]]];
+    
+    [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier]]];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FGPagingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FGPagingTableViewCell"];
+    
+    
+    
     UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"")
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self
@@ -77,24 +89,21 @@
     [self.tableView endUpdates];
 }
 
-- (void)stopAnimatingLoadingCell
+
+#pragma mark - Paging Cell
+- (FGPagingTableViewCell *)pagingCellWithType:(FGPagingCellType)pagedCellType
 {
-    UITableViewCell *loadingCell  = [self loadingCell];
-    UIActivityIndicatorView *activityIndicator = (UIActivityIndicatorView *)[loadingCell viewWithTag:1000];
-    [activityIndicator stopAnimating];
+	FGPagingTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FGPagingTableViewCell"];
+	cell.cellType = pagedCellType;
+	self.pagingCell = cell;
+	return cell;
 }
 
-- (UITableViewCell *)loadingCell
+- (void)removePagingCellForRow:(NSUInteger )row
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                    reuseIdentifier:nil];
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
-                                                  initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.tag = 1000;
-    activityIndicator.center = cell.center;
-    [cell addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    return cell;
+    NSLog(@"ROW FOUND = %d",row);
+    FGPagingTableViewCell *cell = (FGPagingTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
+    [cell setCellType:FGPagingCellTypeContinue];
 }
 
 #pragma mark - Table view data source
