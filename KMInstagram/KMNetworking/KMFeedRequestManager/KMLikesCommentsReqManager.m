@@ -37,7 +37,6 @@
                                                  });
                                              }
                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                 NSLog(@"error.description = %@",error.description);
                                                  if (completion) {
                                                      completion(nil, error);
                                                  }
@@ -57,7 +56,6 @@
                                                   }
                                               }
                                               failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                  NSLog(@"error.description = %@",error.description);
                                                   if (completion) {
                                                       completion(nil, error);
                                                   }
@@ -75,7 +73,6 @@
                                                     }
                                                 }
                                                 failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                    NSLog(@"error.description = %@",error.description);
                                                     if (completion) {
                                                         completion(nil, error);
                                                     }
@@ -107,7 +104,6 @@
                                                  });
                                              }
                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                 NSLog(@"error.description = %@",error.description);
                                                  if (completion) {
                                                      completion(nil, error);
                                                  }

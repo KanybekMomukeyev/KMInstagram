@@ -18,6 +18,7 @@
 #import "CDPagination.h"
 #import "KMDataStoreManager.h"
 #import "FGPagingTableViewCell.h"
+#import "KMDataStoreManager.h"
 
 #define kKMInstagramFeedPageCount 5
 
@@ -81,22 +82,33 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)seedTableViewWithStoredData
+{
+    [self.feedsArray removeAllObjects];
+    [self.tableView reloadData];
+    [self.feedsArray addObjectsFromArray:[self getFeedsForCurrentPaging]];
+    [self insertIndexPaths:[self indexPathsArrayFromStartIndex:0 withEndIndex:(self.feedsArray.count + 1)]];
+}
+
 #pragma mark - setup blocks
 - (void)setUpBlocks
 {
     __weak KMUserFeedTVC *self_ = self;
     self.refreshHandler = ^(NSNumber *sucess, NSError *error) {
-        if (error) {
-            [self_ showAlertWithError:error];
-        }
         
         CDPagination *pagination = [[CDPagination MR_findAll] lastObject];
         [[[KMAPIController sharedInstance] cachedRequestManager] setNextMaxId:pagination.next_max_id];
-        
-        [self_.feedsArray removeAllObjects];
-        [self_.tableView reloadData];
-        [self_.feedsArray addObjectsFromArray:[self_ getFeedsForCurrentPaging]];
         [self_ doneLoadingTableViewData];
+        
+        if (error) {
+            [self_ showAlertWithError:error];
+            if (self_.feedsArray.count == 0) {
+                [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeedsWherePageIndexIsNotZero];
+                [self_ seedTableViewWithStoredData];
+            }
+        }else {
+            [self_ seedTableViewWithStoredData];
+        }
     };
     
     self.pagingHandler = ^(NSNumber *sucess, NSError *error) {
@@ -124,7 +136,6 @@
                                                                                      NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
                                                                                      NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
                                                                                      CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
-                                                                                     NSLog(@"%@",toChangeFeed.user.username);
                                                                                      toChangeFeed.user_has_liked = @(NO);
                                                                                      [localContext MR_saveToPersistentStoreAndWait];
                                                                                  }
@@ -137,7 +148,6 @@
                                                                                    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];    
                                                                                    NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
                                                                                    CDFeed *toChangeFeed = [[self_.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
-                                                                                   NSLog(@"%@",toChangeFeed.user.username);
                                                                                    toChangeFeed.user_has_liked = @(YES);
                                                                                    [localContext MR_saveToPersistentStoreAndWait];
                                                                                }
@@ -154,7 +164,7 @@
                                                                        completion:self.refreshHandler];
 }
 
-#pragma mark - Did get objects
+#pragma mark - Update header date label
 - (void)doneLoadingTableViewData
 {
     if ([[[KMAPIController sharedInstance] cachedRequestManager] lastUpdateDate]) {
@@ -162,7 +172,6 @@
         [self.refreshHeaderView refreshLastUpdatedDate];
     }
     [super doneLoadingTableViewData];
-    [self insertIndexPaths:[self indexPathsArrayFromStartIndex:0 withEndIndex:(self.feedsArray.count + 1)]];
 }
 
 #pragma mark - Get older feeds

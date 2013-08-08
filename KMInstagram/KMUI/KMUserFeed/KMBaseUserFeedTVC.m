@@ -38,10 +38,7 @@
     [self registerCellsWithReuses:@[[KMUserFeedsTVCell reuseIdentifier]]];
     [self.tableView registerNib:[UINib nibWithNibName:@"FGPagingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FGPagingTableViewCell"];
     
-    
-    
-    UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"")
-                                                                    style:UIBarButtonItemStylePlain
+    UIBarButtonItem *doneBarItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Logout", @"") style:UIBarButtonItemStylePlain
                                                                    target:self
                                                                    action:@selector(logOut:)];
     self.navigationItem.rightBarButtonItem = doneBarItem;

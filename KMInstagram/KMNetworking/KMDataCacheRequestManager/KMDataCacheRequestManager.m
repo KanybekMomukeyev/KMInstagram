@@ -77,9 +77,7 @@
                                                      });
                                                  });
                                              }
-                                             failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                 NSLog(@"error.description = %@",error.description);
-                                                 [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeedsWherePageIndexIsNotZero];
+                                             failure:^(AFHTTPRequestOperation *opertaion, NSError *error) {
                                                  self_.lastUpdateDate  = [[NSUserDefaults standardUserDefaults] objectForKey:kKMLastSavedDate];
                                                  self_.loading = NO;
                                                  if (completion) {
@@ -134,8 +132,7 @@
                                                      });
                                                  });
                                              }
-                                             failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                 NSLog(@"error.description = %@",error.description);
+                                             failure:^(AFHTTPRequestOperation *opertaion, NSError *error) {
                                                  if (completion) {
                                                      completion(nil, error);
                                                  }

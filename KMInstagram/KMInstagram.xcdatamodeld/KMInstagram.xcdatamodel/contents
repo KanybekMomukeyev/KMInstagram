@@ -7,6 +7,12 @@
         <relationship name="feed" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDFeed" inverseName="caption" inverseEntity="CDFeed" syncable="YES"/>
         <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="caption" inverseEntity="CDUser" syncable="YES"/>
     </entity>
+    <entity name="CDCommandModel" representedClassName="CDCommandModel" syncable="YES">
+        <attribute name="feedId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="CDComment" representedClassName="CDComment" syncable="YES">
         <attribute name="commentId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="created_time" optional="YES" attributeType="Date" syncable="YES"/>
@@ -54,5 +60,6 @@
         <element name="CDPagination" positionX="-36" positionY="198" width="128" height="75"/>
         <element name="CDTag" positionX="513" positionY="360" width="128" height="75"/>
         <element name="CDUser" positionX="736" positionY="-96" width="128" height="165"/>
+        <element name="CDCommandModel" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

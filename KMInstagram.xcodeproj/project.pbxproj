@@ -126,6 +126,8 @@
 		A8B6B67A17B392480079C88C /* FGPagingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B6B67817B392480079C88C /* FGPagingTableViewCell.xib */; };
 		A8B6B68117B3AB3A0079C88C /* KMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B67D17B3AB3A0079C88C /* KMComment.m */; };
 		A8B6B68217B3AB3A0079C88C /* KMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68017B3AB3A0079C88C /* KMUser.m */; };
+		A8B6B68617B3C2B50079C88C /* KMSyncDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68517B3C2B50079C88C /* KMSyncDataManager.m */; };
+		A8B6B68917B3CA750079C88C /* CDCommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68817B3CA750079C88C /* CDCommandModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +347,10 @@
 		A8B6B67E17B3AB3A0079C88C /* KMStoroableProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMStoroableProtocol.h; sourceTree = "<group>"; };
 		A8B6B67F17B3AB3A0079C88C /* KMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMUser.h; sourceTree = "<group>"; };
 		A8B6B68017B3AB3A0079C88C /* KMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMUser.m; sourceTree = "<group>"; };
+		A8B6B68417B3C2B50079C88C /* KMSyncDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMSyncDataManager.h; sourceTree = "<group>"; };
+		A8B6B68517B3C2B50079C88C /* KMSyncDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMSyncDataManager.m; sourceTree = "<group>"; };
+		A8B6B68717B3CA750079C88C /* CDCommandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDCommandModel.h; path = KMInstagram/KMModel/KMCoreDataModel/CDCommandModel.h; sourceTree = SOURCE_ROOT; };
+		A8B6B68817B3CA750079C88C /* CDCommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDCommandModel.m; path = KMInstagram/KMModel/KMCoreDataModel/CDCommandModel.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +503,8 @@
 		A839C5E017B2733300E6AFE9 /* KMCoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				A8B6B68717B3CA750079C88C /* CDCommandModel.h */,
+				A8B6B68817B3CA750079C88C /* CDCommandModel.m */,
 				A839C5F617B2797200E6AFE9 /* CDEditingProtocol.h */,
 				A839C5F317B2785B00E6AFE9 /* CDTag.h */,
 				A839C5F417B2785B00E6AFE9 /* CDTag.m */,
@@ -650,6 +658,7 @@
 				A88EE83417B0E94300DC75A2 /* KMAPIController.m */,
 				A88EE88B17B113EA00DC75A2 /* KMInstagramRequestClient.h */,
 				A88EE88C17B113EA00DC75A2 /* KMInstagramRequestClient.m */,
+				A8B6B68317B3C2560079C88C /* KMSyncManager */,
 				A839C5F917B29D4200E6AFE9 /* KMDataCacheRequestManager */,
 				A88EE88917B1134A00DC75A2 /* KMFeedRequestManager */,
 				A88EE85A17B0EB6F00DC75A2 /* KMAuthManager */,
@@ -851,6 +860,15 @@
 				A8B6B68017B3AB3A0079C88C /* KMUser.m */,
 			);
 			path = KMSimpleModel;
+			sourceTree = "<group>";
+		};
+		A8B6B68317B3C2560079C88C /* KMSyncManager */ = {
+			isa = PBXGroup;
+			children = (
+				A8B6B68417B3C2B50079C88C /* KMSyncDataManager.h */,
+				A8B6B68517B3C2B50079C88C /* KMSyncDataManager.m */,
+			);
+			path = KMSyncManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1064,6 +1082,8 @@
 				A8B6B67917B392480079C88C /* FGPagingTableViewCell.m in Sources */,
 				A8B6B68117B3AB3A0079C88C /* KMComment.m in Sources */,
 				A8B6B68217B3AB3A0079C88C /* KMUser.m in Sources */,
+				A8B6B68617B3C2B50079C88C /* KMSyncDataManager.m in Sources */,
+				A8B6B68917B3CA750079C88C /* CDCommandModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
