@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "KMBaseRequestManager.h"
+static NSUInteger const kKMSuccessDoneLikeMethod = 1000;
 
 @interface KMLikesCommentsReqManager : KMBaseRequestManager
+
 
 - (void)getLikesForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion;
 - (void)postLikeForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion;

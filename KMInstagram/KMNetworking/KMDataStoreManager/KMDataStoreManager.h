@@ -12,6 +12,7 @@
 @interface KMDataStoreManager : KMBaseDataStoreManager
 
 - (void)deleteAllFeeds;
+- (void)deleteAllCommands;
 - (void)deleteAllFeedsWherePageIndexIsNotZero;
 - (void)deleteAllPagination;
 

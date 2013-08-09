@@ -9,6 +9,7 @@
 #import "KMDataStoreManager.h"
 #import "CDFeed.h"
 #import "CDPagination.h"
+#import "CDCommandModel.h"
 
 @interface KMBaseDataStoreManager()
 
@@ -54,6 +55,16 @@
         [localContext deleteObject:pagination];
     }];
     
+    [localContext MR_saveToPersistentStoreAndWait];
+}
+
+- (void)deleteAllCommands
+{
+    NSManagedObjectContext *localContext  = [NSManagedObjectContext MR_contextForCurrentThread];
+    NSArray *commands = [CDCommandModel MR_findAll];
+    [commands enumerateObjectsUsingBlock:^(CDCommandModel *command, NSUInteger idx, BOOL *stop){
+        [localContext deleteObject:command];
+    }];
     [localContext MR_saveToPersistentStoreAndWait];
 }
 

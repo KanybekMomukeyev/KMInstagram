@@ -7,6 +7,8 @@
 //
 
 #import "KMUserAuthManager.h"
+#import "KMDataStoreManager.h"
+#import "KMAPIController.h"
 
 #define kKMUserInstagramAcessToken @"kKMUserInstagramAcessToken"
 
@@ -33,7 +35,9 @@
 
 - (void)logOut
 {
+    
     self.acessToken = nil;
+    [[[KMAPIController sharedInstance] dataStoreManager] deleteAllCommands];
     [[NSUserDefaults standardUserDefaults] setValue:nil forKey:kKMUserInstagramAcessToken];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

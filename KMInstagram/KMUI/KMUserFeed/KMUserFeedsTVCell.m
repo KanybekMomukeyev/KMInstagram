@@ -56,10 +56,7 @@
 
 - (IBAction)likeButtonDidPressed:(UIButton *)sender
 {
-    (self.likeButton.isSelected) ? [self.likeButton setSelected:NO] : [self.likeButton setSelected:YES];
-    if (self.likeButtonPressHandler) {
-        self.likeButtonPressHandler((CDFeed *)self.object);
-    }
+    if (self.likeButtonPressHandler) self.likeButtonPressHandler((CDFeed *)self.object);
 }
 
 @end

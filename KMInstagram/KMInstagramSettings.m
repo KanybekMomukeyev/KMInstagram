@@ -10,8 +10,8 @@
 
 @implementation KMInstagramSettings
 
-#define kKMInstagramClientId @"c22e560ed1a74621af40ca67e136639f"
-#define kKMInstagramCallbackUrl @"http://mail.ru"
+#define kKMInstagramClientId @"026c438e96e64a0aab6f950786851e04"
+#define kKMInstagramCallbackUrl @"http://diesel.elcat.kg"
 
 + (NSString *)clientId
 {
@@ -27,6 +27,5 @@
 {
     return [NSArray arrayWithObjects:@"likes", @"relationships", @"comments", nil];
 }
-
 
 @end

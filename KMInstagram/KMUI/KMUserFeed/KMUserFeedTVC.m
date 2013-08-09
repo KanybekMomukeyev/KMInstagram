@@ -133,25 +133,31 @@
         if ([feed.user_has_liked boolValue]) {
             [self_ updateFeedCellLikeCountWithIncreaseLike:NO toFeed:feed];
             [[[KMAPIController sharedInstance] likesCommentsReqManager] removeLikeForFeedId:feed.feedId
-                                                                             withCompletion:^(id response, NSError *error){
-                                                                                 if (!error) {
-                                                                                 
-                                                                                 }else {
+                                                                             withCompletion:^(NSNumber *responseStatusCode, NSError *error){
+                                                                                 if (!error) {}
+                                                                                 else if([responseStatusCode integerValue] == 0) /* is offline */ {
                                                                                     [[[KMAPIController sharedInstance] syncDataManager] addSyncModelWithMethod:KMDeleteSyncCommand
                                                                                                                                                       httpPath:@"likes"
                                                                                                                                                         feedId:feed.feedId];
+                                                                                 }else {
+                                                                                     // put back button state
+                                                                                     [self_ updateFeedCellLikeCountWithIncreaseLike:YES toFeed:feed];
+                                                                                     [self_ showAlertWithTitle:error.description];
                                                                                  }
                                                                              }];
         }else {
             [self_ updateFeedCellLikeCountWithIncreaseLike:YES toFeed:feed];
             [[[KMAPIController sharedInstance] likesCommentsReqManager] postLikeForFeedId:feed.feedId
-                                                                           withCompletion:^(id response, NSError *error) {
-                                                                               if (!error){
-                                                                               
-                                                                               }else {
+                                                                           withCompletion:^(NSNumber *responseStatusCode, NSError *error) {
+                                                                               if (!error){}
+                                                                               else if([responseStatusCode integerValue] == 0) /* is offline */ {
                                                                                    [[[KMAPIController sharedInstance] syncDataManager] addSyncModelWithMethod:KMPostSyncCommand
                                                                                                                                                      httpPath:@"likes"
                                                                                                                                                        feedId:feed.feedId];
+                                                                               }else {
+                                                                                   // put back button state
+                                                                                   [self_ updateFeedCellLikeCountWithIncreaseLike:NO toFeed:feed];
+                                                                                   [self_ showAlertWithTitle:error.description];
                                                                                }
                                                                              }];
         }
@@ -177,13 +183,11 @@
 #pragma mark - Update KMUserFeedsTVCell likes count
 - (void)updateFeedCellLikeCountWithIncreaseLike:(BOOL)shoulIncrease toFeed:(CDFeed *)feed
 {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
     feed.user_has_liked = @(shoulIncrease);
     NSInteger minusOrPlus  = shoulIncrease ? 1: -1;
     feed.likesCount = [NSString stringWithFormat:@"%d",([feed.likesCount integerValue] + minusOrPlus)];
-    [localContext MR_saveToPersistentStoreAndWait];
-    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]
-                           withRowAnimation:UITableViewRowAnimationNone];
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - Get older feeds

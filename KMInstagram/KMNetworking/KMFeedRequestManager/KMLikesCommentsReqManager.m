@@ -12,6 +12,7 @@
 #import "KMInstagramRequestClient.h"
 #import "KMComment.h"
 #import "KMUser.h"
+#import "AFHTTPRequestOperation.h"
 
 @implementation KMLikesCommentsReqManager
 
@@ -44,44 +45,6 @@
 
 }
 
-
-
-- (void)postLikeForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion
-{
-    [[KMInstagramRequestClient sharedClient] postPath:[NSString stringWithFormat:@"media/%@/likes", feedId]
-                                           parameters:[self baseParams]
-                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
-                                                  if (completion) {
-                                                     completion(response, nil);
-                                                  }
-                                              }
-                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                  if (completion) {
-                                                      completion(nil, error);
-                                                  }
-                                              }];
-    
-}
-
-- (void)removeLikeForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion
-{
-    [[KMInstagramRequestClient sharedClient] deletePath:[NSString stringWithFormat:@"media/%@/likes", feedId]
-                                             parameters:[self baseParams]
-                                                success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
-                                                    if (completion) {
-                                                        completion(response, nil);
-                                                    }
-                                                }
-                                                failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
-                                                    if (completion) {
-                                                        completion(nil, error);
-                                                    }
-                                                }];
-
-    
-}
-
-
 - (void)getCommentsForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion
 {
     [[KMInstagramRequestClient sharedClient] getPath:[NSString stringWithFormat:@"media/%@/comments", feedId]
@@ -109,5 +72,51 @@
                                                  }
                                              }];
 }
+
+
+#pragma mark - POST and DELETE Http methods
+- (void)postLikeForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion
+{
+    [[KMInstagramRequestClient sharedClient] postPath:[NSString stringWithFormat:@"media/%@/likes", feedId]
+                                           parameters:[self baseParams]
+                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
+                                                  if (completion) {
+                                                      completion(@(kKMSuccessDoneLikeMethod), nil);
+                                                  }
+                                              }
+                                              failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
+                                                  NSLog(@"%@", error.description);
+                                                  NSLog(@"------------------------------");
+                                                  NSLog(@"opertaion.response statusCode = %d", [opertaion.response statusCode]);
+                                                  if (completion) {
+                                                      completion(@([opertaion.response statusCode]), error);
+                                                  }
+                                              }];
+    
+}
+
+- (void)removeLikeForFeedId:(NSString *)feedId withCompletion:(CompletionBlock)completion
+{
+    [[KMInstagramRequestClient sharedClient] deletePath:[NSString stringWithFormat:@"media/%@/likes", feedId]
+                                             parameters:[self baseParams]
+                                                success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
+                                                        if (completion) {
+                                                            completion(@(kKMSuccessDoneLikeMethod), nil);
+                                                        }
+                                                }
+                                                failure:^(AFHTTPRequestOperation *opertaion, NSError *error){
+                                                    NSLog(@"%@", error.description);
+                                                    NSLog(@"------------------------------");
+                                                    NSLog(@"opertaion.response statusCode = %d", [opertaion.response statusCode]);
+                                                    if (completion) {
+                                                        completion(@([opertaion.response statusCode]), error);
+                                                    }
+                                                }];
+
+    
+}
+
+
+
 
 @end

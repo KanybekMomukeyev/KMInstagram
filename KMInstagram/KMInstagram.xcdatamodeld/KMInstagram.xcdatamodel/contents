@@ -9,7 +9,7 @@
     </entity>
     <entity name="CDCommandModel" representedClassName="CDCommandModel" syncable="YES">
         <attribute name="feedId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="method" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>

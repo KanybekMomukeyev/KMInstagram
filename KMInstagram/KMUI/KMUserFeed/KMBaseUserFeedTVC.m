@@ -54,7 +54,8 @@
 {
     NSUInteger pagingIndex = [[[KMAPIController sharedInstance] cachedRequestManager] pagingIndex];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pagingIndex == %@", @(pagingIndex)];
-    return [CDFeed MR_findAllSortedBy:@"created_time" ascending:NO withPredicate:predicate];
+    NSArray *array = [CDFeed MR_findAllSortedBy:@"created_time" ascending:NO withPredicate:predicate];
+    return array;
 }
 
 - (NSArray *)indexPathsArrayFromStartIndex:(NSUInteger)startIndex withEndIndex:(NSUInteger)endIndex

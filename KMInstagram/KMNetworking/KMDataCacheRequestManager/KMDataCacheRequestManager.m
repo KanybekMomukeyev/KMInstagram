@@ -14,6 +14,7 @@
 #import "CDPagination.h"
 #import "CDUser.h"
 #import "KMDataStoreManager.h"
+#import "KMSyncDataManager.h"
 
 #define kKMLastSavedDate @"kKMLastSavedDate"
 
@@ -40,6 +41,7 @@
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                  
+                                                 [[[KMAPIController sharedInstance] syncDataManager] syncWithRemoteService];
                                                  [[[KMAPIController sharedInstance] dataStoreManager] deleteAllFeeds];
                                                  [[[KMAPIController sharedInstance] dataStoreManager] deleteAllPagination];
                                                  self_.pagingIndex = 0;
@@ -102,6 +104,7 @@
                                           parameters:parameters
                                              success:^(AFHTTPRequestOperation *opertaion, NSDictionary *response) {
                                                  
+                                                 [[[KMAPIController sharedInstance] syncDataManager] syncWithRemoteService];
                                                  self_.pagingIndex ++;
                                                  self_.nextMaxId = [[response objectForKey:@"pagination"] objectForKey:@"next_max_id"];
                                                 
