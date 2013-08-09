@@ -16,12 +16,13 @@
 <br>(7) Image Caching with AFNetworking, asynchronous.
 <br>(8) Can Update Instagram feeds with pull to refresh.
 <br>(9) Cache Instagram Feeds to Core Data, in background thread with help
-<br>    of Magical Record.
+<br>       of Magical Record.
+<br>(10) To Like/Dislike in offline mode.
 
 # TO DO :
 
 <br>(1) Implement for Ipad Screen.
-<br>(2) To Like/Dislike in offline mode.
+
 
 
 
