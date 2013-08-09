@@ -38,10 +38,6 @@
     [self runSequncerWithArray:commandsArray];
 }
 
-
-
-
-
 - (void)runSequncerWithArray:(NSArray *)array
 {
     __weak KMSyncDataManager *self_ = self;

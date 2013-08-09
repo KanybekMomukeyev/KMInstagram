@@ -129,6 +129,8 @@
 		A8B6B68617B3C2B50079C88C /* KMSyncDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68517B3C2B50079C88C /* KMSyncDataManager.m */; };
 		A8B6B68917B3CA750079C88C /* CDCommandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68817B3CA750079C88C /* CDCommandModel.m */; };
 		A8B6B68C17B4B2670079C88C /* Sequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B6B68B17B4B2670079C88C /* Sequencer.m */; };
+		A8B6B68E17B4CB9E0079C88C /* KMInstagramAuthVC_Ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B6B68D17B4CB9E0079C88C /* KMInstagramAuthVC_Ipad.xib */; };
+		A8B6B69017B4CCA90079C88C /* KMUserFeedTVC_Ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8B6B68F17B4CCA90079C88C /* KMUserFeedTVC_Ipad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +356,8 @@
 		A8B6B68817B3CA750079C88C /* CDCommandModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDCommandModel.m; path = KMInstagram/KMModel/KMCoreDataModel/CDCommandModel.m; sourceTree = SOURCE_ROOT; };
 		A8B6B68A17B4B2670079C88C /* Sequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequencer.h; sourceTree = "<group>"; };
 		A8B6B68B17B4B2670079C88C /* Sequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequencer.m; sourceTree = "<group>"; };
+		A8B6B68D17B4CB9E0079C88C /* KMInstagramAuthVC_Ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMInstagramAuthVC_Ipad.xib; sourceTree = "<group>"; };
+		A8B6B68F17B4CCA90079C88C /* KMUserFeedTVC_Ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KMUserFeedTVC_Ipad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +707,7 @@
 				A88EE82517B0D8AA00DC75A2 /* KMInstagramAuthVC.h */,
 				A88EE82617B0D8AA00DC75A2 /* KMInstagramAuthVC.m */,
 				A88EE82717B0D8AA00DC75A2 /* KMInstagramAuthVC.xib */,
+				A8B6B68D17B4CB9E0079C88C /* KMInstagramAuthVC_Ipad.xib */,
 			);
 			path = KMLogin;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				A88EE82E17B0E5B500DC75A2 /* KMUserFeedTVC.h */,
 				A88EE82F17B0E5B500DC75A2 /* KMUserFeedTVC.m */,
 				A88EE83017B0E5B500DC75A2 /* KMUserFeedTVC.xib */,
+				A8B6B68F17B4CCA90079C88C /* KMUserFeedTVC_Ipad.xib */,
 				A88EE88417B10EC100DC75A2 /* KMUserFeedsTVCell.h */,
 				A88EE88517B10EC100DC75A2 /* KMUserFeedsTVCell.m */,
 				A88EE88717B10EDD00DC75A2 /* KMUserFeedsTVCell.xib */,
@@ -974,6 +980,8 @@
 				A839C58317B25CEF00E6AFE9 /* date_back_06june@2x.png in Resources */,
 				A839C58917B26E0100E6AFE9 /* README.md in Resources */,
 				A8B6B67A17B392480079C88C /* FGPagingTableViewCell.xib in Resources */,
+				A8B6B68E17B4CB9E0079C88C /* KMInstagramAuthVC_Ipad.xib in Resources */,
+				A8B6B69017B4CCA90079C88C /* KMUserFeedTVC_Ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
