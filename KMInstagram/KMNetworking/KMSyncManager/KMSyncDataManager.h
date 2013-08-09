@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KMSyncDataManager : NSObject
+typedef enum : NSInteger {
+	KMNoneSyncCommand		= 0,
+	KMDeleteSyncCommand  	= 401,
+	KMPostSyncCommand       = 402
+} KMSyncCommandType;
 
+@interface KMSyncDataManager : NSObject
+- (void)syncWithRemoteService;
+- (void)addSyncModelWithMethod:(KMSyncCommandType)method httpPath:(NSString *)path feedId:(NSString *)feedId;
 @end

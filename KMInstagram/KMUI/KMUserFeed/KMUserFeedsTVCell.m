@@ -51,24 +51,14 @@
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];
     self.commentsCountLabel.text = [NSString stringWithFormat:@"%@ comments",feed.commentsCount];
     self.captionCommentLabel.text = feed.caption.text;
-    if ([feed.user_has_liked boolValue]) {
-        [self.likeButton setSelected:YES];
-    }else {
-        [self.likeButton setSelected:NO];
-    }
+    [feed.user_has_liked boolValue] ? [self.likeButton setSelected:YES] : [self.likeButton setSelected:NO];
 }
 
 - (IBAction)likeButtonDidPressed:(UIButton *)sender
 {
-    if (sender.isSelected)
-        [sender setSelected:NO];
-    else
-        [sender setSelected:YES];
-    
-    if (self.likeButtonPressHandler)
-    {
-        CDFeed *feed = (CDFeed *)self.object;
-        self.likeButtonPressHandler(feed);
+    (self.likeButton.isSelected) ? [self.likeButton setSelected:NO] : [self.likeButton setSelected:YES];
+    if (self.likeButtonPressHandler) {
+        self.likeButtonPressHandler((CDFeed *)self.object);
     }
 }
 

@@ -13,7 +13,9 @@
 
 @implementation KMSyncDataManager
 
-- (void)syncWithRemoteService {}
-- (void)addSyncModel:(id)model {}
+- (void)syncWithRemoteService
+{}
+- (void)addSyncModelWithMethod:(KMSyncCommandType)method httpPath:(NSString *)path feedId:(NSString *)feedId
+{}
 
 @end

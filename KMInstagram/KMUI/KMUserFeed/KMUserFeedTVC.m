@@ -19,6 +19,7 @@
 #import "KMDataStoreManager.h"
 #import "FGPagingTableViewCell.h"
 #import "KMDataStoreManager.h"
+#import "KMSyncDataManager.h"
 
 #define kKMInstagramFeedPageCount 5
 
@@ -128,17 +129,30 @@
     };
     
     self.likePressHandler = ^(CDFeed *feed) {
+        
         if ([feed.user_has_liked boolValue]) {
+            [self_ updateFeedCellLikeCountWithIncreaseLike:NO toFeed:feed];
             [[[KMAPIController sharedInstance] likesCommentsReqManager] removeLikeForFeedId:feed.feedId
                                                                              withCompletion:^(id response, NSError *error){
-                                                                                 if (!error)
-                                                                                     [self_ updateFeedCellLikeCountWithIncreaseLike:NO toFeed:feed];
+                                                                                 if (!error) {
+                                                                                 
+                                                                                 }else {
+                                                                                    [[[KMAPIController sharedInstance] syncDataManager] addSyncModelWithMethod:KMDeleteSyncCommand
+                                                                                                                                                      httpPath:@"likes"
+                                                                                                                                                        feedId:feed.feedId];
+                                                                                 }
                                                                              }];
         }else {
+            [self_ updateFeedCellLikeCountWithIncreaseLike:YES toFeed:feed];
             [[[KMAPIController sharedInstance] likesCommentsReqManager] postLikeForFeedId:feed.feedId
                                                                            withCompletion:^(id response, NSError *error) {
-                                                                               if (!error)
-                                                                                   [self_ updateFeedCellLikeCountWithIncreaseLike:YES toFeed:feed];
+                                                                               if (!error){
+                                                                               
+                                                                               }else {
+                                                                                   [[[KMAPIController sharedInstance] syncDataManager] addSyncModelWithMethod:KMPostSyncCommand
+                                                                                                                                                     httpPath:@"likes"
+                                                                                                                                                       feedId:feed.feedId];
+                                                                               }
                                                                              }];
         }
     };
@@ -164,13 +178,10 @@
 - (void)updateFeedCellLikeCountWithIncreaseLike:(BOOL)shoulIncrease toFeed:(CDFeed *)feed
 {
     NSManagedObjectContext *localContext = [NSManagedObjectContext MR_contextForCurrentThread];
-    NSPredicate *taskPredicate = [NSPredicate predicateWithFormat:@"feedId == %@", feed.feedId];
-    CDFeed *chageFeed = [[self.feedsArray filteredArrayUsingPredicate:taskPredicate] lastObject];
-    chageFeed.user_has_liked = @(shoulIncrease);
+    feed.user_has_liked = @(shoulIncrease);
     NSInteger minusOrPlus  = shoulIncrease ? 1: -1;
-    chageFeed.likesCount = [NSString stringWithFormat:@"%d",([chageFeed.likesCount integerValue] + minusOrPlus)];
+    feed.likesCount = [NSString stringWithFormat:@"%d",([feed.likesCount integerValue] + minusOrPlus)];
     [localContext MR_saveToPersistentStoreAndWait];
-    
     [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]
                            withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -178,11 +189,10 @@
 #pragma mark - Get older feeds
 - (void)fetchOldFeeds
 {
-    NSString *nextMaxId = [[KMAPIController sharedInstance] cachedRequestManager].nextMaxId;
-    if (nextMaxId) {
+    if ([[KMAPIController sharedInstance] cachedRequestManager].nextMaxId) {
         [[[KMAPIController sharedInstance] cachedRequestManager] pagingUserFeedWithCount:kKMInstagramFeedPageCount
                                                                                    minId:nil
-                                                                                   maxId:nextMaxId
+                                                                                   maxId:[[KMAPIController sharedInstance] cachedRequestManager].nextMaxId
                                                                               completion:self.pagingHandler];
     }else {
         __weak KMUserFeedTVC *self_ = self;
