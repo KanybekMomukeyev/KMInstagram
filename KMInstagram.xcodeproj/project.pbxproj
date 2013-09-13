@@ -57,6 +57,9 @@
 		A839C5F517B2785B00E6AFE9 /* CDTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5F417B2785B00E6AFE9 /* CDTag.m */; };
 		A839C5FC17B29D9000E6AFE9 /* KMDataCacheRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C5FB17B29D9000E6AFE9 /* KMDataCacheRequestManager.m */; };
 		A839C61317B2B6E600E6AFE9 /* KMDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A839C61217B2B6E500E6AFE9 /* KMDataStoreManager.m */; };
+		A8896A9A17E32A8E00098B73 /* UIImageView+XLNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A8896A9517E32A8E00098B73 /* UIImageView+XLNetworking.m */; };
+		A8896A9B17E32A8E00098B73 /* UIImageView+XLProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A8896A9717E32A8E00098B73 /* UIImageView+XLProgressIndicator.m */; };
+		A8896A9C17E32A8E00098B73 /* XLCircleProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A8896A9917E32A8E00098B73 /* XLCircleProgressIndicator.m */; };
 		A88EE7AA17B0CF5A00DC75A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */; };
 		A88EE7AC17B0CF5A00DC75A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */; };
 		A88EE7AE17B0CF5A00DC75A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EE7AD17B0CF5A00DC75A2 /* CoreGraphics.framework */; };
@@ -237,6 +240,12 @@
 		A839C5FB17B29D9000E6AFE9 /* KMDataCacheRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataCacheRequestManager.m; sourceTree = "<group>"; };
 		A839C61117B2B6E500E6AFE9 /* KMDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataStoreManager.h; sourceTree = "<group>"; };
 		A839C61217B2B6E500E6AFE9 /* KMDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataStoreManager.m; sourceTree = "<group>"; };
+		A8896A9417E32A8E00098B73 /* UIImageView+XLNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLNetworking.h"; sourceTree = "<group>"; };
+		A8896A9517E32A8E00098B73 /* UIImageView+XLNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLNetworking.m"; sourceTree = "<group>"; };
+		A8896A9617E32A8E00098B73 /* UIImageView+XLProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XLProgressIndicator.h"; sourceTree = "<group>"; };
+		A8896A9717E32A8E00098B73 /* UIImageView+XLProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XLProgressIndicator.m"; sourceTree = "<group>"; };
+		A8896A9817E32A8E00098B73 /* XLCircleProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLCircleProgressIndicator.h; sourceTree = "<group>"; };
+		A8896A9917E32A8E00098B73 /* XLCircleProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLCircleProgressIndicator.m; sourceTree = "<group>"; };
 		A88EE7A617B0CF5A00DC75A2 /* KMInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88EE7A917B0CF5A00DC75A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A88EE7AB17B0CF5A00DC75A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -538,6 +547,19 @@
 			path = KMDataCacheRequestManager;
 			sourceTree = "<group>";
 		};
+		A8896A9317E32A8E00098B73 /* XL */ = {
+			isa = PBXGroup;
+			children = (
+				A8896A9417E32A8E00098B73 /* UIImageView+XLNetworking.h */,
+				A8896A9517E32A8E00098B73 /* UIImageView+XLNetworking.m */,
+				A8896A9617E32A8E00098B73 /* UIImageView+XLProgressIndicator.h */,
+				A8896A9717E32A8E00098B73 /* UIImageView+XLProgressIndicator.m */,
+				A8896A9817E32A8E00098B73 /* XLCircleProgressIndicator.h */,
+				A8896A9917E32A8E00098B73 /* XLCircleProgressIndicator.m */,
+			);
+			path = XL;
+			sourceTree = "<group>";
+		};
 		A88EE79D17B0CF5A00DC75A2 = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +650,7 @@
 		A88EE7F617B0D05700DC75A2 /* 3RD_Party */ = {
 			isa = PBXGroup;
 			children = (
+				A8896A9317E32A8E00098B73 /* XL */,
 				A839C58A17B2719900E6AFE9 /* MagicalRecord */,
 				A88EE89317B11BBA00DC75A2 /* JSONKit */,
 				A88EE86917B102ED00DC75A2 /* EGORefresh */,
@@ -1098,6 +1121,9 @@
 				A8B6B68617B3C2B50079C88C /* KMSyncDataManager.m in Sources */,
 				A8B6B68917B3CA750079C88C /* CDCommandModel.m in Sources */,
 				A8B6B68C17B4B2670079C88C /* Sequencer.m in Sources */,
+				A8896A9A17E32A8E00098B73 /* UIImageView+XLNetworking.m in Sources */,
+				A8896A9B17E32A8E00098B73 /* UIImageView+XLProgressIndicator.m in Sources */,
+				A8896A9C17E32A8E00098B73 /* XLCircleProgressIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

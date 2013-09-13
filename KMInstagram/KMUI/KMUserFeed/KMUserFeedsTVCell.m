@@ -14,6 +14,7 @@
 #import "CDCaption.h"
 #import "UIImageView+AFNetworking.h"
 #import "NSDateFormatter+Extensions.h"
+#import "UIImageView+XLProgressIndicator.h"
 
 @interface KMUserFeedsTVCell()
 @property (nonatomic, strong) IBOutlet UIImageView *userImageView;
@@ -41,11 +42,37 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    // progress color, yellow color in the example image.
+    [[XLCircleProgressIndicator appearance] setStrokeProgressColor:[UIColor greenColor]];
+    
+    // remaining color, gray color in the example image
+    [[XLCircleProgressIndicator appearance] setStrokeRemainingColor:[UIColor blueColor]];
+    
+    //In order to set up the circle stroke's width you can choose between these 2 ways.
+    [[XLCircleProgressIndicator appearance] setStrokeWidth:3.0f];
+    
+    //or
+    
+    //the width of the circle stroke gets calculated based on the UIImageView size,
+    //[[XLCircleProgressIndicator appearance] setStrokeWidthRatio:0.15f];
+    
+}
+
 - (void)reloadData
 {
     CDFeed *feed = (CDFeed *)self.object;
     [self.userImageView setImageWithURL:[NSURL URLWithString:feed.user.profile_picture] placeholderImage:nil];
-    [self.mainImageView setImageWithURL:[NSURL URLWithString:feed.imageLink] placeholderImage:[UIImage imageNamed:@"background"]];
+    
+    [self.mainImageView setImageWithProgressIndicatorAndURL:[NSURL URLWithString:feed.imageLink]
+                                           placeholderImage:[UIImage imageNamed:@"background"]
+                                        imageDidAppearBlock:^(UIImageView *imageView) {
+                                            
+                                        }];
+    
     self.userNameLabel.text = feed.user.username;
     self.postDateLabel.text = [NSDateFormatter VK_formattedStringFromDate:feed.created_time];
     self.likesCountLabel.text = [NSString stringWithFormat:@"%@ likes",feed.likesCount];

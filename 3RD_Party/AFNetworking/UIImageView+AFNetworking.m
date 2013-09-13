@@ -93,7 +93,7 @@ static char kAFImageRequestOperationObjectKey;
 }
 
 - (void)setImageWithURLRequest:(NSURLRequest *)urlRequest
-              placeholderImage:(UIImage *)placeholderImage
+              placeholderImage:(UIImage *)placeholderImage 
                        success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image))success
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
@@ -114,6 +114,9 @@ static char kAFImageRequestOperationObjectKey;
         }
 
         AFImageRequestOperation *requestOperation = [[AFImageRequestOperation alloc] initWithRequest:urlRequest];
+        [requestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalByExpectatedToRead){
+            
+        }];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if ([urlRequest isEqual:[self.af_imageRequestOperation request]]) {
                 if (self.af_imageRequestOperation == operation) {

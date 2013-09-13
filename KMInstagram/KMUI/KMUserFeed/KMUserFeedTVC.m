@@ -223,6 +223,10 @@
     return (self.feedsArray.count == 0) ? 0 : (self.feedsArray.count + 1);
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Hello");
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row < self.feedsArray.count)

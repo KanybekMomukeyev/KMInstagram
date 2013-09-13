@@ -16,6 +16,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"KMInstagram.sqlite"];
     
+//    if([@"string" isEqual:@"string"]){
+//        NSLog(@"YES");
+//    };
+    
+    
     KMLoginVC *loginVC = nil;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
         loginVC = [[KMLoginVC alloc] initWithIphoneFromNib];

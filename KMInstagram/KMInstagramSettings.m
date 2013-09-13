@@ -10,8 +10,9 @@
 
 @implementation KMInstagramSettings
 
-#define kKMInstagramClientId @"026c438e96e64a0aab6f950786851e04"
+#define kKMInstagramClientId @"dc9d12759911461a9714732aa102f3d8"
 #define kKMInstagramCallbackUrl @"http://diesel.elcat.kg"
+
 
 + (NSString *)clientId
 {
