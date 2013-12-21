@@ -1,4 +1,3 @@
-
 <b>Instagram App, to read user feeds</b>
 
 
@@ -16,7 +15,7 @@
 <br>(8) Can Update Instagram feeds with pull to refresh.
 <br>(9) <b>Cache Instagram Feeds to Core Data, in background thread with help
 <br>       of Magical Record.</b>
-<br>(10) To Like/Dislike in offline mode.
+<br>(10) <b>To Like/Dislike in offline mode.</b>
 
 # TO DO :
 
