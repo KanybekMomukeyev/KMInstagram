@@ -1,5 +1,4 @@
 
-
 <b>Instagram App, to read user feeds</b>
 
 
@@ -15,8 +14,8 @@
 <br>(6) Asynchronous download Instagram feeds.
 <br>(7) Image Caching with AFNetworking, asynchronous.
 <br>(8) Can Update Instagram feeds with pull to refresh.
-<br>(9) Cache Instagram Feeds to Core Data, in background thread with help
-<br>       of Magical Record.
+<br>(9) <b>Cache Instagram Feeds to Core Data, in background thread with help
+<br>       of Magical Record.</b>
 <br>(10) To Like/Dislike in offline mode.
 
 # TO DO :
